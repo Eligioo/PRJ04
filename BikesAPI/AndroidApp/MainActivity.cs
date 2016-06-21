@@ -19,13 +19,14 @@ namespace AndroidApp
         {
             base.OnCreate(bundle);
 
-            Connection connection = new Connection();
+            /*Connection connection = new Connection();
 
             var trommels = connection.Trommels;
 
-            /*foreach (var trommel in trommels)
+            string sTrommels = "";
+            foreach (var trommel in trommels)
             {
-
+                sTrommels += trommel.street;
             }*/
 
             // Set our view from the "main" layout resource
