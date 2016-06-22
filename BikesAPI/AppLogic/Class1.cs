@@ -16,7 +16,7 @@ namespace AppLogic
         {
             Simple.OData.Client.V3Adapter.Reference();
             Trommels = client.For<trommel>("trommels").Filter(t => true).FindEntriesAsync().Result;
-            /*foreach (var trommel in trommels)
+            /*foreach (var trommel in Trommels)
             {
                 Console.WriteLine(trommel.street);
 
