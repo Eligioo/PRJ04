@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C033239F-80B6-4B60-87F1-436181642F85}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sample.AChartEngine.Demo.Charts</RootNamespace>
+    <AssemblyName>Xamarin.AChartEngine</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidSupportedAbis>armeabi;armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="AChartEngine.Bindings.XamarinAndroid">
+      <HintPath>../../../lib\/android/AChartEngine.Bindings.XamarinAndroid.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="chart\AbstractDemoChart.cs" />
+    <Compile Include="chart\AverageCubicTemperatureChart.cs" />
+    <Compile Include="chart\AverageTemperatureChart.cs" />
+    <Compile Include="chart\BudgetDoughnutChart.cs" />
+    <Compile Include="chart\BudgetPieChart.cs" />
+    <Compile Include="chart\CombinedTemperatureChart.cs" />
+    <Compile Include="chart\IDemoChart.cs" />
+    <Compile Include="chart\MultipleTemperatureChart.cs" />
+    <Compile Include="chart\ProjectStatusBubbleChart.cs" />
+    <Compile Include="chart\ProjectStatusChart.cs" />
+    <Compile Include="chart\SalesBarChart.cs" />
+    <Compile Include="chart\SalesComparisonChart.cs" />
+    <Compile Include="chart\SalesGrowthChart.cs" />
+    <Compile Include="chart\SalesStackedBarChart.cs" />
+    <Compile Include="chart\ScatterChart.cs" />
+    <Compile Include="chart\SensorValuesChart.cs" />
+    <Compile Include="chart\TemperatureChart.cs" />
+    <Compile Include="chart\TrigonometricFunctionsChart.cs" />
+    <Compile Include="chart\WeightDialChart.cs" />
+    <Compile Include="ChartDemo.cs" />
+    <Compile Include="GeneratedChartDemo.cs" />
+    <Compile Include="chart\PieChartBuilder.cs" />
+    <Compile Include="chart\XYChartBuilder.cs" />
+    <Compile Include="chart\XYChartBuilderBackup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GettingStarted.Xamarin" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\layout\xy_chart.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\achartengine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-ldpi\achartengine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\achartengine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+		<Target Name="BeforeBuild">
+		</Target>
+		<Target Name="AfterBuild">
+		</Target>
+ -->
+</Project>

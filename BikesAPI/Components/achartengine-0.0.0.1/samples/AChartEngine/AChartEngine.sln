@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.AChartEngine.XamarinAndroid", "Sample.AChartEngine.XamarinAndroid\Sample.AChartEngine.XamarinAndroid.csproj", "{C033239F-80B6-4B60-87F1-436181642F85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bindings", "Bindings", "{84CA7BA3-6EC3-442B-A120-54DA12969D5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C033239F-80B6-4B60-87F1-436181642F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C033239F-80B6-4B60-87F1-436181642F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C033239F-80B6-4B60-87F1-436181642F85}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C033239F-80B6-4B60-87F1-436181642F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C033239F-80B6-4B60-87F1-436181642F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C033239F-80B6-4B60-87F1-436181642F85}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D3CADB49-9A33-4CC4-9C7C-E167828CE588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3CADB49-9A33-4CC4-9C7C-E167828CE588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3CADB49-9A33-4CC4-9C7C-E167828CE588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3CADB49-9A33-4CC4-9C7C-E167828CE588}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3CADB49-9A33-4CC4-9C7C-E167828CE588} = {84CA7BA3-6EC3-442B-A120-54DA12969D5C}
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

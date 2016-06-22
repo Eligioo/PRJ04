@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="achartengine">
+  <name>AChartEngine</name>
+  <publisher>HolisticWare LLC</publisher>
+  <publisher-url>http://holisticware.net/</publisher-url>
+  <version>0.0.0.1</version>
+  <summary>Charting library for Android applications.</summary>
+  <screenshots>
+    <img src="screenshots/bar-chart-horizontal.png" title="bar-chart-horizontal" />
+    <img src="screenshots/bar-chart-vertical.png" title="bar-chart-vertical" />
+    <img src="screenshots/bar-chart.png" title="bar-chart" />
+    <img src="screenshots/chart-dot.png" title="chart-dot" />
+    <img src="screenshots/chart-temperature-average-01.png" title="chart-temperature-average-01" />
+    <img src="screenshots/chart-temperature-average-02.png" title="chart-temperature-average-02" />
+    <img src="screenshots/chart-temperature-average-03.png" title="chart-temperature-average-03" />
+    <img src="screenshots/chart-temperature-ranges.png" title="chart-temperature-ranges" />
+    <img src="screenshots/chart-weather-data.png" title="chart-weather-data" />
+    <img src="screenshots/chart-weight-gauge.png" title="chart-weight-gauge" />
+    <img src="screenshots/line-chart-01.png" title="line-chart-01" />
+    <img src="screenshots/line-chart-02.png" title="line-chart-02" />
+    <img src="screenshots/line-chart-03.png" title="line-chart-03" />
+    <img src="screenshots/pie-chart-doughnut.png" title="pie-chart-doughnut" />
+    <img src="screenshots/point-chart-project-work-status.png" title="point-chart-project-work-status" />
+    <img src="screenshots/sales-difference.png" title="sales-difference" />
+    <img src="screenshots/sales-growth-01.png" title="sales-growth-01" />
+    <img src="screenshots/scatter-chart-01.png" title="scatter-chart-01" />
+    <img src="screenshots/trigonometric-functions.png" title="trigonometric-functions" />
+  </screenshots>
+  <samples>
+    <sample id="AChartEngine">
+      <name>Android Sample</name>
+      <summary>Android Sample</summary>
+    </sample>
+  </samples>
+</component>
