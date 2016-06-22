@@ -13,9 +13,10 @@ namespace WindowsApp
         {
             Connection connection = new Connection();
             var trommels = connection.Trommels;
+
             foreach (var trommel in trommels)
             {
-                Console.WriteLine(trommel.street);
+                Console.WriteLine(trommel.area);
             }
             Console.Read();
         }

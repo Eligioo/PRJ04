@@ -19,8 +19,6 @@ namespace BikesAPI
 
             builder.EntitySet<trommel>("trommels");
             config.Routes.MapODataServiceRoute("odata", "", builder.GetEdmModel());
-
-
         }
     }
 }
