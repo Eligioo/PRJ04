@@ -14,11 +14,37 @@ namespace BikesAPI
     {
         public static void Register(HttpConfiguration config)
         {
-            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-            builder.EntitySet<thefts>("thefts");
+            
 
-            builder.EntitySet<trommel>("trommels");
-            config.Routes.MapODataServiceRoute("odata", "", builder.GetEdmModel());
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Theft>("Thefts");
+            builder.EntitySet<BikeContainer>("BikeContainers");
+            config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
+
+            // Web API configuration and services
+
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+            name: "ApiById",
+            routeTemplate: "{controller}/{id}",
+            defaults: new { id = RouteParameter.Optional },
+            constraints: new { id = @"^[0-9]+$" }
+        );
+
+            config.Routes.MapHttpRoute(
+                name: "ApiByName",
+                routeTemplate: "{controller}/{action}/{name}",
+                defaults: null,
+                constraints: new { name = @"^[a-z]+$" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ApiByAction",
+                routeTemplate: "{controller}/{action}",
+                defaults: new { action = "Get" }
+            );
         }
     }
 }
