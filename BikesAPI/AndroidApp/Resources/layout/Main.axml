@@ -3,14 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ededed">
-  <ImageView
-      android:src="@drawable/hr"
-      android:layout_width="match_parent"
-      android:layout_height="156.0dp"
-      android:id="@+id/imageView1"
-      android:layout_marginTop="72.5dp" />
-  <include
-      layout="@layout/menu"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content" />
+    <include
+        layout="@layout/ContentPages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <include
+        layout="@layout/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
