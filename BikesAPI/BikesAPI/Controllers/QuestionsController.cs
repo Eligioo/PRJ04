@@ -18,7 +18,8 @@ namespace BikesAPI.Controllers
         private DataContext db = new DataContext();
 
         // GET: api/Questions
-        public IEnumerable<MostBikeContainer> GetQ1()
+        [HttpGet]
+        public IEnumerable<MostBikeContainer> Q1()
         {
             return db.BikeContainers
                 .GroupBy(bc => bc.Area)
@@ -33,6 +34,17 @@ namespace BikesAPI.Controllers
                 )
                 .Take(5).ToList();
         }
+
+        [HttpGet]
+        public IEnumerable<StolenBikeInMonthOfYear> Q2()
+        {
+            return db.Thefts
+                .GroupBy(theft => theft.DateTime.Year + " " + theft.DateTime.Month)
+                .Select(gr => new StolenBikeInMonthOfYear { Month = gr.FirstOrDefault().DateTime.Month, Year = gr.FirstOrDefault().DateTime.Year, StolenBikes = gr.Count() })
+                .ToList()
+                .OrderBy(record => record.Month).OrderBy(record => record.Year);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -27,9 +27,23 @@ namespace BikesAPI
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+            name: "ApiById",
+            routeTemplate: "{controller}/{id}",
+            defaults: new { id = RouteParameter.Optional },
+            constraints: new { id = @"^[0-9]+$" }
+        );
+
+            config.Routes.MapHttpRoute(
+                name: "ApiByName",
+                routeTemplate: "{controller}/{action}/{name}",
+                defaults: null,
+                constraints: new { name = @"^[a-z]+$" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ApiByAction",
+                routeTemplate: "{controller}/{action}",
+                defaults: new { action = "Get" }
             );
         }
     }
