@@ -45,7 +45,10 @@ namespace AndroidApp
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int hr = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
 			
 			static Drawable()
 			{
@@ -69,14 +72,14 @@ namespace AndroidApp
 			// aapt resource value: 0x7f050006
 			public const int MenuButton3 = 2131034118;
 			
-			// aapt resource value: 0x7f050000
-			public const int MyButton = 2131034112;
-			
 			// aapt resource value: 0x7f050001
 			public const int content = 2131034113;
 			
 			// aapt resource value: 0x7f050002
 			public const int handle = 2131034114;
+			
+			// aapt resource value: 0x7f050000
+			public const int imageView1 = 2131034112;
 			
 			// aapt resource value: 0x7f050003
 			public const int slidingDrawer1 = 2131034115;
