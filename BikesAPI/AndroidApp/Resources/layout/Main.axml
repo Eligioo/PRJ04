@@ -15,32 +15,35 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/slidingDrawer1">
+        android:id="@+id/slidingDrawer1"
+        android:visibility="visible">
         <Button
             android:id="@+id/handle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Handle" />
+            android:text="Menu" />
         <LinearLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#fff">
-          <Button
-            android:id="@+id/MenuButton1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Hello" />
-          <Button
-            android:id="@+id/MenuButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Hello" />
-          <Button
-            android:id="@+id/MenuButton3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Hello" />
+            <Button
+                android:id="@+id/MenuButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Hello" />
+            <Button
+                android:id="@+id/MenuButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Hello"
+                android:layout_below="@id/MenuButton1"
+                />
+            <Button
+                android:id="@+id/MenuButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Hello" />
         </LinearLayout>
     </SlidingDrawer>
 </LinearLayout>
