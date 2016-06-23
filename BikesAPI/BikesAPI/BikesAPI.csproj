@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\project.mdf" />
+    <Content Include="App_Data\ProjectCopy.mdf" />
     <Content Include="App_Data\project_log.ldf">
       <DependentUpon>project.mdf</DependentUpon>
     </Content>
@@ -116,12 +117,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\theftsController.cs" />
-    <Compile Include="Controllers\trommelsController.cs" />
+    <Compile Include="Controllers\BikeContainersController.cs" />
+    <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\TheftsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\BikeContainer.cs" />
+    <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\MostBikeContainer.cs" />
+    <Compile Include="Models\Theft.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
