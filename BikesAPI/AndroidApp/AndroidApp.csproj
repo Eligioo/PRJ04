@@ -45,6 +45,14 @@
   <ItemGroup>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="OxyPlot, Version=2015.1.744.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Core.2015.1.744-alpha\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10\OxyPlot.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OxyPlot.Xamarin.Android, Version=2015.1.741.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Mobile.2015.1.744-alpha\lib\MonoAndroid\OxyPlot.Xamarin.Android.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -94,6 +102,12 @@
       <Project>{fad16d33-650e-487a-bae2-150df57f2d16}</Project>
       <Name>BikeDataModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="oxyplot">
+      <Visible>False</Visible>
+      <Version>2015.1.744</Version>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

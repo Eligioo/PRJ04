@@ -2,12 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-<Button  
-    android:id="@+id/MyButton"
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/Hello"
-    />
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/MyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Hello" />
+    <SlidingDrawer
+        android:content="@+id/content"
+        android:handle="@+id/handle"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/slidingDrawer1">
+        <Button
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Handle" />
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff">
+          <Button
+            android:id="@+id/MenuButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Hello" />
+          <Button
+            android:id="@+id/MenuButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Hello" />
+          <Button
+            android:id="@+id/MenuButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Hello" />
+        </LinearLayout>
+    </SlidingDrawer>
 </LinearLayout>
