@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ededed">
     <Button
         android:id="@+id/MyButton"
         android:layout_width="match_parent"
@@ -23,27 +24,28 @@
             android:layout_height="wrap_content"
             android:text="Menu" />
         <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#fff">
             <Button
                 android:id="@+id/MenuButton1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Hello" />
             <Button
                 android:id="@+id/MenuButton2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Hello"
-                android:layout_below="@id/MenuButton1"
-                />
+                android:layout_below="@id/MenuButton1" />
             <Button
                 android:id="@+id/MenuButton3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Hello" />
+                android:text="@string/Hello"
+                android:layout_below="@id/MenuButton2" />
         </LinearLayout>
     </SlidingDrawer>
 </LinearLayout>
