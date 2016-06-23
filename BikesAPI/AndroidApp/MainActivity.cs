@@ -1,29 +1,27 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.App;
 using Android.OS;
-using AppLogic;
-using BikeDataModels;
+using OxyPlot.Xamarin.Android;
+using OxyPlot;
+using OxyPlot.Axes;
+using OxyPlot.Series;
+using System.Collections.Generic;
 
 namespace AndroidApp
 {
-    [Activity(Label = "AndroidApp", MainLauncher = false, Icon = "@drawable/icon")]
+    [Activity(Label = "Project4 Groep1", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(bundle);
-            
+            base.OnCreate(savedInstanceState);
+
+            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            //Button button = FindViewById<Button>(Resource.Id.MyButton);
+            /*PlotView view = FindViewById<PlotView>(Resource.Id.plot_view);
 
-            //button.Click += delegate { Navigation.ToGraph1(this); };
+            GraphFactory<int> graphFactory = new GraphFactory<int>();
+            view.Model = graphFactory.createGraph(GraphType.Line, new GraphEffect(), new List<int>());*/
         }
     }
 }

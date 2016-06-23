@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphing.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="NavigationFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -79,7 +80,7 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\menu.axml">
+    <AndroidResource Include="Resources\layout\Menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ContentPages.axml">

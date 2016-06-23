@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Xamarin.AChartEngine.Xamarin.AChartEngine" android:versionCode="1" android:versionName="1.0">
+	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="23" />
+	<application android:label="Xamarin.AChartEngine" android:icon="@drawable/achartengine">
+	<!--
+		Unable to find explicit activity class 
+			{Xamarin.AChartEngine.Xamarin.AChartEngine/org.achartengine.GraphicalActivity}; 
+		have you declared this activity in your AndroidManifest.xml?
+
+	-->
+	   <activity android:label="GraphicalActivity" android:name="GraphicalActivity" />
+	</application>
+</manifest>
