@@ -18,10 +18,10 @@ namespace AndroidApp
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            PlotView view = FindViewById<PlotView>(Resource.Id.plot_view);
+            /*PlotView view = FindViewById<PlotView>(Resource.Id.plot_view);
 
             GraphFactory<int> graphFactory = new GraphFactory<int>();
-            view.Model = graphFactory.createGraph(GraphType.Line, new GraphEffect(), new List<int>());
+            view.Model = graphFactory.createGraph(GraphType.Line, new GraphEffect(), new List<int>());*/
         }
     }
 }
