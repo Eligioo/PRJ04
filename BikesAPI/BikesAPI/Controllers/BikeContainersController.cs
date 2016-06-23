@@ -22,29 +22,29 @@ namespace BikesAPI.Controllers
     using System.Web.Http.OData.Extensions;
     using BikesAPI.Models;
     ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-    builder.EntitySet<Thefts>("Thefts");
+    builder.EntitySet<BikeContainer>("BikeContainers");
     config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
     */
-    public class TheftsController : ODataController
+    public class BikeContainersController : ODataController
     {
         private DataContext db = new DataContext();
 
-        // GET: odata/Thefts
+        // GET: odata/BikeContainers
         [EnableQuery]
-        public IQueryable<Theft> GetThefts()
+        public IQueryable<BikeContainer> GetBikeContainers()
         {
-            return db.Thefts;
+            return db.BikeContainers;
         }
 
-        // GET: odata/Thefts(5)
+        // GET: odata/BikeContainers(5)
         [EnableQuery]
-        public SingleResult<Theft> GetThefts([FromODataUri] int key)
+        public SingleResult<BikeContainer> GetBikeContainer([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Thefts.Where(thefts => thefts.Id == key));
+            return SingleResult.Create(db.BikeContainers.Where(bikeContainer => bikeContainer.Id == key));
         }
 
-        // PUT: odata/Thefts(5)
-        public async Task<IHttpActionResult> Put([FromODataUri] int key, Delta<Theft> patch)
+        // PUT: odata/BikeContainers(5)
+        public async Task<IHttpActionResult> Put([FromODataUri] int key, Delta<BikeContainer> patch)
         {
             Validate(patch.GetEntity());
 
@@ -53,13 +53,13 @@ namespace BikesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            Theft thefts = await db.Thefts.FindAsync(key);
-            if (thefts == null)
+            BikeContainer bikeContainer = await db.BikeContainers.FindAsync(key);
+            if (bikeContainer == null)
             {
                 return NotFound();
             }
 
-            patch.Put(thefts);
+            patch.Put(bikeContainer);
 
             try
             {
@@ -67,7 +67,7 @@ namespace BikesAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TheftsExists(key))
+                if (!BikeContainerExists(key))
                 {
                     return NotFound();
                 }
@@ -77,18 +77,18 @@ namespace BikesAPI.Controllers
                 }
             }
 
-            return Updated(thefts);
+            return Updated(bikeContainer);
         }
 
-        // POST: odata/Thefts
-        public async Task<IHttpActionResult> Post(Theft thefts)
+        // POST: odata/BikeContainers
+        public async Task<IHttpActionResult> Post(BikeContainer bikeContainer)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Thefts.Add(thefts);
+            db.BikeContainers.Add(bikeContainer);
 
             try
             {
@@ -96,7 +96,7 @@ namespace BikesAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (TheftsExists(thefts.Id))
+                if (BikeContainerExists(bikeContainer.Id))
                 {
                     return Conflict();
                 }
@@ -106,12 +106,12 @@ namespace BikesAPI.Controllers
                 }
             }
 
-            return Created(thefts);
+            return Created(bikeContainer);
         }
 
-        // PATCH: odata/Thefts(5)
+        // PATCH: odata/BikeContainers(5)
         [AcceptVerbs("PATCH", "MERGE")]
-        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Theft> patch)
+        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<BikeContainer> patch)
         {
             Validate(patch.GetEntity());
 
@@ -120,13 +120,13 @@ namespace BikesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            Theft thefts = await db.Thefts.FindAsync(key);
-            if (thefts == null)
+            BikeContainer bikeContainer = await db.BikeContainers.FindAsync(key);
+            if (bikeContainer == null)
             {
                 return NotFound();
             }
 
-            patch.Patch(thefts);
+            patch.Patch(bikeContainer);
 
             try
             {
@@ -134,7 +134,7 @@ namespace BikesAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TheftsExists(key))
+                if (!BikeContainerExists(key))
                 {
                     return NotFound();
                 }
@@ -144,19 +144,19 @@ namespace BikesAPI.Controllers
                 }
             }
 
-            return Updated(thefts);
+            return Updated(bikeContainer);
         }
 
-        // DELETE: odata/Thefts(5)
+        // DELETE: odata/BikeContainers(5)
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            Theft thefts = await db.Thefts.FindAsync(key);
-            if (thefts == null)
+            BikeContainer bikeContainer = await db.BikeContainers.FindAsync(key);
+            if (bikeContainer == null)
             {
                 return NotFound();
             }
 
-            db.Thefts.Remove(thefts);
+            db.BikeContainers.Remove(bikeContainer);
             await db.SaveChangesAsync();
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -171,9 +171,9 @@ namespace BikesAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool TheftsExists(int key)
+        private bool BikeContainerExists(int key)
         {
-            return db.Thefts.Count(e => e.Id == key) > 0;
+            return db.BikeContainers.Count(e => e.Id == key) > 0;
         }
     }
 }
