@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BikesAPI.Models;
+using BikeDataModels;
 
 namespace BikesAPI.Controllers
 {
@@ -21,7 +22,7 @@ namespace BikesAPI.Controllers
         [HttpGet]
         public IEnumerable<MostBikeContainer> Q1()
         {
-            return db.BikeContainers
+            return db.BikeContainer
                 .GroupBy(bc => bc.Area)
                 .Select
                 (
@@ -38,13 +39,12 @@ namespace BikesAPI.Controllers
         [HttpGet]
         public IEnumerable<StolenBikeInMonthOfYear> Q2()
         {
-            return db.Thefts
+            return db.Theft
                 .GroupBy(theft => theft.DateTime.Year + " " + theft.DateTime.Month)
                 .Select(gr => new StolenBikeInMonthOfYear { Month = gr.FirstOrDefault().DateTime.Month, Year = gr.FirstOrDefault().DateTime.Year, StolenBikes = gr.Count() })
                 .ToList()
                 .OrderBy(record => record.Month).OrderBy(record => record.Year);
         }
-
 
         protected override void Dispose(bool disposing)
         {

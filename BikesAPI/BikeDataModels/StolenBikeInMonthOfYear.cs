@@ -1,4 +1,4 @@
-﻿namespace BikesAPI.Models
+﻿namespace BikeDataModels
 {
     public class StolenBikeInMonthOfYear
     {

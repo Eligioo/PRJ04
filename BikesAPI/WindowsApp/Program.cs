@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AppLogic;
+//using AppLogic;
 
 namespace WindowsApp
 {
@@ -11,14 +11,14 @@ namespace WindowsApp
     {
         static void Main()
         {
-            Connection connection = new Connection();
-            var trommels = connection.Trommels;
+            //Connection connection = new Connection();
+            //var trommels = connection.Trommels;
 
-            foreach (var trommel in trommels)
-            {
-                Console.WriteLine(trommel.area);
-            }
-            Console.Read();
+            //foreach (var trommel in trommels)
+            //{
+            //    Console.WriteLine(trommel.area);
+            //}
+            //Console.Read();
         }
     }
 }
