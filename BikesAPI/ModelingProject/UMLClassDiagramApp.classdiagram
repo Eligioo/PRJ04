@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="61f9e02d-5375-49ee-860c-53e60c449c12" name="UMLClassDiagramApp" linkedPackageId="f4f8437c-f7ed-4d7b-adc0-71cd3f9e6ad1" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="03928152-164e-4f6f-b974-cd8709d3e036">
+      <elementDefinition Id="4b5259a2-a9fe-48a7-8b9d-7a586259c065" />
+      <body>extern class</body>
+      <annotatedElements>
+        <classMoniker Id="dc2ab6c7-c4e4-4b98-b7de-80e1c967c260" LastKnownName="Activity" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="85630da3-837a-4137-b115-95d9fe4977dc">
+      <profileInstance Id="1303b605-1628-43a9-abb9-8ad2645d9352" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="ffc59ba1-9715-4797-b3f1-a0e521d67015">
+      <profileInstance Id="63e02273-371c-42e7-aa92-d4c632c3a764" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="48496edf-bf0d-4d87-a83a-1ad44203bc9e" name="Graph&lt;T&gt;" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4229b5f2-fbc3-4b9b-a202-98c9ae7cf034" />
+        <ownedOperationsInternal>
+          <operation Id="3dbace79-f866-4856-baaa-c2b76827909e" name="CreateChart" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5c5c8b94-281a-4129-8ed1-fa712af6d907" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="621f28e2-f940-4924-a40d-aa6dd1e7f4b0" direction="Return" isUnique="false">
+                  <elementDefinition Id="241227a2-5a7c-49e0-99e2-ab73516177f8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="10cb5d6d-9a4c-4678-8215-fc8bcf97368a" LastKnownName="Plotmodel" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="10cb5d6d-9a4c-4678-8215-fc8bcf97368a" name="Plotmodel" isAbstract="false" isLeaf="false" cachedFullName="Plotmodel">
+        <elementDefinition Id="dc750195-7c51-43d6-b3b0-37d941c218aa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="736cd867-7c44-485e-af37-0654c1f4fc0d" name="PieChart" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="78316fa0-36db-4e43-aafd-b7464b7cd61b" />
+        <generalsInternal>
+          <generalization Id="6c27c2d1-f90e-4d0a-9d8a-58cf6786b09e" isSubstitutable="false">
+            <classMoniker Id="48496edf-bf0d-4d87-a83a-1ad44203bc9e" LastKnownName="Graph&lt;T&gt;" />
+            <elementDefinition Id="308febb1-99f0-422b-a1d3-67ddfd3092e6" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="c7bbd7ca-a087-4d8d-a51d-d69776643d96" name="CreateChart" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a0b25811-bd43-42a2-9ca4-5cccde7b32ed" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="84131bc6-a3f1-42ab-9848-99ca31271688" direction="Return" isUnique="false">
+                  <elementDefinition Id="a23661d0-1406-4da4-9770-ddf2f6540a61" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="22ad4bd3-279a-4302-9fd6-d77fb80cdb7c" LastKnownName="Plotmodel" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a16fa503-be70-4e2c-af17-7d6946b1dca7" name="BarChart" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="44936d0b-e57d-4d4b-8997-406ac2973d13" />
+        <generalsInternal>
+          <generalization Id="adffcf6f-4c12-4356-948e-f944298cd0cc" isSubstitutable="false">
+            <classMoniker Id="48496edf-bf0d-4d87-a83a-1ad44203bc9e" LastKnownName="Graph&lt;T&gt;" />
+            <elementDefinition Id="42bfa2a9-7535-491f-b985-0be1218333de" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="5debac9d-6296-4a5e-b3e9-2f6bfd95ca85" name="CreateChart" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="63902703-2e3f-43ea-a229-95d13bce1ffa" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1c606c88-a7fe-4efe-b3b2-90b32af90bbc" direction="Return" isUnique="false">
+                  <elementDefinition Id="87d7a34b-6e0a-4df6-9a1a-137ffbac1400" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="aed598b0-f31d-49b7-acb7-78e9908f8abb" LastKnownName="Plotmodel" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6a3c8598-60ce-48ea-be31-2ba259471ab5" name="LineChart" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2fb432fc-fab3-46fd-a3cb-3cb258a8217e" />
+        <generalsInternal>
+          <generalization Id="843d6cdb-32a8-46bf-87d3-1d7d1cfb5ecc" isSubstitutable="false">
+            <classMoniker Id="48496edf-bf0d-4d87-a83a-1ad44203bc9e" LastKnownName="Graph&lt;T&gt;" />
+            <elementDefinition Id="d635a7cc-f85e-443a-8bed-ee7533617d43" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="ee830393-cc0d-4700-9721-f69e9b7bd518" name="CreateChart" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ae1e9630-4a78-4594-8bf6-1d6e285df8e6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="365d9bac-3465-43e5-ac06-3daa1cbe09f4" direction="Return" isUnique="false">
+                  <elementDefinition Id="eb575c15-e5c2-4e8f-8aa2-28819b6fcbde" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5439a5a4-3c32-46fe-b633-c0da198d20e8" LastKnownName="Plotmodel" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="5439a5a4-3c32-46fe-b633-c0da198d20e8" name="Plotmodel" isAbstract="false" isLeaf="false" cachedFullName="Plotmodel">
+        <elementDefinition Id="dc750195-7c51-43d6-b3b0-37d941c218aa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="aed598b0-f31d-49b7-acb7-78e9908f8abb" name="Plotmodel" isAbstract="false" isLeaf="false" cachedFullName="Plotmodel">
+        <elementDefinition Id="dc750195-7c51-43d6-b3b0-37d941c218aa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="22ad4bd3-279a-4302-9fd6-d77fb80cdb7c" name="Plotmodel" isAbstract="false" isLeaf="false" cachedFullName="Plotmodel">
+        <elementDefinition Id="dc750195-7c51-43d6-b3b0-37d941c218aa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="22cfa94e-0a72-4d7b-b306-d01144918bec" name="ChartType" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3d77eddb-b8a4-4c5b-a470-6e6484c758c0" />
+        <ownedLiterals>
+          <enumerationLiteral Id="4b288516-b53d-4423-bd2a-147fad9d081a" name="Pie">
+            <elementDefinition Id="6b53392d-6951-402d-b851-9edccda60ba0" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="b7e187e6-38c5-44e9-9d4a-27961c03dbf2" name="Bar">
+            <elementDefinition Id="e66c0c15-837c-40a7-b954-669bed77f264" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="2f1937cf-5080-45b4-a93c-f8b224c8b473" name="Line">
+            <elementDefinition Id="1f9781ad-81c6-46aa-bb3b-2bc7ddcfca57" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ed85a3da-3b79-426e-b6bc-60eec24a5199" name="GraphFactory" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b9a98387-d8d4-4e48-9be3-9ba4fb5e9c3f" />
+        <suppliersInternal>
+          <dependency Id="69c102b1-00cb-4e82-b3b4-50024231d307">
+            <enumerationMoniker Id="22cfa94e-0a72-4d7b-b306-d01144918bec" LastKnownName="ChartType" />
+            <elementDefinition Id="deb6df4d-676b-4f71-8fed-220f097d8733" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="2645553c-1ee3-400a-aa61-085bc01416cd" isDerived="false" sourceEndRoleName="GraphFactory" targetEndRoleName="Graph&lt;T&gt;" isLeaf="false" isAbstract="false">
+            <classMoniker Id="48496edf-bf0d-4d87-a83a-1ad44203bc9e" LastKnownName="Graph&lt;T&gt;" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9c78d654-4f06-4269-a71a-3d4b095db7d6" name="GraphFactory" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="893d1a8a-e7a2-493f-a993-4a7b01edaafb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a038bc09-6d84-4216-a39f-cb5de3d3159a" name="Graph&lt;T&gt;" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="904e400e-e010-4f69-a1f4-a9fe416081d7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a1c44ee7-c5b2-4a5f-817b-a7bacca6f4e2" />
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation Id="d0b2e042-5edc-4d94-8a6d-64d811687092" name="CreateGraph" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6ba57f02-ed1a-4965-a62d-d0fc38450f16" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c7ea4de2-fb03-4d69-94e2-c90dfb952f1f" name="GraphType graphType" direction="In" isUnique="false">
+                  <elementDefinition Id="4e52f6e0-b3c7-49d8-bae4-6dc6ede8f245" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dad03d76-6ffa-4b65-9451-39293396f6b3" name="List&lt;data&gt; data" direction="In" isUnique="false">
+                  <elementDefinition Id="993237e8-4ab4-44f2-973c-caf5a9d354dc" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="42915ec3-8ea3-4189-ac4e-b796af7de207" direction="Return" isUnique="false">
+                  <elementDefinition Id="3bc37bf3-d30e-4267-97ac-407cb00e4c17" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a4f70f3d-b6b9-414c-a8e9-0166178d871f" LastKnownName="Graph" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="a4f70f3d-b6b9-414c-a8e9-0166178d871f" name="Graph" isAbstract="false" isLeaf="false" cachedFullName="Graph">
+        <elementDefinition Id="1e9e4a37-b61a-4047-93a6-b63441cd4719" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5da26d4c-daa6-4920-a537-60452c44d195" name="MainActivity" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a09924d6-7c54-4a82-bb0a-0b343ef61742" />
+        <generalsInternal>
+          <generalization Id="dcdc128a-2242-4d7f-b197-7d43d09007eb" isSubstitutable="false">
+            <classMoniker Id="dc2ab6c7-c4e4-4b98-b7de-80e1c967c260" LastKnownName="Activity" />
+            <elementDefinition Id="7a41ed84-5b66-4fdb-a6c7-e9245a258b8e" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="b1c95e86-1f26-4b94-919c-d87fc27bef5a" name="OnCreate" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="aba64d3e-ba3d-442b-a499-31572ed0d6f2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="507d1455-b416-42c5-a834-3add53a8c893" name="Bundle" direction="In" isUnique="false">
+                  <elementDefinition Id="b4977a77-bcf9-46e0-a481-0216eb622266" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="31809a1b-213f-4849-b45f-baa0fd538f5c" direction="Return" isUnique="false">
+                  <elementDefinition Id="16c54507-37b8-4e05-b32b-ae94f463a0c3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="73a13717-d12a-46f5-9674-9eb45ee83722" LastKnownName="Void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f7b5f954-41d0-400a-b27f-8a6d956f97df" name="GraphDecorator" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fd45591d-32c3-4bbf-b09c-956c615bd3c9" />
+        <suppliersInternal>
+          <dependency Id="ad6a0990-ca0c-4253-9a5c-ca58452ea9d0">
+            <classMoniker Id="48496edf-bf0d-4d87-a83a-1ad44203bc9e" LastKnownName="Graph&lt;T&gt;" />
+            <elementDefinition Id="5eb9653f-b848-485a-ab91-1266fa60c9c7" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="8dede6aa-d69d-42d4-82e9-6f6f211bdc84" isSubstitutable="false">
+            <classMoniker Id="48496edf-bf0d-4d87-a83a-1ad44203bc9e" LastKnownName="Graph&lt;T&gt;" />
+            <elementDefinition Id="dde5cec1-5fc8-4dcb-a3f1-513031df258b" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="7f0e22eb-4051-46a0-9610-c6c0b6f09b19" name="component" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4835ba24-e38e-4782-94d1-435d776d60f3" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a4f70f3d-b6b9-414c-a8e9-0166178d871f" LastKnownName="Graph" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="89f109f2-4d1a-4062-80cd-bd227680cc05" name="GraphWithLegenda" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c1a86569-00c7-4588-aa94-0233187887e1" />
+        <generalsInternal>
+          <generalization Id="32a666f8-1ceb-4fe6-a90c-9649888c6e14" isSubstitutable="false">
+            <classMoniker Id="f7b5f954-41d0-400a-b27f-8a6d956f97df" LastKnownName="GraphDecorator" />
+            <elementDefinition Id="6ad15750-abf4-475b-86af-449646448a7c" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7b830a7f-c70a-4d58-9b01-438ef845914e" name="NavigationActivity" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c93b38a6-b195-4e49-a8ab-84f574e2ca58" />
+        <generalsInternal>
+          <generalization Id="e1d05063-f589-4fc0-8a40-336477a4b5ed" isSubstitutable="false">
+            <classMoniker Id="dc2ab6c7-c4e4-4b98-b7de-80e1c967c260" LastKnownName="Activity" />
+            <elementDefinition Id="96cdd640-05b5-4b4b-b2e1-50141b84a10e" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="46c2a9a4-fb84-4f93-b930-5e23d3049966" name="mainActivity" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b50235ef-578c-42f6-ad13-2049492e3da9" />
+          </property>
+          <property Id="2a35a781-1f2c-494a-9906-c29c7aab01bf" name="Question2Activity" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7ea2715e-3fa2-4306-a9e8-5e6ad835f9e5" />
+          </property>
+          <property Id="c7e7b0db-b488-4458-80d0-9c9c28be36bb" name="Question1Activity" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c2117595-dc65-41d5-bd66-572c1c551ca9" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="73a13717-d12a-46f5-9674-9eb45ee83722" name="Void" isAbstract="false" isLeaf="false" cachedFullName="Void">
+        <elementDefinition Id="cca3de77-3810-45bf-9da5-4555f7767ff8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="dc2ab6c7-c4e4-4b98-b7de-80e1c967c260" name="Activity" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="86b8f78e-66b8-4645-8e85-1609d07f3742" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="5b50bee2-0109-408e-b655-6e401152f73a" name="INoteHandler" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7d755490-5415-450c-97a2-80cd0e25bba1" />
+        <targetEnds>
+          <association Id="531e5137-e26d-401a-9f2e-8336af50126c" isDerived="false" sourceEndRoleName="INoteHandler" targetEndRoleName="INote" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="ee0861c9-bbb3-47ed-9384-0c6b85adf2f0" LastKnownName="INote" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="22af1fce-ba8e-487f-b0a7-d806777d8f75" name="INoteHandler" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e1efa915-7de1-41ba-bbe7-cff055141f60" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f4c0b5c3-a666-4968-b071-ef017a430ed2" name="INote" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9fb40a90-735e-4b54-8389-b1afd6f0b02e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0bbebbda-3021-4297-ab8c-5afc75165050" />
+          </association>
+        </targetEnds>
+        <ownedOperations>
+          <operation Id="d3ce5a7d-b099-4d6c-ab0f-e1e8691ec987" name="Write" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a334767f-c8cf-4695-a3ef-5ac568c6dc0b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="30692ade-d247-460a-97be-ebe4fdfac27f" name="INote" direction="In" isUnique="false">
+                  <elementDefinition Id="6f2a8fb9-0ccf-41bd-94de-4e470cc41a0f" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="7a83ce48-b4c5-4a6b-a9c1-19b25c31dab2" name="ReadLast" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="05069a69-774f-4064-9c9b-da67e40d25f4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="257d2538-9a7e-4fd7-8f2a-d7c70acd71be" direction="Return" isUnique="false">
+                  <elementDefinition Id="31cbb857-a047-4963-bc7c-0501ca9b3f64" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="69d961fa-ef1e-4363-8361-58aaf9e3707e" LastKnownName="INote" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="1dc9e448-c32e-4f7d-886b-9fe04d03a952" name="ReadAll" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1a524004-0ea9-4dac-af97-e2baa76bbbbb" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d969929c-85d8-4b99-8c16-660d47c59d1c" direction="Return" isUnique="false">
+                  <elementDefinition Id="504fe698-dca6-45c4-b8bb-05de384bf2de" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ccaaf0f1-eda3-4125-9cc8-351872fddcd0" LastKnownName="ICollection&lt;INote&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="69d961fa-ef1e-4363-8361-58aaf9e3707e" name="INote" isAbstract="false" isLeaf="false" cachedFullName="INote">
+        <elementDefinition Id="d4850c44-1723-4dfc-8d11-003ac3d5d6fc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="09ad4d18-4362-47c7-9703-16a0a32152b2" name="NoteHandlerTOPlainTextFile" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fcf519c8-4768-46b9-87f2-b20098bb2bbb" />
+        <suppliersInternal>
+          <interfaceRealization Id="a6028266-d972-4977-9f55-6c726928b921">
+            <interfaceMoniker Id="5b50bee2-0109-408e-b655-6e401152f73a" LastKnownName="INoteHandler" />
+            <elementDefinition Id="8247ff9c-b7f7-45a5-81e3-402ba55d3d7a" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="1fce930f-cbb1-4fd0-bc0c-432dbbb5749e" name="Write" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="693f4297-97ed-40cc-9374-a83ebe0e8146" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1c109dfe-9e9a-4c18-a672-f3cd7d5ce694" name="INote" direction="In" isUnique="false">
+                  <elementDefinition Id="ae43920c-69b5-483f-94e7-55abead7a243" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="91823cab-66ce-4ed0-a3e0-135c86ac40d2" name="ReadLast" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="00fe4128-5f2f-4a7f-bef9-97e0f00b643c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="afde0f5e-651d-42f1-bbc7-c78aa214086d" direction="Return" isUnique="false">
+                  <elementDefinition Id="3dd2a619-94e1-483a-af19-82839aa3c030" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="69d961fa-ef1e-4363-8361-58aaf9e3707e" LastKnownName="INote" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b4b72546-a5b5-4342-b3f0-339e60ca9548" name="ReadAll" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="827de68c-2069-43e5-8779-d5ee721d8edb" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="38097d85-58b0-402c-bc5b-0a6877fba2b4" direction="Return" isUnique="false">
+                  <elementDefinition Id="16bedf06-db92-483b-9097-ae0a9417263b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ccaaf0f1-eda3-4125-9cc8-351872fddcd0" LastKnownName="ICollection&lt;INote&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="ccaaf0f1-eda3-4125-9cc8-351872fddcd0" name="ICollection&lt;INote&gt;" isAbstract="false" isLeaf="false" cachedFullName="ICollection&lt;INote&gt;">
+        <elementDefinition Id="c7ebb2ea-da5c-4f1b-baf7-f0b0bc6f0bdf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="ee0861c9-bbb3-47ed-9384-0c6b85adf2f0" name="INote" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c7eb325b-3e0d-4e7d-abd2-d575b59f4792" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="f4f8437c-f7ed-4d7b-adc0-71cd3f9e6ad1" name="ModelingProject">
+    <elementDefinition Id="87e347f5-df79-498f-878c-beb0899da940" />
+  </package>
+</logicalClassDesignerModel>
