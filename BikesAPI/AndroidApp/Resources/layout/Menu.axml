@@ -27,18 +27,18 @@
                 android:id="@+id/MenuButton1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Hello" />
+                android:text="@string/Question1" />
             <Button
                 android:id="@+id/MenuButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Hello"
+                android:text="@string/Question2"
                 android:layout_below="@id/MenuButton1" />
             <Button
                 android:id="@+id/MenuButton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Hello"
+                android:text="@string/Question3"
                 android:layout_below="@id/MenuButton2" />
         </LinearLayout>
     </SlidingDrawer>

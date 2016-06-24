@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">AndroidApp</string>
+  <string name="Hello">Hello World, Click Me!</string>
+  <string name="Question1">Vraag 1</string>
+  <string name="Question2">Vraag 2</string>
+  <string name="Question3">Vraag 3</string>
+  <string name="ApplicationName">AndroidApp</string>
 </resources>
