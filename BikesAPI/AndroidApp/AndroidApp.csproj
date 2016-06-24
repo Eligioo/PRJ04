@@ -71,6 +71,7 @@
     <Compile Include="Graphing.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="NavigationFragment.cs" />
+    <Compile Include="Activities\Question1.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,6 +85,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ContentPages.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Question1.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

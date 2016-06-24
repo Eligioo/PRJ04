@@ -10,13 +10,13 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/slidingDrawer1"
+        android:id="@+id/menuSlider"
         android:visibility="visible">
         <Button
             android:id="@+id/handle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Menu" />
+            android:text="Menu ^" />
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/content"
