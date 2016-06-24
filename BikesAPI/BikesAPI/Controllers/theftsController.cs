@@ -12,6 +12,7 @@ using System.Web.Http.ModelBinding;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Routing;
 using BikesAPI.Models;
+using BikeDataModels;
 
 namespace BikesAPI.Controllers
 {
@@ -33,14 +34,14 @@ namespace BikesAPI.Controllers
         [EnableQuery]
         public IQueryable<Theft> GetThefts()
         {
-            return db.Thefts;
+            return db.Theft;
         }
 
         // GET: odata/Thefts(5)
         [EnableQuery]
         public SingleResult<Theft> GetThefts([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Thefts.Where(thefts => thefts.Id == key));
+            return SingleResult.Create(db.Theft.Where(thefts => thefts.Id == key));
         }
 
         // PUT: odata/Thefts(5)
@@ -53,7 +54,7 @@ namespace BikesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            Theft thefts = await db.Thefts.FindAsync(key);
+            Theft thefts = await db.Theft.FindAsync(key);
             if (thefts == null)
             {
                 return NotFound();
@@ -88,7 +89,7 @@ namespace BikesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Thefts.Add(thefts);
+            db.Theft.Add(thefts);
 
             try
             {
@@ -120,7 +121,7 @@ namespace BikesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            Theft thefts = await db.Thefts.FindAsync(key);
+            Theft thefts = await db.Theft.FindAsync(key);
             if (thefts == null)
             {
                 return NotFound();
@@ -150,13 +151,13 @@ namespace BikesAPI.Controllers
         // DELETE: odata/Thefts(5)
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            Theft thefts = await db.Thefts.FindAsync(key);
+            Theft thefts = await db.Theft.FindAsync(key);
             if (thefts == null)
             {
                 return NotFound();
             }
 
-            db.Thefts.Remove(thefts);
+            db.Theft.Remove(thefts);
             await db.SaveChangesAsync();
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -173,7 +174,7 @@ namespace BikesAPI.Controllers
 
         private bool TheftsExists(int key)
         {
-            return db.Thefts.Count(e => e.Id == key) > 0;
+            return db.Theft.Count(e => e.Id == key) > 0;
         }
     }
 }

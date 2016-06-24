@@ -4,7 +4,7 @@ namespace BikesAPI.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-
+    using BikeDataModels;
     public partial class DataContext : DbContext
     {
         public DataContext()
@@ -12,8 +12,8 @@ namespace BikesAPI.Models
         {
         }
 
-        public virtual DbSet<BikeContainer> BikeContainers { get; set; }
-        public virtual DbSet<Theft> Thefts { get; set; }
+        public virtual DbSet<BikeContainer> BikeContainer { get; set; }
+        public virtual DbSet<Theft> Theft { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

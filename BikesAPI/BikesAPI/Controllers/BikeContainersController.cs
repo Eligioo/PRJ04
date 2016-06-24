@@ -12,6 +12,7 @@ using System.Web.Http.ModelBinding;
 using System.Web.Http.OData;
 using System.Web.Http.OData.Routing;
 using BikesAPI.Models;
+using BikeDataModels;
 
 namespace BikesAPI.Controllers
 {
@@ -33,14 +34,14 @@ namespace BikesAPI.Controllers
         [EnableQuery]
         public IQueryable<BikeContainer> GetBikeContainers()
         {
-            return db.BikeContainers;
+            return db.BikeContainer;
         }
 
         // GET: odata/BikeContainers(5)
         [EnableQuery]
         public SingleResult<BikeContainer> GetBikeContainer([FromODataUri] int key)
         {
-            return SingleResult.Create(db.BikeContainers.Where(bikeContainer => bikeContainer.Id == key));
+            return SingleResult.Create(db.BikeContainer.Where(bikeContainer => bikeContainer.Id == key));
         }
 
         // PUT: odata/BikeContainers(5)
@@ -53,7 +54,7 @@ namespace BikesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            BikeContainer bikeContainer = await db.BikeContainers.FindAsync(key);
+            BikeContainer bikeContainer = await db.BikeContainer.FindAsync(key);
             if (bikeContainer == null)
             {
                 return NotFound();
@@ -88,7 +89,7 @@ namespace BikesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.BikeContainers.Add(bikeContainer);
+            db.BikeContainer.Add(bikeContainer);
 
             try
             {
@@ -120,7 +121,7 @@ namespace BikesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            BikeContainer bikeContainer = await db.BikeContainers.FindAsync(key);
+            BikeContainer bikeContainer = await db.BikeContainer.FindAsync(key);
             if (bikeContainer == null)
             {
                 return NotFound();
@@ -150,13 +151,13 @@ namespace BikesAPI.Controllers
         // DELETE: odata/BikeContainers(5)
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            BikeContainer bikeContainer = await db.BikeContainers.FindAsync(key);
+            BikeContainer bikeContainer = await db.BikeContainer.FindAsync(key);
             if (bikeContainer == null)
             {
                 return NotFound();
             }
 
-            db.BikeContainers.Remove(bikeContainer);
+            db.BikeContainer.Remove(bikeContainer);
             await db.SaveChangesAsync();
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -173,7 +174,7 @@ namespace BikesAPI.Controllers
 
         private bool BikeContainerExists(int key)
         {
-            return db.BikeContainers.Count(e => e.Id == key) > 0;
+            return db.BikeContainer.Count(e => e.Id == key) > 0;
         }
     }
 }
