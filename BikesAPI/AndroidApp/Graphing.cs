@@ -19,8 +19,24 @@ namespace AndroidApp
 {
     public interface iGraphFactory<T>
     {
-        PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, List<T> graphData);
+        PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, GraphData<T> graphData);
     }
+    public class GraphData<T>
+    {
+        public string graphTitle;
+        public string xTitle;
+        public string yTitle;
+        public List<T> dataCollection;
+        
+        public GraphData(string GraphTitle, string XTitle, string YTitle, List<T> DataCollection)
+        {
+            this.graphTitle = GraphTitle;
+            this.xTitle = XTitle;
+            this.yTitle = yTitle;
+            this.dataCollection = DataCollection;
+        }
+    }
+
     public enum GraphType
     {
         Bar, Line, Pie
@@ -33,9 +49,9 @@ namespace AndroidApp
     {
         public GraphType graphType;
         public GraphEffect graphEffect;
-        public List<T> graphData;
+        public GraphData<T> graphData;
 
-        protected Graph(GraphType GraphType, GraphEffect GraphEffect, List<T> GraphData)
+        protected Graph(GraphType GraphType, GraphEffect GraphEffect, GraphData<T> GraphData)
         {
             this.graphType = GraphType;
             this.graphEffect = GraphEffect;
@@ -46,7 +62,7 @@ namespace AndroidApp
 
     public class BarChart<T> : Graph<T>
     {
-        public BarChart(GraphType GraphType, GraphEffect GraphEffect, List<T> GraphData) : base(GraphType, GraphEffect, GraphData)
+        public BarChart(GraphType GraphType, GraphEffect GraphEffect, GraphData<T> GraphData) : base(GraphType, GraphEffect, GraphData)
         {
             this.createChart();
         }
@@ -54,14 +70,19 @@ namespace AndroidApp
         {
             var model = new PlotModel
             {
-                Title = "BarSeries",
+                Title = base.graphData.graphTitle,
                 LegendPlacement = LegendPlacement.Outside,
                 LegendPosition = LegendPosition.BottomCenter,
                 LegendOrientation = LegendOrientation.Horizontal,
                 LegendBorderThickness = 0
             };
 
-            var s1 = new BarSeries { Title = "Series 1", StrokeColor = OxyColors.Black, StrokeThickness = 1 };
+            var s1 = new BarSeries {
+                Title = base.graphData.graphTitle,
+                StrokeColor = OxyColors.Black,
+                StrokeThickness = 1
+            };
+
             s1.Items.Add(new BarItem { Value = 25 });
             s1.Items.Add(new BarItem { Value = 137 });
             s1.Items.Add(new BarItem { Value = 18 });
@@ -78,7 +99,12 @@ namespace AndroidApp
             categoryAxis.Labels.Add("Category B");
             categoryAxis.Labels.Add("Category C");
             categoryAxis.Labels.Add("Category D");
-            var valueAxis = new LinearAxis { Position = AxisPosition.Bottom, MinimumPadding = 0, MaximumPadding = 0.06, AbsoluteMinimum = 0 };
+            var valueAxis = new LinearAxis {
+                Position = AxisPosition.Bottom,
+                MinimumPadding = 0,
+                MaximumPadding = 0.06,
+                AbsoluteMinimum = 0
+            };
             model.Series.Add(s1);
             model.Axes.Add(categoryAxis);
             model.Axes.Add(valueAxis);
@@ -88,7 +114,7 @@ namespace AndroidApp
     }
     public class LineChart<T> : Graph<T>
     {
-        public LineChart(GraphType GraphType, GraphEffect GraphEffect, List<T> GraphData) : base(GraphType, GraphEffect, GraphData)
+        public LineChart(GraphType GraphType, GraphEffect GraphEffect, GraphData<T> GraphData) : base(GraphType, GraphEffect, GraphData)
         {
             this.createChart();
         }
@@ -122,7 +148,7 @@ namespace AndroidApp
 
     public class PieChart<T> : Graph<T>
     {
-        public PieChart(GraphType GraphType, GraphEffect GraphEffect, List<T> GraphData) : base(GraphType, GraphEffect, GraphData)
+        public PieChart(GraphType GraphType, GraphEffect GraphEffect, GraphData<T> GraphData) : base(GraphType, GraphEffect, GraphData)
         {
             this.createChart();
         }
@@ -145,7 +171,7 @@ namespace AndroidApp
     public class GraphFactory<T> : iGraphFactory<T>
     {
         Graph<T> Chart;
-        public PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, List<T> graphData)
+        public PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, GraphData<T> graphData)
         {
             switch (graphType)
             {
