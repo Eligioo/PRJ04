@@ -1,0 +1,2 @@
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms.UWP\XamarinForms.UWP.csproj;x86
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\XamarinForms.csproj;neutral

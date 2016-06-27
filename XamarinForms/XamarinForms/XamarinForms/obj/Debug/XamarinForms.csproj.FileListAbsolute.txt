@@ -1,0 +1,16 @@
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\XamarinForms.dll
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\XamarinForms.pdb
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\OxyPlot.dll
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\OxyPlot.Xamarin.Forms.dll
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\OxyPlot.pdb
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\OxyPlot.xml
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\OxyPlot.Xamarin.Forms.pdb
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\OxyPlot.Xamarin.Forms.xml
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\obj\Debug\XamarinForms.dll
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\obj\Debug\XamarinForms.pdb
+C:\Users\barld\Documents\PRJ04\XamarinForms\XamarinForms\XamarinForms\obj\Debug\XamarinForms.csprojResolveAssemblyReference.cache
