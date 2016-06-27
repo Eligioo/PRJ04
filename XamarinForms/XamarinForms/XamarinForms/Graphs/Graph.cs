@@ -1,10 +1,9 @@
-﻿
-using OxyPlot;
+﻿using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using System.Collections.Generic;
 
-namespace XamrinForms.Graphs
+namespace XamarinForms.Graphs
 {
     public interface iGraphFactory<T>
     {
