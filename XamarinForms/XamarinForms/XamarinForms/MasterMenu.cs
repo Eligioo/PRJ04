@@ -31,6 +31,12 @@ namespace XamarinForms
                 });
             }
 
+            MasterMenuItems.Add(new MasterMenuItem
+            {
+                Title = "Save location",
+                TargetType = typeof(SaveLocation)
+            });
+
             ListView = new ListView
             {
                 ItemsSource = MasterMenuItems,
