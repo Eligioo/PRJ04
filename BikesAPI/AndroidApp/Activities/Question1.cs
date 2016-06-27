@@ -31,14 +31,25 @@ namespace AndroidApp
 
             PlotView view = FindViewById<PlotView>(Resource.Id.plot_view);
 
-            GraphFactory<int> graphFactory = new GraphFactory<int>();
-            view.Model = graphFactory.createGraph(GraphType.Line, new GraphEffect(), new GraphData<int>("Question1", "Xtitel", "Ytitel", new List<int>()));
+            List<MostBikeContainer> mostTrommelList;
 
-            using (var client = new WebClient()) {
+            using (var client = new WebClient())
+            {
                 string download = client.DownloadString("http://145.24.222.220/v2/questions/q1");
-                List<MostBikeContainer> barldlist = JsonConvert.DeserializeObject<List<MostBikeContainer>>(download);
-                Log.Debug("barld123", download);
+                mostTrommelList = JsonConvert.DeserializeObject<List<MostBikeContainer>>(download);
             }
+
+            List<Tuple<string, float>> b = new List<Tuple<string, float>>();
+
+            foreach (var item in mostTrommelList)
+            {
+                b.Add(new Tuple<string, float>(item.Neighborhoods, (float)item.Count));
+            }
+
+            GraphFactory graphFactory = new GraphFactory();
+            view.Model = graphFactory.createGraph(GraphType.Bar, new GraphEffect(), new GraphData("Question1", "Neighbourhood", "Trommels", b));
+
+            
         }
 
         public override void OnBackPressed()

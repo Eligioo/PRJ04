@@ -17,22 +17,39 @@ using OxyPlot.Series;
 
 namespace AndroidApp
 {
-    public interface iGraphFactory<T>
+    public interface IGraphFactory
     {
-        PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, GraphData<T> graphData);
+        PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, GraphData graphData);
     }
-    public class GraphData<T>
+    public class TupleCompareClass : IComparer<Tuple<string, float>>
+    {
+        public int Compare(Tuple<string, float> x, Tuple<string, float> y)
+        {
+            if (x.Item2 < y.Item2)
+            {
+                return 1;
+            }
+            else if (x.Item2 == y.Item2)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+    public class GraphData
     {
         public string graphTitle;
         public string xTitle;
         public string yTitle;
-        public List<T> dataCollection;
-        
-        public GraphData(string GraphTitle, string XTitle, string YTitle, List<T> DataCollection)
+        public List<Tuple<string, float>> dataCollection;
+        public GraphData(string GraphTitle, string XTitle, string YTitle, List<Tuple<string, float>> DataCollection)
         {
             this.graphTitle = GraphTitle;
             this.xTitle = XTitle;
-            this.yTitle = yTitle;
+            this.yTitle = YTitle;
             this.dataCollection = DataCollection;
         }
     }
@@ -45,13 +62,13 @@ namespace AndroidApp
     {
 
     }
-    public abstract class Graph<T>
+    public abstract class Graph
     {
         public GraphType graphType;
         public GraphEffect graphEffect;
-        public GraphData<T> graphData;
+        public GraphData graphData;
 
-        protected Graph(GraphType GraphType, GraphEffect GraphEffect, GraphData<T> GraphData)
+        protected Graph(GraphType GraphType, GraphEffect GraphEffect, GraphData GraphData)
         {
             this.graphType = GraphType;
             this.graphEffect = GraphEffect;
@@ -60,9 +77,9 @@ namespace AndroidApp
         public abstract PlotModel createChart();
     }
 
-    public class BarChart<T> : Graph<T>
+    public class BarChart : Graph
     {
-        public BarChart(GraphType GraphType, GraphEffect GraphEffect, GraphData<T> GraphData) : base(GraphType, GraphEffect, GraphData)
+        public BarChart(GraphType GraphType, GraphEffect GraphEffect, GraphData GraphData) : base(GraphType, GraphEffect, GraphData)
         {
             this.createChart();
         }
@@ -82,23 +99,13 @@ namespace AndroidApp
                 StrokeColor = OxyColors.Black,
                 StrokeThickness = 1
             };
-
-            s1.Items.Add(new BarItem { Value = 25 });
-            s1.Items.Add(new BarItem { Value = 137 });
-            s1.Items.Add(new BarItem { Value = 18 });
-            s1.Items.Add(new BarItem { Value = 40 });
-
-            /*var s2 = new BarSeries { Title = "Series 2", StrokeColor = OxyColors.Black, StrokeThickness = 1 };
-            s2.Items.Add(new BarItem { Value = 12 });
-            s2.Items.Add(new BarItem { Value = 14 });
-            s2.Items.Add(new BarItem { Value = 120 });
-            s2.Items.Add(new BarItem { Value = 26 });
-            */
             var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
-            categoryAxis.Labels.Add("Category A");
-            categoryAxis.Labels.Add("Category B");
-            categoryAxis.Labels.Add("Category C");
-            categoryAxis.Labels.Add("Category D");
+            graphData.dataCollection.Sort(new TupleCompareClass().Compare);
+            for (int i = 0; i < 5; i++)
+            {
+                s1.Items.Add(new BarItem { Value = graphData.dataCollection.ElementAt(i).Item2 });
+                categoryAxis.Labels.Add(graphData.dataCollection.ElementAt(i).Item1);
+            }
             var valueAxis = new LinearAxis {
                 Position = AxisPosition.Bottom,
                 MinimumPadding = 0,
@@ -112,9 +119,9 @@ namespace AndroidApp
             return model;
         }
     }
-    public class LineChart<T> : Graph<T>
+    public class LineChart : Graph
     {
-        public LineChart(GraphType GraphType, GraphEffect GraphEffect, GraphData<T> GraphData) : base(GraphType, GraphEffect, GraphData)
+        public LineChart(GraphType GraphType, GraphEffect GraphEffect, GraphData GraphData) : base(GraphType, GraphEffect, GraphData)
         {
             this.createChart();
         }
@@ -133,6 +140,15 @@ namespace AndroidApp
             };
 
             series1.Points.Add(new DataPoint(0.0, 6.0));
+            series1.Points.Add(new DataPoint(0.2, 6.0));
+            series1.Points.Add(new DataPoint(0.3, 6.0));
+            series1.Points.Add(new DataPoint(0.4, 6.0));
+            series1.Points.Add(new DataPoint(0.5, 6.0));
+            series1.Points.Add(new DataPoint(0.6, 6.0));
+            series1.Points.Add(new DataPoint(0.7, 6.0));
+            series1.Points.Add(new DataPoint(0.8, 6.0));
+            series1.Points.Add(new DataPoint(0.9, 6.0));
+            series1.Points.Add(new DataPoint(1.0, 6.0));
             series1.Points.Add(new DataPoint(1.4, 2.1));
             series1.Points.Add(new DataPoint(2.0, 4.2));
             series1.Points.Add(new DataPoint(3.3, 2.3));
@@ -146,9 +162,9 @@ namespace AndroidApp
         }
     }
 
-    public class PieChart<T> : Graph<T>
+    public class PieChart : Graph
     {
-        public PieChart(GraphType GraphType, GraphEffect GraphEffect, GraphData<T> GraphData) : base(GraphType, GraphEffect, GraphData)
+        public PieChart(GraphType GraphType, GraphEffect GraphEffect, GraphData GraphData) : base(GraphType, GraphEffect, GraphData)
         {
             this.createChart();
         }
@@ -168,21 +184,21 @@ namespace AndroidApp
             return model;
         }
     }
-    public class GraphFactory<T> : iGraphFactory<T>
+    public class GraphFactory : IGraphFactory
     {
-        Graph<T> Chart;
-        public PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, GraphData<T> graphData)
+        Graph Chart;
+        public PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, GraphData graphData)
         {
             switch (graphType)
             {
                 case GraphType.Line:
-                    Chart = new LineChart<T>(graphType, graphEffect, graphData);
+                    Chart = new LineChart(graphType, graphEffect, graphData);
                     break;
                 case GraphType.Pie:
-                    Chart = new PieChart<T>(graphType, graphEffect, graphData);
+                    Chart = new PieChart(graphType, graphEffect, graphData);
                     break;
                 default:
-                    Chart = new BarChart<T>(graphType, graphEffect, graphData);
+                    Chart = new BarChart(graphType, graphEffect, graphData);
                     break;
             }
             return Chart.createChart();
