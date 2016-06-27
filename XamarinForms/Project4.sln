@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinForms.Droid", "XamarinForms\XamarinForms.Droid\XamarinForms.Droid.csproj", "{CCD4BF4C-3C8D-4634-8CBF-6AA776F3D90D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4.Droid", "XamarinForms\XamarinForms.Droid\Project4.Droid.csproj", "{CCD4BF4C-3C8D-4634-8CBF-6AA776F3D90D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinForms.WinPhone", "XamarinForms\XamarinForms.WinPhone\XamarinForms.WinPhone.csproj", "{68DDB301-055A-4C84-86EC-75F08A6B5455}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4.WinPhone", "XamarinForms\XamarinForms.WinPhone\Project4.WinPhone.csproj", "{68DDB301-055A-4C84-86EC-75F08A6B5455}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinForms.UWP", "XamarinForms\XamarinForms.UWP\XamarinForms.UWP.csproj", "{382BBE74-BC28-4AE4-AB14-295638504D5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4.UWP", "XamarinForms\XamarinForms.UWP\Project4.UWP.csproj", "{382BBE74-BC28-4AE4-AB14-295638504D5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinForms.Windows", "XamarinForms\XamarinForms.Windows\XamarinForms.Windows.csproj", "{17D99302-BB98-457F-8354-EAC2E47539DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4.Windows", "XamarinForms\XamarinForms.Windows\Project4.Windows.csproj", "{17D99302-BB98-457F-8354-EAC2E47539DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinForms", "XamarinForms\XamarinForms\XamarinForms.csproj", "{92EEA225-C639-4292-BB03-6BF59B935B81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4", "XamarinForms\XamarinForms\Project4.csproj", "{92EEA225-C639-4292-BB03-6BF59B935B81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -137,9 +137,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XamarinForms\XamarinForms.csproj">
+    <ProjectReference Include="..\XamarinForms\Project4.csproj">
       <Project>{92EEA225-C639-4292-BB03-6BF59B935B81}</Project>
-      <Name>XamarinForms</Name>
+      <Name>Project4</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
