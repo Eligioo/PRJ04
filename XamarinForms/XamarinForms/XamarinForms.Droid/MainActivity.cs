@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace XamarinForms.Droid
 {
-    [Activity(Label = "Project4", Icon = "@drawable/hr", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Project4", Icon = "@drawable/hr-logo", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
