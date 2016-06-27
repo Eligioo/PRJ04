@@ -34,5 +34,17 @@ namespace AndroidApp
                 menuSlider.Close();
             };
         }
+        public override void OnBackPressed()
+        {
+            SlidingDrawer menuSlider = FindViewById<SlidingDrawer>(Resource.Id.menuSlider);
+            if (menuSlider.IsOpened)
+            {
+                menuSlider.AnimateClose();
+            }
+            else
+            {
+                base.OnBackPressed();
+            }
+        }
     }
 }
