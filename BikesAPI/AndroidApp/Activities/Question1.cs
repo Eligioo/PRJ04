@@ -17,6 +17,7 @@ using OxyPlot.Axes;
 using OxyPlot.Series;
 using Android.Util;
 using Newtonsoft.Json;
+using AndroidApp;
 
 namespace AndroidApp
 {
@@ -31,13 +32,13 @@ namespace AndroidApp
             PlotView view = FindViewById<PlotView>(Resource.Id.plot_view);
 
             GraphFactory<int> graphFactory = new GraphFactory<int>();
-            view.Model = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), new List<int>());
+            view.Model = graphFactory.createGraph(GraphType.Line, new GraphEffect(), new GraphData<int>("Question1", "Xtitel", "Ytitel", new List<int>()));
 
-            /*using (var client = new WebClient()) {
+            using (var client = new WebClient()) {
                 string download = client.DownloadString("http://145.24.222.220/v2/questions/q1");
                 List<MostBikeContainer> barldlist = JsonConvert.DeserializeObject<List<MostBikeContainer>>(download);
                 Log.Debug("barld123", download);
-            }*/
+            }
         }
 
         public override void OnBackPressed()
