@@ -15,7 +15,7 @@ namespace XamarinForms
     {
         public Question1()
         {
-            Title = "    Question 1";
+            Title = "Question 1";
             this.Content = new StackLayout
             {
                 BackgroundColor = Color.White
