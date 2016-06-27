@@ -36,6 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Calendar\CalendarDetails.cs" />
+    <Compile Include="Calendar\CalendarTestPage.cs" />
+    <Compile Include="Calendar\ICalendarHandler.cs" />
     <Compile Include="Graphs\Graph.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MasterMenu.cs" />

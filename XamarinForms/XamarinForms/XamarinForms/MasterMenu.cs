@@ -29,6 +29,11 @@ namespace XamarinForms
                     Title = "Question 1",
                     TargetType = typeof(Question1)
                 });
+                MasterMenuItems.Add(new MasterMenuItem
+                {
+                    Title = "test Calendar",
+                    TargetType = typeof(Project4.Calendar.CalendarTestPage)
+                });
             }
 
             ListView = new ListView
