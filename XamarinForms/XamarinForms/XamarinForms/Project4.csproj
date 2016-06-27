@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Graphs\Graph.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MasterMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -43,6 +44,7 @@
     <Compile Include="StartScreen.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>

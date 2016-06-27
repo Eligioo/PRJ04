@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="XamrinForms.Graphs.GraphEffect" Collapsed="true">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XamrinForms.Graphs.Graph&lt;T&gt;">
+    <Position X="3.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAQAEAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XamrinForms.Graphs.BarChart&lt;T&gt;">
+    <Position X="3.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XamrinForms.Graphs.LineChart&lt;T&gt;">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XamrinForms.Graphs.PieChart&lt;T&gt;">
+    <Position X="1" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XamrinForms.Graphs.GraphFactory&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="XamrinForms.Graphs.GraphData&lt;T&gt;" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAgAIAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="XamrinForms.Graphs.iGraphFactory&lt;T&gt;" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="XamrinForms.Graphs.GraphType" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAACAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Graphs\Graph.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
