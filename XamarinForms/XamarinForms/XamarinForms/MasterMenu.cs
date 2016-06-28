@@ -56,7 +56,7 @@ namespace XamarinForms
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {
-                    Title = "test Calendar",
+                    Title = "plan fiets ophalen",
                     TargetType = typeof(Project4.Calendar.CalendarTestPage)
                 });
             }

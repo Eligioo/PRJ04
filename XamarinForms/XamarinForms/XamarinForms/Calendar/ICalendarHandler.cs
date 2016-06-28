@@ -9,7 +9,7 @@ namespace Project4.Calendar
 {
     public interface ICalendarHandler
     {
-        void SaveAppointment(CalendarDetails calendar, DateTime dateTime, string title, string Description);
+        bool SaveAppointment(CalendarDetails calendar, DateTime dateTime, string title, string Description, string location = "");
         IEnumerable<CalendarDetails> GetAllCalendars();
     }
 }

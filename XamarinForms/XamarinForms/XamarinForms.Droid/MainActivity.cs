@@ -10,6 +10,7 @@ using Android.Locations;
 using Android.Util;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Forms.Maps;
 
 namespace XamarinForms.Droid
 {
@@ -20,6 +21,7 @@ namespace XamarinForms.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            Xamarin.FormsMaps.Init(this, bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();

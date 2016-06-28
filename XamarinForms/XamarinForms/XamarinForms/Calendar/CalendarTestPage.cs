@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Project4.GeoLocation;
 
 namespace Project4.Calendar
 {
@@ -11,18 +12,22 @@ namespace Project4.Calendar
     {
         readonly Picker picker;
         readonly DatePicker datePicker;
+        readonly TimePicker timePicker;
 
         IEnumerable<CalendarDetails> calendars;
 
         public CalendarTestPage()
         {
             calendars = DependencyService.Get<ICalendarHandler>().GetAllCalendars();
+
+            timePicker = new TimePicker();
             datePicker = new DatePicker();
             datePicker.Date = DateTime.Now;
             datePicker.MinimumDate = DateTime.Now;
             var saveButton = new Button { Text = "save" };
             saveButton.Clicked += SaveButton_Clicked;
 
+            Title = "fiets ophalen";
 
             picker = new Picker
             {
@@ -35,22 +40,35 @@ namespace Project4.Calendar
                 picker.Items.Add($"{c.Name} ({c.AccountName})");
             }
 
+            if (calendars.Count() == 0)
+                DisplayAlert("Info", "Er zijn geen Agenda's gevonden", "ok");
+            else
+                picker.SelectedIndex = 0;
+
             Content = new StackLayout
             {
-                VerticalOptions = LayoutOptions.FillAndExpand,
+                //VerticalOptions = LayoutOptions.FillAndExpand,
                 //BackgroundColor = Color.White,
-                //Padding = new Thickness(50, 50, 50, 50),
-                Children = { picker, datePicker, saveButton }
+                Padding = new Thickness(50, 50, 50, 50),
+                Children = { picker, datePicker, timePicker, saveButton }
             };
         }
 
-        private void SaveButton_Clicked(object sender, EventArgs e)
+        private async void SaveButton_Clicked(object sender, EventArgs e)
         {
             if (picker.SelectedIndex != -1)
             {
                 var agenda = calendars.ElementAt(picker.SelectedIndex);
+                Geo geo = new Geo();
+                var position = await geo.GetLocation();
+                string address = await geo.GetAddress();
 
-                DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date, "bike", "get bike");
+                string location = $"{geo.Latitude}, {geo.Longitude}";
+
+                if (DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "bike", address, location))
+                {
+                    await DisplayAlert("info", "de afspraak is succesvol ingeland", "ok");
+                }
             }
         }
     }

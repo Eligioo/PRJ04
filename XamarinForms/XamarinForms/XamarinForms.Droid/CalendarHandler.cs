@@ -12,8 +12,6 @@ using Android.Widget;
 using Android.Provider;
 using Project4.Calendar;
 using Java.Util;
-
-using Project4.Calendar;
 using Android.Database;
 
 using Xamarin.Forms;
@@ -58,15 +56,16 @@ namespace XamarinForms.Droid
         }
     
 
-        public void SaveAppointment(CalendarDetails calendar, DateTime dateTime, string title, string Description)
+        public bool SaveAppointment(CalendarDetails calendar, DateTime dateTime, string title, string Description, string location = "")
         {
             
             ContentValues eventValues = new ContentValues();
             eventValues.Put(CalendarContract.Events.InterfaceConsts.CalendarId, calendar.Id);
             eventValues.Put(CalendarContract.Events.InterfaceConsts.Title, title);
             eventValues.Put(CalendarContract.Events.InterfaceConsts.Description, Description);
+            eventValues.Put(CalendarContract.Events.InterfaceConsts.EventLocation, location);
             eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS(dateTime));
-            eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS2(dateTime));
+            eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS(dateTime + new TimeSpan(hours:1,minutes:0,seconds:0)));
 
             // GitHub issue #9 : Event start and end times need timezone support.
             // https://github.com/xamarin/monodroid-samples/issues/9
@@ -75,6 +74,8 @@ namespace XamarinForms.Droid
 
             var uri = Forms.Context.ContentResolver.Insert(CalendarContract.Events.ContentUri, eventValues);
             Console.WriteLine("Uri for new event: {0}", uri);
+
+            return true;
         }
 
         private long GetDateTimeMS(DateTime dateTime)
@@ -82,36 +83,10 @@ namespace XamarinForms.Droid
             Calendar c = Calendar.GetInstance(Java.Util.TimeZone.Default);
 
             c.Set(Calendar.DayOfMonth, dateTime.Day);
-            c.Set(Calendar.HourOfDay, 11);
-            c.Set(Calendar.Minute, 00);
+            c.Set(Calendar.HourOfDay, dateTime.Hour);
+            c.Set(Calendar.Minute, dateTime.Minute);
             c.Set(Calendar.Month, dateTime.Month-1);// 0 based
             c.Set(Calendar.Year, dateTime.Year);
-
-            return c.TimeInMillis;
-        }
-
-        private long GetDateTimeMS2(DateTime dateTime)
-        {
-            Calendar c = Calendar.GetInstance(Java.Util.TimeZone.Default);
-
-            c.Set(Calendar.DayOfMonth, dateTime.Day);
-            c.Set(Calendar.HourOfDay, 13);
-            c.Set(Calendar.Minute, 00);
-            c.Set(Calendar.Month, dateTime.Month-1);
-            c.Set(Calendar.Year, dateTime.Year);
-
-            return c.TimeInMillis;
-        }
-
-        long GetDateTimeMS(int yr, int month, int day, int hr, int min)
-        {
-            Calendar c = Calendar.GetInstance(Java.Util.TimeZone.Default);
-
-            c.Set(Calendar.DayOfMonth, day);
-            c.Set(Calendar.HourOfDay, hr);
-            c.Set(Calendar.Minute, min);
-            c.Set(Calendar.Month, month);
-            c.Set(Calendar.Year, yr);
 
             return c.TimeInMillis;
         }
