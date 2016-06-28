@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Project4.GeoLocation;
 
 namespace Project4.Calendar
 {
@@ -53,15 +54,20 @@ namespace Project4.Calendar
             };
         }
 
-        private void SaveButton_Clicked(object sender, EventArgs e)
+        private async void SaveButton_Clicked(object sender, EventArgs e)
         {
             if (picker.SelectedIndex != -1)
             {
                 var agenda = calendars.ElementAt(picker.SelectedIndex);
+                Geo geo = new Geo();
+                var position = await geo.GetLocation();
+                string address = await geo.GetAddress();
 
-                if(DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "bike", "get bike"))
+                string location = $"{geo.Latitude}, {geo.Longitude}";
+
+                if (DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "bike", address, location))
                 {
-                    DisplayAlert("info", "de afspraak is succesvol ingeland", "ok");
+                    await DisplayAlert("info", "de afspraak is succesvol ingeland", "ok");
                 }
             }
         }
