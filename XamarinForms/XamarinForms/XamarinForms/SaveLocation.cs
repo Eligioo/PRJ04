@@ -3,6 +3,7 @@ using System;
 using Plugin.Geolocator;
 using System.Threading.Tasks;
 using Xamarin.Forms.Maps;
+using System.Linq;
 
 namespace XamarinForms
 {
@@ -49,7 +50,8 @@ namespace XamarinForms
                 label.Text = "Lat: " + test.Latitude.ToString() + " Long: " + test.Longitude.ToString();
                 var position = new Position(test.Latitude, test.Longitude);
                 var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(position);
-                foreach (var address in possibleAddresses)
+                DisplayAlert("TEST", possibleAddresses.First().ToString(), "Cancel");
+                foreach (var address in possibleAddresses.First())
                     label.Text += address + "\n";
             }
             catch (Exception ex)
