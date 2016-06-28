@@ -4,6 +4,7 @@ using Plugin.Geolocator;
 using System.Threading.Tasks;
 using Xamarin.Forms.Maps;
 using System.Linq;
+using Project4.GeoLocation;
 
 namespace XamarinForms
 {
@@ -46,13 +47,12 @@ namespace XamarinForms
             {
                 button.IsEnabled = false;
                 label.Text = "Getting...";
-                var test = await CrossGeolocator.Current.GetPositionAsync(10000);
-                label.Text = "Lat: " + test.Latitude.ToString() + " Long: " + test.Longitude.ToString();
-                var position = new Position(test.Latitude, test.Longitude);
-                var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(position);
-                DisplayAlert("TEST", possibleAddresses.First().ToString(), "Cancel");
-                foreach (var address in possibleAddresses.First())
-                    label.Text += address + "\n";
+                label.Text = "";
+                Geo geo = new Geo();
+                var position = await geo.GetLocation();
+                var location = await geo.GetAddress();
+                label.Text = location;
+
             }
             catch (Exception ex)
             {
