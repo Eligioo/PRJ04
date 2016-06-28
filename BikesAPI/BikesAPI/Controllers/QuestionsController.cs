@@ -45,7 +45,26 @@ namespace BikesAPI.Controllers
                 .ToList()
                 .OrderBy(record => record.Month).OrderBy(record => record.Year);
         }
-
+        [HttpGet]
+        public IEnumerable<GetBrand> Q4a()
+        {
+            return db.Theft
+                .Where(theft => theft.Type != "null")
+                .GroupBy(theft => theft.Type)
+                .Select(brandGr => new GetBrand { Brand = brandGr.Key, Count = brandGr.Count() })
+                .ToList()
+                .OrderByDescending(record => record.Count);
+        }
+        [HttpGet]
+        public IEnumerable<GetColor> Q4b()
+        {
+            return db.Theft
+                .Where(theft => theft.Color != "null")
+                .GroupBy(theft => theft.Type)
+                .Select(colorGr => new GetColor { Color = colorGr.Key, Count = colorGr.Count() })
+                .ToList()
+                .OrderByDescending(record => record.Count);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

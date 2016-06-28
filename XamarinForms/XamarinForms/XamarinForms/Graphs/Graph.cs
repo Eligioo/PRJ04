@@ -1,4 +1,5 @@
-﻿using OxyPlot;
+﻿using System;
+using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using System.Collections.Generic;
@@ -8,6 +9,46 @@ namespace XamarinForms.Graphs
     public interface iGraphFactory<T>
     {
         PlotModel createGraph(GraphType graphType, GraphEffect graphEffect, GraphData<T> graphData);
+    }
+    public class TupleCompareClass : IComparer<Tuple<string, float>>
+    {
+        public int Compare(Tuple<string, float> x, Tuple<string, float> y)
+        {
+            if (x.Item2 < y.Item2)
+            {
+                return 1;
+            }
+            else if (x.Item2 == y.Item2)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        public int Compare(Tuple<int, int, int> x, Tuple<int, int, int> y)
+        {
+            if (x.Item3 < y.Item3)
+            {
+                return 1;
+            }
+            else if (x.Item3 == y.Item3)
+            {
+                if (x.Item2 < y.Item2)
+                {
+                    return 1;
+                }else if(x.Item2 == y.Item2)
+                {
+                    return 0;
+                }
+                return -1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
     public class GraphData<T>
     {
@@ -20,7 +61,7 @@ namespace XamarinForms.Graphs
         {
             this.graphTitle = GraphTitle;
             this.xTitle = XTitle;
-            this.yTitle = yTitle;
+            this.yTitle = YTitle;
             this.dataCollection = DataCollection;
         }
     }
@@ -64,7 +105,7 @@ namespace XamarinForms.Graphs
                 LegendOrientation = LegendOrientation.Horizontal,
                 LegendBorderThickness = 0
             };
-
+            /*
             var s1 = new BarSeries
             {
                 Title = base.graphData.graphTitle,
@@ -72,22 +113,10 @@ namespace XamarinForms.Graphs
                 StrokeThickness = 1
             };
 
-            s1.Items.Add(new BarItem { Value = 25 });
-            s1.Items.Add(new BarItem { Value = 137 });
-            s1.Items.Add(new BarItem { Value = 18 });
-            s1.Items.Add(new BarItem { Value = 40 });
-
-            /*var s2 = new BarSeries { Title = "Series 2", StrokeColor = OxyColors.Black, StrokeThickness = 1 };
-            s2.Items.Add(new BarItem { Value = 12 });
-            s2.Items.Add(new BarItem { Value = 14 });
-            s2.Items.Add(new BarItem { Value = 120 });
-            s2.Items.Add(new BarItem { Value = 26 });
-            */
-            var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
-            categoryAxis.Labels.Add("Category A");
-            categoryAxis.Labels.Add("Category B");
-            categoryAxis.Labels.Add("Category C");
-            categoryAxis.Labels.Add("Category D");
+            fo
+            //s1.Items.Add(new BarItem { Value = 40 });
+            //var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
+            //categoryAxis.Labels.Add("Category D");
             var valueAxis = new LinearAxis
             {
                 Position = AxisPosition.Bottom,
@@ -98,7 +127,7 @@ namespace XamarinForms.Graphs
             model.Series.Add(s1);
             model.Axes.Add(categoryAxis);
             model.Axes.Add(valueAxis);
-
+            */
             return model;
         }
     }
@@ -111,7 +140,7 @@ namespace XamarinForms.Graphs
         public override PlotModel createChart()
         {
             var plotModel = new PlotModel { Title = "OxyPlot Demo" };
-
+            /*
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Maximum = 10, Minimum = 0 });
 
@@ -131,7 +160,7 @@ namespace XamarinForms.Graphs
             series1.Points.Add(new DataPoint(8.9, 8.9));
 
             plotModel.Series.Add(series1);
-
+            */
             return plotModel;
         }
     }
@@ -145,7 +174,7 @@ namespace XamarinForms.Graphs
         public override PlotModel createChart()
         {
             PlotModel model = new PlotModel { Title = "Pie Sample1" };
-
+            /*
             var seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
 
             seriesP1.Slices.Add(new PieSlice("Africa", 1030) { IsExploded = false, Fill = OxyColors.PaleVioletRed });
@@ -155,6 +184,7 @@ namespace XamarinForms.Graphs
             seriesP1.Slices.Add(new PieSlice("Oceania", 35) { IsExploded = true });
 
             model.Series.Add(seriesP1);
+            */
             return model;
         }
     }
