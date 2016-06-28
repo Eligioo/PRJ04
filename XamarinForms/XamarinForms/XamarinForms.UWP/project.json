@@ -2,7 +2,6 @@
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
     "Xam.Plugin.Geolocator": "3.0.4",
-    "Xam.Plugins.Settings": "2.1.0",
     "Xamarin.Forms": "2.0.1.6505"
   },
   "frameworks": {
