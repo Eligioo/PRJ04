@@ -27,6 +27,28 @@ namespace XamarinForms.Graphs
                 return -1;
             }
         }
+        public int Compare(Tuple<int, int, int> x, Tuple<int, int, int> y)
+        {
+            if (x.Item3 < y.Item3)
+            {
+                return 1;
+            }
+            else if (x.Item3 == y.Item3)
+            {
+                if (x.Item2 < y.Item2)
+                {
+                    return 1;
+                }else if(x.Item2 == y.Item2)
+                {
+                    return 0;
+                }
+                return -1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
     public class GraphData<T>
     {

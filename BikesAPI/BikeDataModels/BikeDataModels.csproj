@@ -38,6 +38,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BikeContainer.cs" />
+    <Compile Include="GetBrand.cs" />
+    <Compile Include="GetColor.cs" />
     <Compile Include="MostBikeContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StolenBikeInMonthOfYear.cs" />

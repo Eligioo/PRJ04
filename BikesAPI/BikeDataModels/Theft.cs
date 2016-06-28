@@ -12,5 +12,6 @@ namespace BikeDataModels
         public string Bikemodel { get; set; }
         public int District_id { get; set; }
         public string Neighbourhood { get; set; }
+        public string Color { get; set; }
     }
 }
