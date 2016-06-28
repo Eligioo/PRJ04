@@ -1801,6 +1801,17 @@
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
+      },
+      "Xamarin.Forms.Maps/2.0.1.6505": {
+        "dependencies": {
+          "Xamarin.Forms": "2.0.1.6505"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -3463,6 +3474,17 @@
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
+      },
+      "Xamarin.Forms.Maps/2.0.1.6505": {
+        "dependencies": {
+          "Xamarin.Forms": "2.0.1.6505"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -5082,6 +5104,17 @@
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "Xamarin.Forms.Maps/2.0.1.6505": {
+        "dependencies": {
+          "Xamarin.Forms": "2.0.1.6505"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
         }
       }
     },
@@ -6753,6 +6786,17 @@
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
+      },
+      "Xamarin.Forms.Maps/2.0.1.6505": {
+        "dependencies": {
+          "Xamarin.Forms": "2.0.1.6505"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -8372,6 +8416,17 @@
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "Xamarin.Forms.Maps/2.0.1.6505": {
+        "dependencies": {
+          "Xamarin.Forms": "2.0.1.6505"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
         }
       }
     },
@@ -10043,6 +10098,17 @@
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
+      },
+      "Xamarin.Forms.Maps/2.0.1.6505": {
+        "dependencies": {
+          "Xamarin.Forms": "2.0.1.6505"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -11662,6 +11728,17 @@
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "Xamarin.Forms.Maps/2.0.1.6505": {
+        "dependencies": {
+          "Xamarin.Forms": "2.0.1.6505"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll": {}
         }
       }
     }
@@ -15091,13 +15168,37 @@
         "tools/Xamarin.Forms.Xaml.Design.dll",
         "tools/init.ps1"
       ]
+    },
+    "Xamarin.Forms.Maps/2.0.1.6505": {
+      "sha512": "XlxUVi0fvFxIT0ignLvzAv7h1x4aU+yZzJOadqK8yElfvf67o2WzWubk6+47qcoNsLmUwPnwJQTHPealE1niAQ==",
+      "type": "package",
+      "files": [
+        "Xamarin.Forms.Maps.2.0.1.6505.nupkg.sha512",
+        "Xamarin.Forms.Maps.nuspec",
+        "lib/MonoAndroid10/Xamarin.Forms.Maps.Android.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Maps.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Maps.xml",
+        "lib/MonoTouch10/Xamarin.Forms.Maps.dll",
+        "lib/MonoTouch10/Xamarin.Forms.Maps.iOS.Classic.dll",
+        "lib/MonoTouch10/Xamarin.Forms.Maps.xml",
+        "lib/WP80/Xamarin.Forms.Maps.WP8.dll",
+        "lib/WP80/Xamarin.Forms.Maps.dll",
+        "lib/WP80/Xamarin.Forms.Maps.xml",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Maps.xml",
+        "tools/Xamarin.Forms.Maps.Design.dll"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
       "Xam.Plugin.Geolocator >= 3.0.4",
-      "Xamarin.Forms >= 2.0.1.6505"
+      "Xamarin.Forms >= 2.0.1.6505",
+      "Xamarin.Forms.Maps >= 2.0.1.6505"
     ],
     "UAP,Version=v10.0": []
   }

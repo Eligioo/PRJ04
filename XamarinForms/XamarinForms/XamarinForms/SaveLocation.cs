@@ -2,6 +2,7 @@
 using System;
 using Plugin.Geolocator;
 using System.Threading.Tasks;
+using Xamarin.Forms.Maps;
 
 namespace XamarinForms
 {
@@ -9,8 +10,10 @@ namespace XamarinForms
     {
         Label label;
         Button button;
+        Geocoder geoCoder;
         public SaveLocation()
         {
+            geoCoder = new Geocoder();
             Title = "   Sla locatie op";
             label = new Label
             {
@@ -44,6 +47,10 @@ namespace XamarinForms
                 label.Text = "Getting...";
                 var test = await CrossGeolocator.Current.GetPositionAsync(10000);
                 label.Text = "Lat: " + test.Latitude.ToString() + " Long: " + test.Longitude.ToString();
+                var position = new Position(test.Latitude, test.Longitude);
+                var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(position);
+                foreach (var address in possibleAddresses)
+                    label.Text += address + "\n";
             }
             catch (Exception ex)
             {
