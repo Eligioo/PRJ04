@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4.Droid", "XamarinForms\XamarinForms.Droid\Project4.Droid.csproj", "{CCD4BF4C-3C8D-4634-8CBF-6AA776F3D90D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{92EEA225-C639-4292-BB03-6BF59B935B81} = {92EEA225-C639-4292-BB03-6BF59B935B81}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4.WinPhone", "XamarinForms\XamarinForms.WinPhone\Project4.WinPhone.csproj", "{68DDB301-055A-4C84-86EC-75F08A6B5455}"
 EndProject
