@@ -12,8 +12,6 @@ using Android.Widget;
 using Android.Provider;
 using Project4.Calendar;
 using Java.Util;
-
-using Project4.Calendar;
 using Android.Database;
 
 using Xamarin.Forms;
