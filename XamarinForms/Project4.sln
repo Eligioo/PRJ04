@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4.Windows", "Xamarin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project4", "XamarinForms\XamarinForms\Project4.csproj", "{92EEA225-C639-4292-BB03-6BF59B935B81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeDataModels", "..\BikesAPI\BikeDataModels\BikeDataModels.csproj", "{FAD16D33-650E-487A-BAE2-150DF57F2D16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -138,6 +140,22 @@ Global
 		{92EEA225-C639-4292-BB03-6BF59B935B81}.Release|x64.Build.0 = Release|Any CPU
 		{92EEA225-C639-4292-BB03-6BF59B935B81}.Release|x86.ActiveCfg = Release|Any CPU
 		{92EEA225-C639-4292-BB03-6BF59B935B81}.Release|x86.Build.0 = Release|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Debug|ARM.Build.0 = Debug|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Debug|x64.Build.0 = Debug|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Debug|x86.Build.0 = Debug|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Release|ARM.Build.0 = Release|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Release|x64.ActiveCfg = Release|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Release|x64.Build.0 = Release|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Release|x86.ActiveCfg = Release|Any CPU
+		{FAD16D33-650E-487A-BAE2-150DF57F2D16}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
