@@ -41,16 +41,11 @@ namespace XamarinForms
                 MasterMenuItems.Add(new MasterMenuItem
                 {
                     Title = "Vraag 4",
-                    TargetType = typeof(Question4)
+                    TargetType = typeof(Question4Page)
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {
                     Title = "Vraag 5",
-                    TargetType = typeof(Question1)
-                });
-                MasterMenuItems.Add(new MasterMenuItem
-                {
-                    Title = "Vraag 6",
                     TargetType = typeof(Question1)
                 });
                 MasterMenuItems.Add(new MasterMenuItem
