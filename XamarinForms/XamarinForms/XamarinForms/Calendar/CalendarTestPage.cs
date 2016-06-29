@@ -15,6 +15,7 @@ namespace Project4.Calendar
         readonly TimePicker timePicker;
 
         IEnumerable<CalendarDetails> calendars;
+        int PlanCounter = 0;
 
         public CalendarTestPage()
         {
@@ -58,16 +59,31 @@ namespace Project4.Calendar
         {
             if (picker.SelectedIndex != -1)
             {
-                var agenda = calendars.ElementAt(picker.SelectedIndex);
-                Geo geo = new Geo();
-                var position = await geo.GetLocation();
-                string address = await geo.GetAddress();
-
-                string location = $"{geo.Latitude}, {geo.Longitude}";
-
-                if (DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "bike", address, location))
+                try
                 {
-                    await DisplayAlert("info", "de afspraak is succesvol ingeland", "ok");
+                    var agenda = calendars.ElementAt(picker.SelectedIndex);
+                    Geo geo = new Geo();
+                    var position = await geo.GetLocation();
+                    string address = await geo.GetAddress();
+
+                    string location = $"{geo.Latitude}, {geo.Longitude}";
+
+                    if (DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "bike", address, location))
+                    {
+                        await DisplayAlert("info", "de afspraak is succesvol ingeland", "ok");
+                    }
+                }
+                catch
+                {
+                    if (PlanCounter >= 3)
+                    {
+                        await DisplayAlert("info", "er is een fout opgetreden, controleer uw internet verbinding.", "ok");
+                    }
+                    else
+                    {
+                        PlanCounter++;
+                        SaveButton_Clicked(sender, e);
+                    }
                 }
             }
         }

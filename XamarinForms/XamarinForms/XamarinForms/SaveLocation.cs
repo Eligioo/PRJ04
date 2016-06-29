@@ -56,7 +56,7 @@ namespace XamarinForms
             }
             catch (Exception ex)
             {
-                label.Text = ex.Message;
+                SaveGpsClicked(sender, e);
             }
             finally
             {
