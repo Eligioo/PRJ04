@@ -45,6 +45,25 @@ namespace BikesAPI.Controllers
                 .ToList()
                 .OrderBy(record => record.Month).OrderBy(record => record.Year);
         }
+
+        [HttpGet]
+        public IEnumerable<object> Q3()
+        {
+            var _thefts = db.Theft
+                .GroupBy(theft => new { hood = theft.Neighbourhood, month = theft.DateTime.Month, year = theft.DateTime.Year })
+                .Select(gr => new { Neighbourhood = gr.Key.hood, Month = gr.Key.month, Year = gr.Key.year, TheftCount = gr.Count(), ContainerCount = 0 });
+
+            var _containers = db.BikeContainer
+                .GroupBy(container => new { hood = container.Neighbourhood, month = container.Date.Month, year = container.Date.Year })
+                .Select(gr => new { Neighbourhood = gr.Key.hood, Month = gr.Key.month, Year = gr.Key.year, TheftCount = 0, ContainerCount = gr.Count() });
+
+            return Queryable.Union(_thefts, _containers)
+                .GroupBy(u => new { hood = u.Neighbourhood, month = u.Month, year = u.Year })
+                .Select(gr => new { Neighbourhood = gr.Key.hood, Month = gr.Key.month, Year = gr.Key.year, TheftCount = gr.Sum(r => r.TheftCount), ContainerCount = gr.Sum(r => r.ContainerCount) });
+
+                
+        }
+
         [HttpGet]
         public IEnumerable<GetBrand> Q4a()
         {
