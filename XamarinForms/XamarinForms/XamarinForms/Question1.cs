@@ -13,19 +13,25 @@ using XamarinForms.Graphs;
 using Newtonsoft.Json;
 using BikeDataModels;
 using System.Net.Http;
+using Android.Util;
 
 namespace XamarinForms
 {
     public class Question1 : ContentPage
     {
+        private static bool loaded = false;
+        private static List<MostBikeContainer> mostTrommelList;
         public Question1()
         {
-            Title = "    Question 1";
-            List<MostBikeContainer> mostTrommelList;
-            using (var client = new HttpClient())
+            if (!loaded)
             {
-                string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q1").Result;
-                mostTrommelList = JsonConvert.DeserializeObject<List<MostBikeContainer>>(download);
+                loaded = true;
+                Title = "    Question 1";
+                using (var client = new HttpClient())
+                {
+                    string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q1").Result;
+                    mostTrommelList = JsonConvert.DeserializeObject<List<MostBikeContainer>>(download);
+                }
             }
             var NeighbourhoodList = new List<Tuple<string, float>>();
             foreach (var item in mostTrommelList)
@@ -36,11 +42,12 @@ namespace XamarinForms
                 "Trommels", "buurt", new List<int>());
             GraphFactory<int> graphFactory = new GraphFactory<int>();
             PlotModel plotModel = graphFactory.createGraph(GraphType.Bar, new GraphEffect(), graphData);
-            var bars = new BarSeries {
+            var bars = new BarSeries
+            {
                 Title = "Fietstrommels per buurt",
                 StrokeColor = OxyColors.Black,
                 StrokeThickness = 1
-                };
+            };
             var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
             var valueAxis = new LinearAxis
             {
@@ -52,7 +59,7 @@ namespace XamarinForms
             NeighbourhoodList.Sort(new TupleCompareClass().Compare);
             for (int i = 0; i < 5; i++)
             {
-                bars.Items.Add(new BarItem { Value = NeighbourhoodList.ElementAt(i).Item2});
+                bars.Items.Add(new BarItem { Value = NeighbourhoodList.ElementAt(i).Item2 });
                 categoryAxis.Labels.Add(NeighbourhoodList.ElementAt(i).Item1);
             }
             plotModel.Series.Add(bars);

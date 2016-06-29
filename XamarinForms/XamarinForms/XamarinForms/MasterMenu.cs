@@ -10,7 +10,6 @@ namespace XamarinForms
     public class MasterMenu: ContentPage
     {
         public ListView ListView { get; }
-
         public MasterMenu()
         {
             var MasterMenuItems = new List<MasterMenuItem>
