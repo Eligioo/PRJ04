@@ -60,7 +60,7 @@ namespace BikesAPI.Controllers
         {
             return db.Theft
                 .Where(theft => theft.Color != "null")
-                .GroupBy(theft => theft.Type)
+                .GroupBy(theft => theft.Color)
                 .Select(colorGr => new GetColor { Color = colorGr.Key, Count = colorGr.Count() })
                 .ToList()
                 .OrderByDescending(record => record.Count);
