@@ -63,10 +63,10 @@ namespace Project4.Calendar
                 {
                     var agenda = calendars.ElementAt(picker.SelectedIndex);
                     Geo geo = new Geo();
-                    var position = await geo.GetLocation();
+                    await geo.GetLocation();
                     string address = await geo.GetAddress();
 
-                    string location = $"{geo.Latitude}, {geo.Longitude}";
+                    string location = $"{geo.Location.Item1}, {geo.Location.Item2}";
 
                     if (DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "bike", address, location))
                     {
