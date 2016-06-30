@@ -17,7 +17,7 @@ using Android.Util;
 
 namespace XamarinForms
 {
-    public class Question3 : ContentPage
+    public class Question3 : CarouselPage
     {
         readonly Picker picker;
         readonly List<Tuple<string, List<Tuple<int, int, int, int>>>> neighbourhoodList;
@@ -97,7 +97,7 @@ namespace XamarinForms
             {
                 picker.Items.Add(item.Item1);
             }
-            var getButton = new Button { Text = "Laad" };
+            var getButton = new Button { Text = "Laad", VerticalOptions = LayoutOptions.Start };
             getButton.Clicked += LoadButton_Clicked;
             layout = new StackLayout
             {
@@ -109,77 +109,117 @@ namespace XamarinForms
                     barChart
                 }
             };
-            this.Content = layout;
+            var contentPage = new ContentPage
+            {
+                Content = layout
+            };
+            Children.Add(contentPage);
         }
         private void LoadButton_Clicked(object sender, EventArgs e)
         {
-            var entry = neighbourhoodList.ElementAt(picker.SelectedIndex);
-            var neighbourhood = entry.Item1;
-            var data = entry.Item2;
-            var trommelBars = new BarSeries
+            if (picker.SelectedIndex != -1)
             {
-                Title = "Hoeveelheid Trommels",
-                StrokeColor = OxyColors.Blue,
-                StrokeThickness = 1
-            };
-            var theftBars = new BarSeries
-            {
-                Title = "Hoeveelheid diefstallen",
-                StrokeColor = OxyColors.Red,
-                StrokeThickness = 1
-            };
-            var children = layout.Children.Take(layout.Children.Count - 1);
-            IList<View> newChildren = new List<View>();
-            foreach (var item in children)
-            {
-                newChildren.Add(item);
-            }
-            var graphData = new GraphData<int>("Wat zijn de 5 buurten met de meeste fietstrommels?",
-                "Trommels", "buurt", new List<int>());
-            GraphFactory<int> graphFactory = new GraphFactory<int>();
-            var newBarModel = graphFactory.createGraph(GraphType.Bar, new GraphEffect(), graphData);
-            foreach (var item in neighbourhoodList)
-            {
-                if (item.Item1 == neighbourhood)
+                var entry = neighbourhoodList.ElementAt(picker.SelectedIndex);
+                var neighbourhood = entry.Item1;
+                var data = entry.Item2;
+                var trommelBars = new BarSeries
                 {
-                    foreach (var combination in item.Item2)
-                    {
-                        theftBars.Items.Add(new BarItem { Value = combination.Item1 });
-                        trommelBars.Items.Add(new BarItem { Value = combination.Item2 });
-                        Log.Debug("BOBS ERRORS", "entry added");
-                    }
-                    newBarModel.Series.Add(theftBars);
-                    newBarModel.Series.Add(trommelBars);
-                    Log.Debug("BOBS ERRORS", "series added");
-                    break;
+                    Title = "Hoeveelheid Trommels",
+                    StrokeColor = OxyColors.Blue,
+                    StrokeThickness = 1
+                };
+                var theftBars = new BarSeries
+                {
+                    Title = "Hoeveelheid diefstallen",
+                    StrokeColor = OxyColors.Red,
+                    StrokeThickness = 1
+                };
+                var children = layout.Children.Take(layout.Children.Count - 1);
+                IList<View> newChildren = new List<View>();
+                foreach (var item in children)
+                {
+                    newChildren.Add(item);
                 }
+                var graphData = new GraphData<int>("diefstallen en fietstrommels per maand",
+                    "Trommels", "buurt", new List<int>());
+                GraphFactory<int> graphFactory = new GraphFactory<int>();
+                var newBarModel = graphFactory.createGraph(GraphType.Bar, new GraphEffect(), graphData);
+                var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
+                var valueAxis = new LinearAxis
+                {
+                    Position = AxisPosition.Bottom,
+                    MinimumPadding = 0,
+                    MaximumPadding = 0.06,
+                    AbsoluteMinimum = 0
+                };
+                foreach (var item in neighbourhoodList)
+                {
+                    if (item.Item1 == neighbourhood)
+                    {
+                        var labelList = new List<string>();
+                        for (int i = 0; i < 48; i++)
+                        {
+                            labelList.Add(((i + 5) % 12 + 1).ToString() + " - " + (Math.Floor((float)(i + 1) / 12) + 2009));
+                        }
+                        labelList.Reverse();
+                        foreach (var label in labelList)
+                        {
+                            categoryAxis.Labels.Add(label);
+                        }
+                        for (int i = 0; i < 48; i++)
+                        {
+                            try
+                            {
+                                theftBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item1 });
+                            }
+                            catch
+                            {
+                                theftBars.Items.Add(new BarItem { Value = 0 });
+                            }
+                            try
+                            {
+                                trommelBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item2 });
+                            }
+                            catch
+                            {
+                                trommelBars.Items.Add(new BarItem { Value = 0 });
+                            }
+                        }
+                        newBarModel.Series.Add(theftBars);
+                        newBarModel.Series.Add(trommelBars);
+                        break;
+                    }
+                }
+                newBarModel.Axes.Add(categoryAxis);
+                newBarModel.Axes.Add(valueAxis);
+                var newLayout = new StackLayout
+                {
+                    Padding = new Thickness(50, 50, 50, 50)
+                };
+                foreach (var item in newChildren)
+                {
+                    newLayout.Children.Add(item);
+                }
+                var contentPage = new ContentPage
+                {
+                    Content = new PlotView
+                    {
+                        BackgroundColor = Color.White,
+                        Model = newBarModel,
+                        HeightRequest = 0.5,
+                        WidthRequest = 0.5
+                    },
+                    BackgroundColor = Color.White
+                };
+                var selectPage = new StackLayout { Padding = new Thickness(50, 50, 50, 50) };
+                foreach (var item in newChildren)
+                {
+                    selectPage.Children.Add(item);
+                }
+                Children.Clear();
+                Children.Add(new ContentPage { Content = selectPage });
+                Children.Add(contentPage);
             }
-            var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
-            var valueAxis = new LinearAxis
-            {
-                Position = AxisPosition.Bottom,
-                MinimumPadding = 0,
-                MaximumPadding = 0.06,
-                AbsoluteMinimum = 0
-            };
-            newBarModel.Axes.Add(categoryAxis);
-            newBarModel.Axes.Add(valueAxis);
-            var newPlotView = new PlotView
-            {
-                BackgroundColor = Color.White,
-                Model = newBarModel
-            };
-            var newLayout = new StackLayout
-            {
-                Padding = new Thickness(50, 50, 50, 50)
-            };
-            newChildren.Add(newPlotView);
-            foreach (var item in newChildren)
-            {
-                newLayout.Children.Add(item);
-            }
-            Log.Debug("BOBS ERRORS", "children = " + newLayout.Children.Count.ToString());
-            this.Content = newLayout;
         }
     }
 }

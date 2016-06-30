@@ -91,7 +91,6 @@ namespace XamarinForms
             Log.Debug("BOBS ERROR", mostColorsList.Count.ToString());
             plotModel.Series.Add(brandParts);
             plotModel2.Series.Add(colorParts);
-            var viewList = new ListView();
             var plotView = new PlotView
             {
                 BackgroundColor = Color.White,
