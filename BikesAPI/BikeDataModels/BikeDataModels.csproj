@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BikeContainer.cs" />
+    <Compile Include="CombinationofTheftTrommelAreaMonth.cs" />
     <Compile Include="GetBrand.cs" />
     <Compile Include="GetColor.cs" />
     <Compile Include="MostBikeContainer.cs" />
