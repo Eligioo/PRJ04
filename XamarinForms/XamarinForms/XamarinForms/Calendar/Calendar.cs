@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Project4.GeoLocation;
+using Java.Util;
 
 namespace Project4.Calendar
 {
-    public class CalendarTestPage : ContentPage
+    public class Calendar : ContentPage
     {
         readonly Picker picker;
         readonly DatePicker datePicker;
@@ -17,7 +18,7 @@ namespace Project4.Calendar
         IEnumerable<CalendarDetails> calendars;
         int PlanCounter = 0;
 
-        public CalendarTestPage()
+        public Calendar()
         {
             calendars = DependencyService.Get<ICalendarHandler>().GetAllCalendars();
 
@@ -79,7 +80,7 @@ namespace Project4.Calendar
 
                     string location = $"{geo.Location.Item1}, {geo.Location.Item2}";
 
-                    if (DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "bike", address, location))
+                    if (DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "Fiets ophalen", address, location))
                     {
                         await DisplayAlert("info", "de afspraak is succesvol ingeland", "ok");
                     }

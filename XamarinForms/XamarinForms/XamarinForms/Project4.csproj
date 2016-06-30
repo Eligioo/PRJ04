@@ -37,7 +37,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Calendar\CalendarDetails.cs" />
-    <Compile Include="Calendar\CalendarTestPage.cs" />
+    <Compile Include="Calendar\Calendar.cs" />
     <Compile Include="Calendar\ICalendarHandler.cs" />
     <Compile Include="GeoLocation\Geo.cs" />
     <Compile Include="Graphs\Graph.cs" />

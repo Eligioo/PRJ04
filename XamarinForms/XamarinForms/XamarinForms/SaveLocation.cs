@@ -12,11 +12,6 @@ using PCLStorage;
 
 namespace XamarinForms
 {
-    public interface ISaveOrLoadPosition
-    {
-        void SaveText(string filename, string Position);
-        string LoadText(string filename);
-    }
     public class SaveLocation : ContentPage
     {
         protected Label label;
@@ -35,7 +30,7 @@ namespace XamarinForms
             label      = new Label
             {
                 Text = "Sla je locatie op",
-                TextColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default)
+                TextColor = Device.OnPlatform<Color>(Color.Default, Color.White, Color.Default)
             };
 
             buttonSave = new Button
@@ -60,7 +55,7 @@ namespace XamarinForms
 
             StackLayout stacklayout = new StackLayout
             {
-                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.White,Color.Default),
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.Black,Color.Default),
                 Padding         = new Thickness(50, 50, 50, 50),
                 Children        =
                 {
