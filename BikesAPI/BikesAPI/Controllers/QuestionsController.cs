@@ -47,7 +47,7 @@ namespace BikesAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<object> Q3()
+        public IEnumerable<CombinationofTheftTrommelAreaMonth> Q3()
         {
             var _thefts = db.Theft
                 .GroupBy(theft => new { hood = theft.Neighbourhood, month = theft.DateTime.Month, year = theft.DateTime.Year })
@@ -59,7 +59,11 @@ namespace BikesAPI.Controllers
 
             return Queryable.Union(_thefts, _containers)
                 .GroupBy(u => new { hood = u.Neighbourhood, month = u.Month, year = u.Year })
-                .Select(gr => new { Neighbourhood = gr.Key.hood, Month = gr.Key.month, Year = gr.Key.year, TheftCount = gr.Sum(r => r.TheftCount), ContainerCount = gr.Sum(r => r.ContainerCount) });
+                .Select(gr => new { Neighbourhood = gr.Key.hood, Month = gr.Key.month, Year = gr.Key.year, TheftCount = gr.Sum(r => r.TheftCount), ContainerCount = gr.Sum(r => r.ContainerCount) })
+                .GroupBy(row => row.Neighbourhood)
+                .Select(gr => new CombinationofTheftTrommelAreaMonth {
+                    Neighbourhood = gr.Key,
+                    Rows = gr.Select(row => new TheftAndTrommel { Year=row.Year, Month = row.Month, Thefts=row.TheftCount, Trommels = row.ContainerCount}).OrderBy(o => new {o.Year, o.Month }) }).ToList();
 
                 
         }
