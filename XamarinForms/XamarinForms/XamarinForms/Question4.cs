@@ -74,7 +74,7 @@ namespace XamarinForms
             PlotModel.Series.Add(colorParts);
             this.Content = new PlotView
             {
-                BackgroundColor = Color.White,
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.White, Color.Default),
                 Model = PlotModel
             };
         }

@@ -48,8 +48,7 @@ namespace Project4.Calendar
 
             Content = new StackLayout
             {
-                //VerticalOptions = LayoutOptions.FillAndExpand,
-                //BackgroundColor = Color.White,
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.White, Color.Default),
                 Padding = new Thickness(50, 50, 50, 50),
                 Children = { picker, datePicker, timePicker, saveButton }
             };

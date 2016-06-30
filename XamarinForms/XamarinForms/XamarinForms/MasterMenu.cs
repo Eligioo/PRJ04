@@ -22,7 +22,7 @@ namespace XamarinForms
                 }
             };
 
-            if(Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.WinPhone)
+            if(/*Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.WinPhone*/true)
             {
                 MasterMenuItems.Add(new MasterMenuItem
                 {
