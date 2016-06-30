@@ -3,6 +3,7 @@ using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using System.Collections.Generic;
+using Android.Util;
 
 namespace XamarinForms.Graphs
 {
@@ -12,6 +13,29 @@ namespace XamarinForms.Graphs
     }
     public class TupleCompareClass : IComparer<Tuple<string, float>>
     {
+        public int Compare(Tuple<int, int, int, int> x, Tuple<int, int, int, int> y)
+        {
+            if (x.Item4 < y.Item4)
+            {
+                return 1;
+            }
+            else if (x.Item4 == y.Item4)
+            {
+                if (x.Item3 < y.Item3)
+                {
+                    return 1;
+                }
+                else if (x.Item3 > y.Item3)
+                {
+                    return -1;
+                }
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        }
         public int Compare(Tuple<string, float> x, Tuple<string, float> y)
         {
             if (x.Item2 < y.Item2)
@@ -139,7 +163,7 @@ namespace XamarinForms.Graphs
         }
         public override PlotModel createChart()
         {
-            var plotModel = new PlotModel { Title = "OxyPlot Demo" };
+            var plotModel = new PlotModel { Title = base.graphData.graphTitle };
             /*
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Maximum = 10, Minimum = 0 });
@@ -173,7 +197,7 @@ namespace XamarinForms.Graphs
         }
         public override PlotModel createChart()
         {
-            PlotModel model = new PlotModel { Title = "Pie Sample1" };
+            PlotModel model = new PlotModel { Title = base.graphData.graphTitle, TitleFontSize = 20 };
             /*
             var seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
 
