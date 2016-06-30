@@ -25,7 +25,7 @@ namespace XamarinForms
         private static List<GetColor> mostColors;
         public Question4Page()
         {
-            InitializeComponent();
+            //InitializeComponent();
             if (!loaded)
             {
                 loaded = true;
