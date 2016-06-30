@@ -15,14 +15,19 @@ namespace XamarinForms
 {
     public class Question2 : ContentPage
     {
+        private static bool loaded = false;
+        private static List<StolenBikeInMonthOfYear> mostTrommelList;
         public Question2()
         {
-            Title = "    Question 2";
-            List<StolenBikeInMonthOfYear> mostTrommelList;
-            using (var client = new HttpClient())
+            if (!loaded)
             {
-                string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q2").Result;
-                mostTrommelList = JsonConvert.DeserializeObject<List<StolenBikeInMonthOfYear>>(download);
+                loaded = true;
+                Title = "    Question 2";
+                using (var client = new HttpClient())
+                {
+                    string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q2").Result;
+                    mostTrommelList = JsonConvert.DeserializeObject<List<StolenBikeInMonthOfYear>>(download);
+                }
             }
             var BikeTheftList = new List<Tuple<int, int, int>>();
             foreach (var item in mostTrommelList)
@@ -41,7 +46,8 @@ namespace XamarinForms
                 MarkerStroke = OxyColors.White
             };
             var categoryAxis = new CategoryAxis
-            {   Position = AxisPosition.Bottom,
+            {
+                Position = AxisPosition.Bottom,
                 TickStyle = TickStyle.Outside,
                 AbsoluteMinimum = 2011,
                 AbsoluteMaximum = 2014
