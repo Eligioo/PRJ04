@@ -10,5 +10,6 @@
 	<uses-permission android:name="android.permission.LOCATION_HARDWARE" />
 	<uses-permission android:name="android.permission.READ_CALENDAR" />
 	<uses-permission android:name="android.permission.WRITE_CALENDAR" />
+	<uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
 	<application android:icon="@drawable/hr" android:label="Project4"></application>
 </manifest>

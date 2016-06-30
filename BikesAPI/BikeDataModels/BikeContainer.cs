@@ -8,7 +8,8 @@ namespace BikeDataModels
         public double YLocation { get; set; }
         public string Area { get; set; }
         public string Street { get; set; }
-        public int StreetNumber { get; set; }
+        public string StreetNumber { get; set; }
         public DateTime Date { get; set; }
+        public string Neighbourhood { get; set; }
     }
 }

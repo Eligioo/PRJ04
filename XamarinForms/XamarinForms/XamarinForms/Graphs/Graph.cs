@@ -13,6 +13,29 @@ namespace XamarinForms.Graphs
     }
     public class TupleCompareClass : IComparer<Tuple<string, float>>
     {
+        public int Compare(Tuple<int, int, int, int> x, Tuple<int, int, int, int> y)
+        {
+            if (x.Item4 < y.Item4)
+            {
+                return 1;
+            }
+            else if (x.Item4 == y.Item4)
+            {
+                if (x.Item3 < y.Item3)
+                {
+                    return 1;
+                }
+                else if (x.Item3 > y.Item3)
+                {
+                    return -1;
+                }
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        }
         public int Compare(Tuple<string, float> x, Tuple<string, float> y)
         {
             if (x.Item2 < y.Item2)

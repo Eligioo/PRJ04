@@ -21,7 +21,7 @@ namespace XamarinForms
                 }
             };
 
-            if(Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.WinPhone)
+            if(/*Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.WinPhone*/true)
             {
                 MasterMenuItems.Add(new MasterMenuItem
                 {
@@ -51,7 +51,7 @@ namespace XamarinForms
                 MasterMenuItems.Add(new MasterMenuItem
                 {
                     Title = "plan fiets ophalen",
-                    TargetType = typeof(Project4.Calendar.CalendarTestPage)
+                    TargetType = typeof(Project4.Calendar.Calendar)
                 });
             }
 

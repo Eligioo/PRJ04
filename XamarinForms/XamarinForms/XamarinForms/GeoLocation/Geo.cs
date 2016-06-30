@@ -10,18 +10,20 @@ using Plugin.Geolocator;
 namespace Project4.GeoLocation
 {
     public class Geo{
-        Geocoder geoCoder = new Geocoder();
-        public string Longitude;
-        public string Latitude;
-        public Plugin.Geolocator.Abstractions.Position Position;
-        public async Task<Plugin.Geolocator.Abstractions.Position> GetLocation() {
+        private Geocoder geoCoder;
+        public Tuple<string, string> Location;
+        private Plugin.Geolocator.Abstractions.Position Position;
+        private IEnumerable<string> possibleAddresses;
+        public Geo()
+        {
+            geoCoder = new Geocoder();
+        }
+        public async Task<Tuple<string, string>> GetLocation() {
             try
             {
-                var Position = await CrossGeolocator.Current.GetPositionAsync(10000);
-                this.Longitude = Position.Longitude.ToString().Replace(",", ".");
-                this.Latitude = Position.Latitude.ToString().Replace(",", ".");
-                this.Position = Position;
-                return Position;
+                this.Position = await CrossGeolocator.Current.GetPositionAsync(10000);
+                Location = new Tuple<string, string>(Position.Latitude.ToString().Replace(",", "."), Position.Longitude.ToString().Replace(",", "."));
+                return Location;
             }
             catch {
                 return null;
@@ -31,12 +33,24 @@ namespace Project4.GeoLocation
         public async Task<string> GetAddress() {
             try
             {
-                var location = new Position(this.Position.Latitude, this.Position.Longitude);
-                var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(location);
+                possibleAddresses = await geoCoder.GetAddressesForPositionAsync(new Position(this.Position.Latitude, this.Position.Longitude));
                 return possibleAddresses.First().ToString();
             }
             catch {
                 return $"{this.Position.Latitude},{this.Position.Longitude}";
+            }
+        }
+
+        public async Task<string> GetAddress(double latitude, double longitude)
+        {
+            try
+            {
+                possibleAddresses = await geoCoder.GetAddressesForPositionAsync(new Position(latitude, longitude));
+                return possibleAddresses.First().ToString();
+            }
+            catch
+            {
+                return $"{latitude},{longitude}";
             }
         }
     }

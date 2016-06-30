@@ -19,16 +19,12 @@ namespace XamarinForms
             MasterDetailPage.ListView.ItemSelected += OnItemSelected;
             Detail = new NavigationPage(new StartScreen());
         }
-        public static class Settings
-        {
-            // code here...
-        }
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MasterMenuItem;
             if (item != null)
             {
-                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+                Detail = new NavigationPage((Page)Activator.CreateInstance( item.TargetType));
                 MasterDetailPage.ListView.SelectedItem = null;
                 IsPresented = false;
             }
