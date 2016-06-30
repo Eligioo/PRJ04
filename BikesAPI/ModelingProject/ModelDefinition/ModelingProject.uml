@@ -37,6 +37,62 @@
         isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="d474801f-394c-4a39-92d6-55882585c92d"
+            name="GraphData&lt;T&gt;"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="862c35be-46ed-471b-853c-42e808976f8d"
+                LastKnownName="GraphData"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="fcc651e7-1288-4033-804c-f36d25e4ffa0"
+            name="GraphEffect"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="250d1e2a-7e41-4934-a5a5-f596bf8a37aa"
+                LastKnownName="GraphEffect"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2af44f6d-06f8-4b5c-a97e-1ce9e97f8a4a"
+            name="GraphType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="bf203d2c-6901-40af-9286-27e87b2f542b"
+                LastKnownName="GraphType"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="5c5c8b94-281a-4129-8ed1-fa712af6d907"
@@ -56,6 +112,45 @@
                     <undefinedTypeMoniker
                       Id="dc750195-7c51-43d6-b3b0-37d941c218aa"
                       LastKnownName="Plotmodel"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1a31f81c-672f-4629-9e1b-5c031eec3e07"
+            name="Graph"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3832c5c5-bb64-4cf8-affb-a593f92ba774"
+                  name="GraphType"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="bf203d2c-6901-40af-9286-27e87b2f542b"
+                      LastKnownName="GraphType"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dfd689df-fd49-4784-a6d1-561a88211c1d"
+                  name="GraphData"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="84a428fa-cf4b-4a95-a7b2-1715e18449c6"
+                      LastKnownName="GraphData&lt;T&gt;"
                       LastKnownLocation="ModelingProject.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -227,7 +322,7 @@
     <packageHasNamedElement>
       <class
         Id="b9a98387-d8d4-4e48-9be3-9ba4fb5e9c3f"
-        name="GraphFactory"
+        name="GraphFactory&lt;T&gt;"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -281,6 +376,27 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="1f8a050e-e568-49b6-ae0f-afddd59fb14c"
+            name="Chart"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="4229b5f2-fbc3-4b9b-a202-98c9ae7cf034"
+                LastKnownName="Graph&lt;T&gt;"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="6ba57f02-ed1a-4965-a62d-d0fc38450f16"
@@ -1172,6 +1288,174 @@
       <undefinedType
         Id="4e6c6c1f-317d-4b05-8732-f6ba73d3d33a"
         name="Label" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="bf203d2c-6901-40af-9286-27e87b2f542b"
+        name="GraphType" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="84a428fa-cf4b-4a95-a7b2-1715e18449c6"
+        name="GraphData&lt;T&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="0d26537e-04b6-46e1-b0b3-12c7f2ba9e49"
+        name="GraphEffet" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="250d1e2a-7e41-4934-a5a5-f596bf8a37aa"
+        name="GraphEffect" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="862c35be-46ed-471b-853c-42e808976f8d"
+        name="GraphData" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9cb43225-2de7-4e1b-beed-04f003764f3a"
+        name="Calendar : ContentPage"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="03ee6b32-26ed-4f13-9773-61b062f2aeba"
+            name="picker"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="1a27253e-d185-409d-ade5-691df0ea784f"
+                LastKnownName="Picker"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="cf817fad-ed31-4760-978a-d76bef2de8d4"
+            name="datePicker"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="4554ebef-036b-4f84-afe2-d5b42df4301f"
+                LastKnownName="DatePicker"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="98411c5c-8d71-43ce-bac5-bc9f67418ade"
+            name="timePicker"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="948d4fa8-c40e-4266-bcfe-736168b9bed6"
+                LastKnownName="TimePicker"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="13d5ff27-efaf-42e9-a33d-652fcdeffef5"
+            name="Calendar"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a2245d17-181c-4c7b-8777-68eb2bda4c20"
+            name="AsyncSaveButton_Clicked"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="562f7543-b4ab-461e-b899-d6ee516142e3"
+                  name="sender"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="587876b5-b79f-4307-9613-7e62ab411366"
+                      LastKnownName="object"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="df013657-8b2c-488a-83bf-ee26babf112d"
+                  name="e"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="27e03ca0-5e05-4130-bafd-fdefaef959b9"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="1a27253e-d185-409d-ade5-691df0ea784f"
+        name="Picker" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="4554ebef-036b-4f84-afe2-d5b42df4301f"
+        name="DatePicker" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="948d4fa8-c40e-4266-bcfe-736168b9bed6"
+        name="TimePicker" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="587876b5-b79f-4307-9613-7e62ab411366"
+        name="object" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="27e03ca0-5e05-4130-bafd-fdefaef959b9"
+        name="EventArgs" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
