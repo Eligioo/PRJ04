@@ -1564,6 +1564,8 @@ namespace XamarinForms.Droid
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Styleable.ViewStubCompat_android_id = global::XamarinForms.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::XamarinForms.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Styleable.ViewStubCompat_android_layout = global::XamarinForms.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::PCLStorage.Resource.String.ApplicationName = global::XamarinForms.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::XamarinForms.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_fade_in = global::XamarinForms.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_fade_out = global::XamarinForms.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_grow_fade_in_from_bottom = global::XamarinForms.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
