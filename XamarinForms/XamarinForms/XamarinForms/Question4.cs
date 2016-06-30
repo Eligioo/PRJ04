@@ -46,10 +46,11 @@ namespace XamarinForms
             {
                 mostColorsList.Add(new Tuple<string, int>(item.Color, item.Count));
             }
-            var graphData = new GraphData<int>("Hoeveel fietsdiefstallen zijn er per merk?", "Hoeveelheid", "Merk", new List<int>());
+            var graphDataBrand = new GraphData<int>("Hoeveel fietsdiefstallen zijn er per merk?", "Hoeveelheid", "Merk", new List<int>());
+            var graphDataColor = new GraphData<int>("Hoeveel fietsdiefstallen zijn er per kleur?", "Hoeveelheid", "Kleur", new List<int>());
             GraphFactory<int> graphFactory = new GraphFactory<int>();
-            PlotModel plotModel = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), graphData);
-            PlotModel plotModel2 = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), graphData);
+            PlotModel plotModel = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), graphDataBrand);
+            PlotModel plotModel2 = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), graphDataColor);
             var brandParts = new PieSeries
             {
                 StrokeThickness = 2.0,
@@ -57,7 +58,7 @@ namespace XamarinForms
                 AngleSpan = 360,
                 StartAngle = 0,
                 Diameter = 0.9,
-                FontSize = 20
+                FontSize = 13
             };
             var colorParts = new PieSeries
             {
@@ -65,7 +66,8 @@ namespace XamarinForms
                 InsideLabelPosition = 0.8,
                 AngleSpan = 360,
                 StartAngle = 0,
-                Diameter = 0.9
+                Diameter = 0.9,
+                FontSize = 13
             };
             for (int i = 0; i < 7; i++)
             {
@@ -112,6 +114,5 @@ namespace XamarinForms
             Children.Add(redContentPage);
             Children.Add(greenContentPage);
         }
-
     }
 }

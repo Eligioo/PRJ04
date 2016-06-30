@@ -140,7 +140,7 @@ namespace XamarinForms.Graphs
         }
         public override PlotModel createChart()
         {
-            var plotModel = new PlotModel { Title = "Plot" };
+            var plotModel = new PlotModel { Title = base.graphData.graphTitle };
             /*
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Maximum = 10, Minimum = 0 });
@@ -174,7 +174,7 @@ namespace XamarinForms.Graphs
         }
         public override PlotModel createChart()
         {
-            PlotModel model = new PlotModel { Title = "Plot"};
+            PlotModel model = new PlotModel { Title = base.graphData.graphTitle, TitleFontSize = 20 };
             /*
             var seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
 
