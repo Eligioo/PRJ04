@@ -88,6 +88,13 @@ namespace BikesAPI.Controllers
                 .ToList()
                 .OrderByDescending(record => record.Count);
         }
+
+        [HttpGet]
+        public IEnumerable<BikeContainer> NearestContainer(double x, double y)
+        {
+            return db.BikeContainer.OrderBy(container => Math.Pow(Math.Abs(container.XLocation-x),2.0)+ Math.Pow(Math.Abs(container.YLocation - y), 2.0)).Take(5);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
