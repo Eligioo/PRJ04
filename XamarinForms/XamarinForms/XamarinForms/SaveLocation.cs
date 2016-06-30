@@ -31,7 +31,7 @@ namespace XamarinForms
             this.geo   = new Geo();
             rootFolder = FileSystem.Current.LocalStorage;
             fileName   = "temp.txt";
-            Title      = "   Sla locatie op";
+            Title      = "Sla locatie op";
             label      = new Label
             {
                 Text = "Sla je locatie op",

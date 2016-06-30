@@ -29,7 +29,6 @@ namespace Project4
                     combinationList = JsonConvert.DeserializeObject<List<CombinationofTheftTrommelAreaMonth>>(download);
                 }
             }
-            var 
         }
     }
 }
