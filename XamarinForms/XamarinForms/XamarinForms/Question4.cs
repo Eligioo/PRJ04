@@ -69,16 +69,26 @@ namespace XamarinForms
                 Diameter = 0.9,
                 FontSize = 13
             };
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
                 brandParts.Slices.Add(new PieSlice(mostBrandsList.ElementAt(i).Item1, mostBrandsList.ElementAt(i).Item2));
             }
-            brandParts.Slices.Add(new PieSlice("Overig", mostBrandsList.GetRange(10, mostBrandsList.Count - 11).Count));
-            for (int i = 0; i < 7; i++)
+            int overigCount = 0;
+            for (int i = 8; i < mostBrandsList.Count - 1; i++)
+            {
+                overigCount = overigCount + mostBrandsList.ElementAt(i).Item2;
+            }
+            brandParts.Slices.Add(new PieSlice("Overig", overigCount));
+            for (int i = 0; i < 8; i++)
             {
                 colorParts.Slices.Add(new PieSlice(mostColorsList.ElementAt(i).Item1, mostColorsList.ElementAt(i).Item2));
             }
-            colorParts.Slices.Add(new PieSlice("Overig", mostColorsList.GetRange(10, mostColorsList.Count - 11).Count));
+            for (int i = 8; i < mostColorsList.Count - 1; i++)
+            {
+                overigCount = overigCount + mostColorsList.ElementAt(i).Item2;
+            }
+            colorParts.Slices.Add(new PieSlice("Overig", overigCount));
+            Log.Debug("BOBS ERROR", mostColorsList.Count.ToString());
             plotModel.Series.Add(brandParts);
             plotModel2.Series.Add(colorParts);
             var viewList = new ListView();
