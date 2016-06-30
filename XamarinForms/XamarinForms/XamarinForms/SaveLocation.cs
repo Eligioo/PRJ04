@@ -8,6 +8,7 @@ using Project4.GeoLocation;
 using Android.Util;
 using System.Collections;
 using System.Collections.Generic;
+using PCLStorage;
 
 namespace XamarinForms
 {
@@ -19,46 +20,58 @@ namespace XamarinForms
     public class SaveLocation : ContentPage
     {
         protected Label label;
-        protected Button buttonSave, buttonLoad;
+        protected Button buttonSave, buttonLoad, buttonDelete;
         protected Geo geo;
         protected string position;
+        readonly IFolder rootFolder;
+        readonly string fileName;
 
         public SaveLocation()
         {
-            this.geo = new Geo();
-            Title = "   Sla locatie op";
-            label = new Label
+            this.geo   = new Geo();
+            rootFolder = FileSystem.Current.LocalStorage;
+            fileName   = "temp.txt";
+            Title      = "Sla locatie op";
+            label      = new Label
             {
                 Text = "Sla je locatie op",
-                TextColor = Color.Black
+                TextColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default)
             };
 
             buttonSave = new Button
             {
-                Text = "FietsLocatie opslaan"
+                Text = "FietsLocatie opslaan",
             };
+            buttonSave.Clicked += SaveGpsClicked;
 
             buttonLoad = new Button
             {
-                Text = "Fietslocatie ophalen"
+                Text = "Fietslocatie ophalen",
+                IsVisible = false
             };
+            buttonLoad.Clicked += LoadGpsClicked;
 
-            buttonSave.Clicked += SaveGpsClicked;
-
-            IList<View> Views = new List<View>();
-            
-            var stacklayout = new StackLayout
+            buttonDelete = new Button
             {
-                BackgroundColor = Color.White,
-                Padding = new Thickness(50, 50, 50, 50),
-                Children = { label, buttonSave }
+                Text = "Fietslocatie verwijderen",
+                IsVisible = false
             };
-            if (CheckFileExists())
+            buttonDelete.Clicked += DeleteGpsClecked;
+
+            StackLayout stacklayout = new StackLayout
             {
-                buttonLoad.Clicked += LoadGpsClicked;
-                stacklayout.Children.Add(buttonLoad);
-            }
-            
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.White,Color.Default),
+                Padding         = new Thickness(50, 50, 50, 50),
+                Children        =
+                {
+                    label,
+                    buttonSave,
+                    buttonLoad,
+                    buttonDelete
+                }
+            };
+            CheckFileExists();
+
             this.Content = stacklayout;
 
         }
@@ -70,13 +83,14 @@ namespace XamarinForms
                 label.Text = "Aan het ophalen...";
                 await geo.GetLocation();
                 var Address = await geo.GetAddress();
-                DependencyService.Get<ISaveOrLoadPosition>().SaveText("temp.txt", Address);
+                IFile file = await rootFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+                await file.WriteAllTextAsync(Address);
                 label.Text = "Fietslocatie: " + Address + " is successvol opgeslagen!";
+                ChangeButtonsVisibility(true);
             }
             catch (Exception ex)
             {
                 label.Text = ex.ToString();
-                //SaveGpsClicked(sender, e);
             }
             finally
             {
@@ -87,35 +101,61 @@ namespace XamarinForms
         {
             try
             {
-                // var Location = await geo.GetLocation();
-                label.Text = "Fietslocatie: " + DependencyService.Get<ISaveOrLoadPosition>().LoadText("temp.txt") + " is successvol opgehaald!";
+                buttonLoad.IsEnabled = false;
+                IFile file = await rootFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
+                string Address = await file.ReadAllTextAsync();
+                label.Text = "Fietslocatie: " + Address + " is successvol opgehaald!";
             }
             catch (Exception ex)
             {
-                if (ex.GetType() == (typeof(System.IO.FileNotFoundException)))
-                {
-                    Log.Error("Error location", "geen locatie opgeslagen!");
-                    return;
-                }
-                Log.Error("Error location", ex.ToString());
+                label.Text = ex.ToString();
             }
+            finally
+            {
+                buttonLoad.IsEnabled = true;
+            };
+        }
+        async void DeleteGpsClecked(object sender, EventArgs e)
+        {
+            try
+            {
+                buttonDelete.IsEnabled = false;
+                IFile file = await rootFolder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
+                await file.DeleteAsync();
+                label.Text = "Fietslocatie is successvol verwijdert!";
+                ChangeButtonsVisibility(false);
+            }
+            catch (Exception ex)
+            {
+                label.Text = ex.ToString();
+            }
+            finally
+            {
+                buttonDelete.IsEnabled = true;
+            };
         }
         private bool CheckFileExists()
         {
             try
             {
-                DependencyService.Get<ISaveOrLoadPosition>().LoadText("temp.txt");
+                IFile file = rootFolder.GetFileAsync(fileName).Result;
+                ChangeButtonsVisibility(true);
                 return true;
             }
             catch (Exception ex)
             {
-                if (ex.GetType() == (typeof(System.IO.FileNotFoundException)))
-                {
-                    Log.Error("Error location", "geen locatie opgeslagen!");
-                }
-                Log.Error("Error location", ex.ToString());
+                
             }
             return false;
+        }
+        private void ChangeButtonsVisibility(bool Visibility)
+        {
+            if (buttonLoad.IsVisible != Visibility && buttonDelete.IsVisible != Visibility)
+            {
+                buttonLoad.IsVisible = Visibility;
+                buttonDelete.IsVisible = Visibility;
+            }
+            return;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace XamarinForms
                 }
             };
 
-            if(Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.WinPhone)
+            if(/*Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.WinPhone*/true)
             {
                 MasterMenuItems.Add(new MasterMenuItem
                 {
@@ -41,7 +41,7 @@ namespace XamarinForms
                 MasterMenuItems.Add(new MasterMenuItem
                 {
                     Title = "Vraag 4",
-                    TargetType = typeof(Question4Page)
+                    TargetType = typeof(Question4)
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {

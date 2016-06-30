@@ -21,19 +21,31 @@ namespace Project4.Calendar
         {
             calendars = DependencyService.Get<ICalendarHandler>().GetAllCalendars();
 
-            timePicker = new TimePicker();
-            datePicker = new DatePicker();
-            datePicker.Date = DateTime.Now;
-            datePicker.MinimumDate = DateTime.Now;
-            var saveButton = new Button { Text = "save" };
-            saveButton.Clicked += SaveButton_Clicked;
+            Title = "Fiets ophalen";
+            timePicker = new TimePicker
+            {
+                Time = new TimeSpan(12,00,00),
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default)
+            };
 
-            Title = "fiets ophalen";
+            datePicker = new DatePicker
+            {
+                Date = DateTime.Now,
+                MinimumDate = DateTime.Now,
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default),
+            };
+
+            Button saveButton = new Button
+            {
+                Text = "save"
+            };
+            saveButton.Clicked += SaveButton_Clicked;
 
             picker = new Picker
             {
                 Title = "Agenda",
-                VerticalOptions = LayoutOptions.CenterAndExpand
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default),
             };
 
             foreach (var c in calendars)
@@ -48,8 +60,7 @@ namespace Project4.Calendar
 
             Content = new StackLayout
             {
-                //VerticalOptions = LayoutOptions.FillAndExpand,
-                //BackgroundColor = Color.White,
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default),
                 Padding = new Thickness(50, 50, 50, 50),
                 Children = { picker, datePicker, timePicker, saveButton }
             };
