@@ -40,8 +40,6 @@ namespace XamarinForms.Droid
 
             cursor = Forms.Context.ContentResolver.Query(calendarsUri, calendarsProjection, null, null, null);
 
-
-
             while (cursor.MoveToNext())
             {
                 yield return new CalendarDetails
@@ -51,14 +49,11 @@ namespace XamarinForms.Droid
                     AccountName = cursor.GetString(cursor.GetColumnIndex(calendarsProjection[2]))
                 };
             }
-
-
         }
     
 
         public bool SaveAppointment(CalendarDetails calendar, DateTime dateTime, string title, string Description, string location = "")
         {
-            
             ContentValues eventValues = new ContentValues();
             eventValues.Put(CalendarContract.Events.InterfaceConsts.CalendarId, calendar.Id);
             eventValues.Put(CalendarContract.Events.InterfaceConsts.Title, title);
@@ -67,8 +62,6 @@ namespace XamarinForms.Droid
             eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtstart, GetDateTimeMS(dateTime));
             eventValues.Put(CalendarContract.Events.InterfaceConsts.Dtend, GetDateTimeMS(dateTime + new TimeSpan(hours:1,minutes:0,seconds:0)));
 
-            // GitHub issue #9 : Event start and end times need timezone support.
-            // https://github.com/xamarin/monodroid-samples/issues/9
             eventValues.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
             eventValues.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
 
@@ -80,13 +73,8 @@ namespace XamarinForms.Droid
 
         private long GetDateTimeMS(DateTime dateTime)
         {
-            Calendar c = Calendar.GetInstance(Java.Util.TimeZone.Default);
-
-            c.Set(Calendar.DayOfMonth, dateTime.Day);
-            c.Set(Calendar.HourOfDay, dateTime.Hour);
-            c.Set(Calendar.Minute, dateTime.Minute);
-            c.Set(Calendar.Month, dateTime.Month-1);// 0 based
-            c.Set(Calendar.Year, dateTime.Year);
+            Java.Util.Calendar c = Java.Util.Calendar.GetInstance(Java.Util.TimeZone.Default);
+            c.Set(dateTime.Year, dateTime.Month - 1, dateTime.Day, dateTime.Hour, dateTime.Minute);
 
             return c.TimeInMillis;
         }
