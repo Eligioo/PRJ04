@@ -28,8 +28,7 @@ namespace Project4
                     string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q1").Result;
                     combinationList = JsonConvert.DeserializeObject<List<CombinationofTheftTrommelAreaMonth>>(download);
                 }
-            }
-            var 
+            } 
         }
     }
 }
