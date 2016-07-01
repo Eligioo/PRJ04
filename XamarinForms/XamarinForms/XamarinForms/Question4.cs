@@ -24,18 +24,36 @@ namespace XamarinForms
         private static List<GetColor> mostColors;
         public Question4()
         {
+            Title = "    Vraag 4";
             if (!loaded)
             {
-                loaded = true;
-                Title = "    Vraag 4";
-                using (var client = new HttpClient())
-                {
-                    string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q4a").Result;
-                    mostBrands = JsonConvert.DeserializeObject<List<GetBrand>>(download);
-                    download = client.GetStringAsync("http://145.24.222.220/v2/questions/q4b").Result;
-                    mostColors = JsonConvert.DeserializeObject<List<GetColor>>(download);
-                }
+                this.LoadData();
+                this.ShowLoading();
             }
+        }
+        private void ShowLoading()
+        {
+            var loadingScreen = new ActivityIndicator { HorizontalOptions = LayoutOptions.CenterAndExpand, Color = Color.White, IsVisible = true, IsRunning = true };
+            this.Children.Add(new ContentPage
+            {
+                Content = loadingScreen
+            });
+        }
+        private async void LoadData()
+        {
+            using (var client = new HttpClient())
+            {
+                string download = await client.GetStringAsync("http://145.24.222.220/v2/questions/q4a");
+                mostBrands = JsonConvert.DeserializeObject<List<GetBrand>>(download);
+                download = client.GetStringAsync("http://145.24.222.220/v2/questions/q4b").Result;
+                mostColors = JsonConvert.DeserializeObject<List<GetColor>>(download);
+            }
+            loaded = true;
+            Children.Clear();
+            this.ShowData();
+        }
+        private void ShowData()
+        {
             List<Tuple<string, int>> mostBrandsList = new List<Tuple<string, int>>();
             List<Tuple<string, int>> mostColorsList = new List<Tuple<string, int>>();
             foreach (var item in mostBrands)

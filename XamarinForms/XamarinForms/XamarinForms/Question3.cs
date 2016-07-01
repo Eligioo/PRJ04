@@ -27,6 +27,7 @@ namespace XamarinForms
         private static List<CombinationofTheftTrommelAreaMonth> combinationList;
         public Question3()
         {
+            Title = "         Vraag 3";
             if (!loaded)
             {
                 this.LoadData();
@@ -36,18 +37,13 @@ namespace XamarinForms
             {
                 this.ShowData();
             }
-            Title = "         Vraag 3";
         }
         private void ShowLoading()
         {
-            var loadingLabel = new Label
-            {
-                Text = "LOADERING!!!!!!",
-                BackgroundColor = Color.Red
-            };
+            var loadingScreen = new ActivityIndicator { HorizontalOptions = LayoutOptions.CenterAndExpand, Color = Color.White, IsVisible = true, IsRunning = true };
             this.Children.Add(new ContentPage
             {
-                Content = loadingLabel
+                Content = loadingScreen
             });
         }
         private async void LoadData()

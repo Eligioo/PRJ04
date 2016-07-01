@@ -19,16 +19,33 @@ namespace XamarinForms
         private static List<StolenBikeInMonthOfYear> mostTrommelList;
         public Question2()
         {
+            Title = "    Vraag 2";
             if (!loaded)
             {
-                loaded = true;
-                Title = "    Vraag 2";
-                using (var client = new HttpClient())
-                {
-                    string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q2").Result;
-                    mostTrommelList = JsonConvert.DeserializeObject<List<StolenBikeInMonthOfYear>>(download);
-                }
+                this.LoadData();
+                this.ShowLoading();
+            }else
+            {
+                this.ShowData();
             }
+        }
+        private void ShowLoading()
+        {
+            var loadingScreen = new ActivityIndicator { HorizontalOptions = LayoutOptions.CenterAndExpand, Color = Color.White, IsVisible = true, IsRunning = true };
+            this.Content = loadingScreen;
+        }
+        private async void LoadData()
+        {
+            using (var client = new HttpClient())
+            {
+                string download = await client.GetStringAsync("http://145.24.222.220/v2/questions/q2");
+                mostTrommelList = JsonConvert.DeserializeObject<List<StolenBikeInMonthOfYear>>(download);
+                loaded = true;
+                this.ShowData();
+            }
+        }
+        private void ShowData()
+        {
             var BikeTheftList = new List<Tuple<int, int, int>>();
             foreach (var item in mostTrommelList)
             {

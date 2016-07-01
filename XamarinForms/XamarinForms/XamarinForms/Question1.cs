@@ -31,15 +31,12 @@ namespace XamarinForms
             {
                 this.ShowData();
             }
-            
+
         }
         private void ShowLoading()
         {
-            this.Content = new Label
-            {
-                Text = "random loading thingy LOADERING!!!",
-                BackgroundColor = Color.Red
-            };
+            var loadingScreen = new ActivityIndicator { HorizontalOptions = LayoutOptions.CenterAndExpand, Color = Color.White, IsVisible = true, IsRunning = true };
+            this.Content = loadingScreen;
         }
         public async void LoadData()
         {
