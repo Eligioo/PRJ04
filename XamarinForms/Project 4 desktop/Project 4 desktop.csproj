@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -63,6 +64,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Graphs\Question1.cs" />
+    <Compile Include="Graphs\Question2.cs" />
+    <Compile Include="Menu\MenuPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menu\MenuPanelItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -90,6 +97,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BikesAPI\BikeDataModels\BikeDataModels.csproj">
+      <Project>{fad16d33-650e-487a-bae2-150df57f2d16}</Project>
+      <Name>BikeDataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinForms\XamarinForms\Project4.csproj">
+      <Project>{92eea225-c639-4292-bb03-6bf59b935b81}</Project>
+      <Name>Project4</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
