@@ -9,24 +9,30 @@
       </annotatedElements>
     </comment>
   </ownedCommentsInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="85630da3-837a-4137-b115-95d9fe4977dc">
-      <profileInstance Id="1303b605-1628-43a9-abb9-8ad2645d9352" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="ffc59ba1-9715-4797-b3f1-a0e521d67015">
-      <profileInstance Id="63e02273-371c-42e7-aa92-d4c632c3a764" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="48496edf-bf0d-4d87-a83a-1ad44203bc9e" name="Graph&lt;T&gt;" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="4229b5f2-fbc3-4b9b-a202-98c9ae7cf034" />
+        <ownedAttributesInternal>
+          <property Id="c31fea28-cadb-41c4-b662-596b041456aa" name="GraphData&lt;T&gt;" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d474801f-394c-4a39-92d6-55882585c92d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="29dbb7f3-f257-478c-bc7b-1e8b872362d3" LastKnownName="GraphData" />
+            </type_NamedElement>
+          </property>
+          <property Id="65907f10-2147-4362-82a4-1f8b42674bf2" name="GraphEffect" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fcc651e7-1288-4033-804c-f36d25e4ffa0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="046fb307-5b39-4abf-af96-319ec694a7e2" LastKnownName="GraphEffect" />
+            </type_NamedElement>
+          </property>
+          <property Id="8d244c1b-454d-4cb3-8b3b-3179d21b1d6f" name="GraphType" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2af44f6d-06f8-4b5c-a97e-1ce9e97f8a4a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3a1dfe9d-a76c-45db-be3f-4148d9725b64" LastKnownName="GraphType" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="3dbace79-f866-4856-baaa-c2b76827909e" name="CreateChart" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="5c5c8b94-281a-4129-8ed1-fa712af6d907" />
@@ -41,6 +47,27 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="3754011c-b296-44c5-9331-f047e49b2ab0" name="Graph" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1a31f81c-672f-4629-9e1b-5c031eec3e07" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2b0be716-ccc9-4d9b-bed9-671d108f0cf4" name="GraphType" direction="In" isUnique="false">
+                  <elementDefinition Id="3832c5c5-bb64-4cf8-affb-a593f92ba774" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3a1dfe9d-a76c-45db-be3f-4148d9725b64" LastKnownName="GraphType" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b7cbdb61-c4b9-4499-8d8e-6fdaf5de2fec" name="GraphData" direction="In" isUnique="false">
+                  <elementDefinition Id="dfd689df-fd49-4784-a6d1-561a88211c1d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="aa2d6896-8cc5-470d-87fa-bf124e5957c7" LastKnownName="GraphData&lt;T&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -50,7 +77,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="736cd867-7c44-485e-af37-0654c1f4fc0d" name="PieChart" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="736cd867-7c44-485e-af37-0654c1f4fc0d" name="PieChart" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="78316fa0-36db-4e43-aafd-b7464b7cd61b" />
         <generalsInternal>
           <generalization Id="6c27c2d1-f90e-4d0a-9d8a-58cf6786b09e" isSubstitutable="false">
@@ -76,7 +103,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="a16fa503-be70-4e2c-af17-7d6946b1dca7" name="BarChart" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="a16fa503-be70-4e2c-af17-7d6946b1dca7" name="BarChart" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="44936d0b-e57d-4d4b-8997-406ac2973d13" />
         <generalsInternal>
           <generalization Id="adffcf6f-4c12-4356-948e-f944298cd0cc" isSubstitutable="false">
@@ -102,7 +129,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="6a3c8598-60ce-48ea-be31-2ba259471ab5" name="LineChart" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="6a3c8598-60ce-48ea-be31-2ba259471ab5" name="LineChart" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="2fb432fc-fab3-46fd-a3cb-3cb258a8217e" />
         <generalsInternal>
           <generalization Id="843d6cdb-32a8-46bf-87d3-1d7d1cfb5ecc" isSubstitutable="false">
@@ -159,7 +186,7 @@
       </enumeration>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="ed85a3da-3b79-426e-b6bc-60eec24a5199" name="GraphFactory" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="ed85a3da-3b79-426e-b6bc-60eec24a5199" name="GraphFactory&lt;T&gt;" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b9a98387-d8d4-4e48-9be3-9ba4fb5e9c3f" />
         <suppliersInternal>
           <dependency Id="69c102b1-00cb-4e82-b3b4-50024231d307">
@@ -185,6 +212,14 @@
             <elementDefinition Id="a1c44ee7-c5b2-4a5f-817b-a7bacca6f4e2" />
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="d326df0a-50b5-4149-b847-43bad816d648" name="Chart" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1f8a050e-e568-49b6-ae0f-afddd59fb14c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="15dfb4a3-f972-4aa5-b59b-8c12131596ef" LastKnownName="Graph&lt;T&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="d0b2e042-5edc-4d94-8a6d-64d811687092" name="CreateGraph" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="6ba57f02-ed1a-4965-a62d-d0fc38450f16" />
@@ -441,8 +476,308 @@
         <elementDefinition Id="c7eb325b-3e0d-4e7d-abd2-d575b59f4792" />
       </Interface>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fd6042a2-1d3f-4e9b-b588-0201637c66ae" name="Geo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bb61c644-95a8-4362-9eb8-c2a57d14e5e9" />
+        <ownedAttributesInternal>
+          <property Id="3f9c884e-0ed3-4d79-a653-7fc9da6ae430" name="geoCoder" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="177ec3f9-2496-4a0b-8e5d-153208278d41" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fd444ae4-e6d9-4b16-b8fd-eec0b1f749b4" LastKnownName="Geocoder" />
+            </type_NamedElement>
+          </property>
+          <property Id="0eb53e98-973b-4a47-a3ea-4db6ad07bec8" name="Location" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b34c7264-48e5-4813-b980-a3f824b8d643" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c09d4cca-5bce-41d6-ab50-251b24849de5" LastKnownName="Tuple&lt;string, string&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="26f9c262-6d48-4aac-86e3-f97aa8c89dd3" name="Position" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="640eaa33-544e-4e87-bfb7-532731a0cb3d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="da13f9bf-fba5-4c0f-890d-c30055663402" LastKnownName="Plugin.Geolocator.Abstractions.Position" />
+            </type_NamedElement>
+          </property>
+          <property Id="dfe871f2-f53c-409e-8372-b3678c5228af" name="possibleAddresses" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="07c3a4af-7454-481b-9b76-389d5ba4430d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="94cb3174-f876-402f-86b3-79b086509383" LastKnownName="IEnumerable&lt;string&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="fcfb41d5-9017-429d-af60-8cd849472586" name="Geo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ce1106d4-3aed-41c1-b6ee-ca4f01a775bb" />
+          </operation>
+          <operation Id="806acc1d-688d-47fa-bcc4-21b1d84cf342" name="AsyncGetLocation : Task&lt;Tuple&lt;string, string&gt;&gt;" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="267bd96d-17a4-43e1-abcd-309bbdc9f4ad" />
+          </operation>
+          <operation Id="79d73f4a-ed95-4d9a-bd8a-3734166f1854" name="AsyncGetAddress : Task&lt;string&gt;" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d1add5b0-e658-4dc8-82b5-2aba29a19a0a" />
+          </operation>
+          <operation Id="4e8306fe-c4f6-469b-8036-e657b621dd14" name="AsynGetLocation : Task&lt;string&gt;" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b92d9ced-cf53-4b03-b849-9ae8c659d2f4" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="c09d4cca-5bce-41d6-ab50-251b24849de5" name="Tuple&lt;string, string&gt;" isAbstract="false" isLeaf="false" cachedFullName="Tuple&lt;string, string&gt;">
+        <elementDefinition Id="25b864a7-f1e2-4177-8fd4-6802119065eb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="da13f9bf-fba5-4c0f-890d-c30055663402" name="Plugin.Geolocator.Abstractions.Position" isAbstract="false" isLeaf="false" cachedFullName="Plugin.Geolocator.Abstractions.Position">
+        <elementDefinition Id="4a6b1786-84ff-47bc-8221-cfb4fe2c9fcf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fd444ae4-e6d9-4b16-b8fd-eec0b1f749b4" name="Geocoder" isAbstract="false" isLeaf="false" cachedFullName="Geocoder">
+        <elementDefinition Id="1c7be91d-10ce-4974-884e-4d110454d905" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="94cb3174-f876-402f-86b3-79b086509383" name="IEnumerable&lt;string&gt;" isAbstract="false" isLeaf="false" cachedFullName="IEnumerable&lt;string&gt;">
+        <elementDefinition Id="69a96178-ee27-4873-bfa7-91d704bdf04c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4bf52dfa-47b8-4c1d-b4e2-9a74c47ddae7" name="SaveLocation : ContentPage" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f92185da-59ee-428e-9b11-caa5ad60277c" />
+        <targetEnds>
+          <association Id="fc03925e-6532-4e54-a144-84a120284ee2" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="fd6042a2-1d3f-4e9b-b588-0201637c66ae" LastKnownName="Geo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5c2636b6-13bd-4067-b2e1-953a4827e8c0" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2b7a513e-3969-42e2-9c66-e14d129064e5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="750b775b-bee0-4e37-b5d6-9e687739fedc" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="26f6a9fe-449f-4f4f-a65e-6a3cee44eba0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ba6e9611-8a3c-437f-b91d-4f1ea8dbbf60" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="380a16af-b5c7-420d-b3b3-f93af687f192" name="filename" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0750c00f-c135-4809-a0ba-d168576671b4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="85a43e78-5b8d-466b-b3a8-805be1a4c68d" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="e93abdc5-5563-4de6-bacd-c71ccedca1ed" name="rootFolder" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8c8dced8-1ac5-4b5b-99dd-b87d58071afb" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3658069e-8bab-4714-be5d-97b32bfe1e40" LastKnownName="IFolder" />
+            </type_NamedElement>
+          </property>
+          <property Id="e235c96b-77ba-404c-b8a9-9dc82d7de442" name="position" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="782e48b8-59b3-4183-9719-80f7f4cac481" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="85a43e78-5b8d-466b-b3a8-805be1a4c68d" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="c5c47852-84fb-491a-8bd6-d50eeda70b93" name="geo" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b4a6a6a7-cba7-4bd3-a4f4-a091dc3e6250" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="120fb524-b85b-495d-8f52-655010613e04" LastKnownName="Geo" />
+            </type_NamedElement>
+          </property>
+          <property Id="a8bc01c2-7a01-45f8-9ee4-97e16b23ed93" name="buttonSave" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2d5dbff9-6cac-4ad6-b8e0-3ca013003671" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6f1c1a27-dc6f-4991-a715-60fa16a7da93" LastKnownName="Button" />
+            </type_NamedElement>
+          </property>
+          <property Id="375a67eb-348f-4f81-a4b4-7b4a506419f9" name="buttonLoad" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b7cd646b-a697-4b88-ab1b-5fef93465bbc" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7e00efcf-ba8f-4398-8de1-16dc813f789f" LastKnownName="button" />
+            </type_NamedElement>
+          </property>
+          <property Id="70a59c83-c375-443c-8d64-6f86d0d6ccb0" name="buttonDelete" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2ec8e8ff-f479-499c-bae3-57cf049893c7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7e00efcf-ba8f-4398-8de1-16dc813f789f" LastKnownName="button" />
+            </type_NamedElement>
+          </property>
+          <property Id="2d8610b6-7faa-4b93-bb3d-553dc04cf79a" name="label" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="74a3bc9e-ca0e-4711-8bd6-152427f77f37" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="acd7f48e-d4bc-42d1-a5c7-9290d325c775" LastKnownName="Label" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="579f7ae9-14c0-4779-9f9c-f609cffcde9a" name="SaveLocation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cc68c34b-4181-4f1e-a9db-956bc9372496" />
+          </operation>
+          <operation Id="a3682d3f-1f23-470f-b873-2effb23f8b3b" name="AsyncSaveGpsLocation" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9a59ffd7-7c62-4aa7-be42-5fb06f5c3383" />
+          </operation>
+          <operation Id="8a2a6637-d858-4e90-ac58-34ae3ac77150" name="AsyncLoadGpsClicked" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d89468ef-636f-4863-9a43-ed26fb96a501" />
+          </operation>
+          <operation Id="c023d956-59d4-468e-8d37-2dc05d9a3bdd" name="AsyncDeleteGpsClicked" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b59f7144-1924-4a35-8ab6-57c7679e516b" />
+          </operation>
+          <operation Id="0d3337c9-429b-4dc4-832e-f954c914e3e6" name="ChangeButtonsVisibility" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c0ac61cb-9551-4dcf-b7f7-66051606b2d4" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="85a43e78-5b8d-466b-b3a8-805be1a4c68d" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="55f8d711-2527-45ff-9f7c-a07acdab6487" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3658069e-8bab-4714-be5d-97b32bfe1e40" name="IFolder" isAbstract="false" isLeaf="false" cachedFullName="IFolder">
+        <elementDefinition Id="d504fb15-064a-4008-bbda-97005d1b4a9d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6f1c1a27-dc6f-4991-a715-60fa16a7da93" name="Button" isAbstract="false" isLeaf="false" cachedFullName="Button">
+        <elementDefinition Id="2c735d40-c392-42b3-9be5-d3fa1db49a0c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="120fb524-b85b-495d-8f52-655010613e04" name="Geo" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Geo">
+        <elementDefinition Id="bb61c644-95a8-4362-9eb8-c2a57d14e5e9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7e00efcf-ba8f-4398-8de1-16dc813f789f" name="button" isAbstract="false" isLeaf="false" cachedFullName="button">
+        <elementDefinition Id="41758e44-3690-4acd-90be-9a0a63c6482d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="acd7f48e-d4bc-42d1-a5c7-9290d325c775" name="Label" isAbstract="false" isLeaf="false" cachedFullName="Label">
+        <elementDefinition Id="4e6c6c1f-317d-4b05-8732-f6ba73d3d33a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3a1dfe9d-a76c-45db-be3f-4148d9725b64" name="GraphType" isAbstract="false" isLeaf="false" cachedFullName="GraphType">
+        <elementDefinition Id="bf203d2c-6901-40af-9286-27e87b2f542b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="aa2d6896-8cc5-470d-87fa-bf124e5957c7" name="GraphData&lt;T&gt;" isAbstract="false" isLeaf="false" cachedFullName="GraphData&lt;T&gt;">
+        <elementDefinition Id="84a428fa-cf4b-4a95-a7b2-1715e18449c6" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="29dbb7f3-f257-478c-bc7b-1e8b872362d3" name="GraphData" isAbstract="false" isLeaf="false" cachedFullName="GraphData">
+        <elementDefinition Id="862c35be-46ed-471b-853c-42e808976f8d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="046fb307-5b39-4abf-af96-319ec694a7e2" name="GraphEffect" isAbstract="false" isLeaf="false" cachedFullName="GraphEffect">
+        <elementDefinition Id="250d1e2a-7e41-4934-a5a5-f596bf8a37aa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="15dfb4a3-f972-4aa5-b59b-8c12131596ef" name="Graph&lt;T&gt;" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject::Graph&lt;T&gt;">
+        <elementDefinition Id="4229b5f2-fbc3-4b9b-a202-98c9ae7cf034" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e83bee03-239d-4f43-b2a3-fab80d2297ac" name="Calendar : ContentPage" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9cb43225-2de7-4e1b-beed-04f003764f3a" />
+        <ownedAttributesInternal>
+          <property Id="a6a43a55-17cd-4f86-96ff-6172135c1bec" name="picker" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="03ee6b32-26ed-4f13-9773-61b062f2aeba" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cd2314eb-78b3-4eb4-9803-641f99ea3691" LastKnownName="Picker" />
+            </type_NamedElement>
+          </property>
+          <property Id="5da3fa10-4b31-470c-a43f-f3952ae8bae2" name="datePicker" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cf817fad-ed31-4760-978a-d76bef2de8d4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04e95b13-b6c7-4ed7-b1c0-42f346738b97" LastKnownName="DatePicker" />
+            </type_NamedElement>
+          </property>
+          <property Id="afe63930-8965-416e-b80f-63571bc6843d" name="timePicker" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="98411c5c-8d71-43ce-bac5-bc9f67418ade" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6d36d566-a6a2-4151-acc9-2f6bb5d2d4a6" LastKnownName="TimePicker" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="aa31eecb-abc1-485f-b72f-909df71f8d19" name="Calendar" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="13d5ff27-efaf-42e9-a33d-652fcdeffef5" />
+          </operation>
+          <operation Id="be6341fe-be28-4fc3-b4f9-1d77e13198c6" name="AsyncSaveButton_Clicked" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a2245d17-181c-4c7b-8777-68eb2bda4c20" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="84f32578-d7b7-42d5-bac2-34f79f3bcbbc" name="sender" direction="In" isUnique="false">
+                  <elementDefinition Id="562f7543-b4ab-461e-b899-d6ee516142e3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ae91dc1a-2058-41dc-b0a7-2479d4437b15" LastKnownName="object" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e39a7dc3-b329-4710-9f06-2e7ee3b36a7a" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="df013657-8b2c-488a-83bf-ee26babf112d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="8346a802-6469-4868-a797-ce763eb67685" LastKnownName="EventArgs" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="cd2314eb-78b3-4eb4-9803-641f99ea3691" name="Picker" isAbstract="false" isLeaf="false" cachedFullName="Picker">
+        <elementDefinition Id="1a27253e-d185-409d-ade5-691df0ea784f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="04e95b13-b6c7-4ed7-b1c0-42f346738b97" name="DatePicker" isAbstract="false" isLeaf="false" cachedFullName="DatePicker">
+        <elementDefinition Id="4554ebef-036b-4f84-afe2-d5b42df4301f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6d36d566-a6a2-4151-acc9-2f6bb5d2d4a6" name="TimePicker" isAbstract="false" isLeaf="false" cachedFullName="TimePicker">
+        <elementDefinition Id="948d4fa8-c40e-4266-bcfe-736168b9bed6" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ae91dc1a-2058-41dc-b0a7-2479d4437b15" name="object" isAbstract="false" isLeaf="false" cachedFullName="object">
+        <elementDefinition Id="587876b5-b79f-4307-9613-7e62ab411366" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8346a802-6469-4868-a797-ce763eb67685" name="EventArgs" isAbstract="false" isLeaf="false" cachedFullName="EventArgs">
+        <elementDefinition Id="27e03ca0-5e05-4130-bafd-fdefaef959b9" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="f4f8437c-f7ed-4d7b-adc0-71cd3f9e6ad1" name="ModelingProject">
     <elementDefinition Id="87e347f5-df79-498f-878c-beb0899da940" />
+    <profileInstances>
+      <packageHasProfileInstances Id="85630da3-837a-4137-b115-95d9fe4977dc">
+        <profileInstance Id="1303b605-1628-43a9-abb9-8ad2645d9352" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ffc59ba1-9715-4797-b3f1-a0e521d67015">
+        <profileInstance Id="63e02273-371c-42e7-aa92-d4c632c3a764" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

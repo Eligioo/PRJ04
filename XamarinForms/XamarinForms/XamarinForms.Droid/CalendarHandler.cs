@@ -15,6 +15,7 @@ using Java.Util;
 using Android.Database;
 
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 [assembly: Xamarin.Forms.Dependency(typeof(XamarinForms.Droid.CalendarHandler))]
 namespace XamarinForms.Droid
@@ -52,7 +53,7 @@ namespace XamarinForms.Droid
         }
     
 
-        public bool SaveAppointment(CalendarDetails calendar, DateTime dateTime, string title, string Description, string location = "")
+        public async Task<bool> SaveAppointment(CalendarDetails calendar, DateTime dateTime, string title, string Description, string location = "")
         {
             ContentValues eventValues = new ContentValues();
             eventValues.Put(CalendarContract.Events.InterfaceConsts.CalendarId, calendar.Id);

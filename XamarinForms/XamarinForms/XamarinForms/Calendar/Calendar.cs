@@ -80,7 +80,7 @@ namespace Project4.Calendar
 
                     string location = $"{geo.Location.Item1}, {geo.Location.Item2}";
 
-                    if (DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "Fiets ophalen", address, location))
+                    if (await DependencyService.Get<ICalendarHandler>().SaveAppointment(agenda, datePicker.Date.Date + timePicker.Time, "Fiets ophalen", address, location))
                     {
                         await DisplayAlert("info", "de afspraak is succesvol ingeland", "ok");
                     }
