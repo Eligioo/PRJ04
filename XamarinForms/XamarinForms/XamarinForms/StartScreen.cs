@@ -7,7 +7,7 @@ namespace XamarinForms
     {
         public StartScreen()
         {
-            Title = "Start Screen";
+            Title = "Start scherm";
             this.Content = new StackLayout {
                 BackgroundColor = Color.White,
                 Padding = new Thickness(50,50,50,50),

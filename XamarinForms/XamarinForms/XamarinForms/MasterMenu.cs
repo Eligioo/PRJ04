@@ -21,7 +21,7 @@ namespace XamarinForms
                 }
             };
 
-            if(/*Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.WinPhone*/true)
+            if(Device.OS == TargetPlatform.Android)
             {
                 MasterMenuItems.Add(new MasterMenuItem
                 {
@@ -48,19 +48,17 @@ namespace XamarinForms
                     Title = "Vraag 5",
                     TargetType = typeof(Question1)
                 });
-                MasterMenuItems.Add(new MasterMenuItem
-                {
-                    Title = "plan fiets ophalen",
-                    TargetType = typeof(Project4.Calendar.Calendar)
-                });
             }
-
+            MasterMenuItems.Add(new MasterMenuItem
+            {
+                Title = "plan fiets ophalen",
+                TargetType = typeof(Project4.Calendar.Calendar)
+            });
             MasterMenuItems.Add(new MasterMenuItem
             {
                 Title = "Save location",
                 TargetType = typeof(SaveLocation)
             });
-
             ListView = new ListView
             {
                 ItemsSource = MasterMenuItems,
