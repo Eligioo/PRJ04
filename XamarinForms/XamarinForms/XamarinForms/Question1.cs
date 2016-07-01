@@ -26,7 +26,7 @@ namespace XamarinForms
             if (!loaded)
             {
                 loaded = true;
-                Title = "    Question 1";
+                Title = "    Vraag 1";
                 using (var client = new HttpClient())
                 {
                     string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q1").Result;
@@ -38,7 +38,7 @@ namespace XamarinForms
             {
                 NeighbourhoodList.Add(new Tuple<string, float>(item.Neighborhoods, (float)item.Count));
             }
-            var graphData = new GraphData<int>("Wat zijn de 5 buurten met de meeste fietstrommels?",
+            var graphData = new GraphData<int>("De 5 buurten met de meeste fietstrommels",
                 "Trommels", "buurt", new List<int>());
             GraphFactory<int> graphFactory = new GraphFactory<int>();
             PlotModel plotModel = graphFactory.createGraph(GraphType.Bar, new GraphEffect(), graphData);

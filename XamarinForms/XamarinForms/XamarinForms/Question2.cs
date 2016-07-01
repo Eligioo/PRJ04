@@ -22,7 +22,7 @@ namespace XamarinForms
             if (!loaded)
             {
                 loaded = true;
-                Title = "    Question 2";
+                Title = "    Vraag 2";
                 using (var client = new HttpClient())
                 {
                     string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q2").Result;
@@ -34,7 +34,7 @@ namespace XamarinForms
             {
                 BikeTheftList.Add(new Tuple<int, int, int>(item.StolenBikes, item.Month, item.Year));
             }
-            var graphData = new GraphData<int>("Hoeveel fietsdiefstallen zijn er per maand?",
+            var graphData = new GraphData<int>("Hoeveelheid fietsdiefstallen per maand",
                 "Trommels", "maand", new List<int>());
             GraphFactory<int> graphFactory = new GraphFactory<int>();
             PlotModel plotModel = graphFactory.createGraph(GraphType.Line, new GraphEffect(), graphData);
@@ -63,7 +63,6 @@ namespace XamarinForms
             foreach (var item in BikeTheftList)
             {
                 points.Points.Add(new DataPoint((item.Item3 + (1.0 / 12.0 * item.Item2)), item.Item1));
-                Log.Debug("DEBUG MESSAGES BROUGHT TO YOU BY BOB", (new DataPoint((item.Item3 + (1.0 / 12.0 * item.Item2)), item.Item1)).ToString());
             }
             for (int i = 1; i < 2026; i++)
             {

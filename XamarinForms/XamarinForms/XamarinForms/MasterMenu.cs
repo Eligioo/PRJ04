@@ -57,7 +57,7 @@ namespace XamarinForms
 
             MasterMenuItems.Add(new MasterMenuItem
             {
-                Title = "Save location",
+                Title = "Sla locatie op",
                 TargetType = typeof(SaveLocation)
             });
 

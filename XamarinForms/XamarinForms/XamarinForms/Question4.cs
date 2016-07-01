@@ -27,7 +27,7 @@ namespace XamarinForms
             if (!loaded)
             {
                 loaded = true;
-                Title = "Question 4";
+                Title = "    Vraag 4";
                 using (var client = new HttpClient())
                 {
                     string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q4a").Result;
@@ -46,8 +46,8 @@ namespace XamarinForms
             {
                 mostColorsList.Add(new Tuple<string, int>(item.Color, item.Count));
             }
-            var graphDataBrand = new GraphData<int>("Hoeveel fietsdiefstallen zijn er per merk?", "Hoeveelheid", "Merk", new List<int>());
-            var graphDataColor = new GraphData<int>("Hoeveel fietsdiefstallen zijn er per kleur?", "Hoeveelheid", "Kleur", new List<int>());
+            var graphDataBrand = new GraphData<int>("Fietsdiefstallen per merk?", "Diefstallen", "Merk", new List<int>());
+            var graphDataColor = new GraphData<int>("Fietsdiefstallen per kleur?", "Diefstallen", "Kleur", new List<int>());
             GraphFactory<int> graphFactory = new GraphFactory<int>();
             PlotModel plotModel = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), graphDataBrand);
             PlotModel plotModel2 = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), graphDataColor);
@@ -88,7 +88,6 @@ namespace XamarinForms
                 overigCount = overigCount + mostColorsList.ElementAt(i).Item2;
             }
             colorParts.Slices.Add(new PieSlice("Overig", overigCount));
-            Log.Debug("BOBS ERROR", mostColorsList.Count.ToString());
             plotModel.Series.Add(brandParts);
             plotModel2.Series.Add(colorParts);
             var plotView = new PlotView

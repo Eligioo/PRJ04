@@ -47,13 +47,13 @@ namespace XamarinForms
                 }
                 neighbourhoodList.Add(new Tuple<string, List<Tuple<int, int, int, int>>>(neighbourhood.Neighbourhood, rows));
             }
-            var graphData = new GraphData<int>("Wat zijn de 5 buurten met de meeste fietstrommels?",
-                "Trommels", "buurt", new List<int>());
+            var graphData = new GraphData<int>("Fietstrommels en diefstallen per maand",
+                "Trommels", "Buurt", new List<int>());
             GraphFactory<int> graphFactory = new GraphFactory<int>();
             var barModel = graphFactory.createGraph(GraphType.Bar, new GraphEffect(), graphData);
             var trommelBars = new BarSeries
             {
-                Title = "Hoeveelheid Trommels",
+                Title = "Hoeveelheid trommels",
                 StrokeColor = OxyColors.Blue,
                 StrokeThickness = 1
             };
@@ -124,7 +124,7 @@ namespace XamarinForms
                 var data = entry.Item2;
                 var trommelBars = new BarSeries
                 {
-                    Title = "Hoeveelheid Trommels",
+                    Title = "Hoeveelheid trommels",
                     StrokeColor = OxyColors.Blue,
                     StrokeThickness = 1
                 };
@@ -141,7 +141,7 @@ namespace XamarinForms
                     newChildren.Add(item);
                 }
                 var graphData = new GraphData<int>("diefstallen en fietstrommels per maand",
-                    "Trommels", "buurt", new List<int>());
+                    "Trommels", "Buurt", new List<int>());
                 GraphFactory<int> graphFactory = new GraphFactory<int>();
                 var newBarModel = graphFactory.createGraph(GraphType.Bar, new GraphEffect(), graphData);
                 var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };

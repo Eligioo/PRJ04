@@ -38,7 +38,7 @@ namespace Project4.Calendar
 
             Button saveButton = new Button
             {
-                Text = "save"
+                Text = "Sla op"
             };
             saveButton.Clicked += SaveButton_Clicked;
 
