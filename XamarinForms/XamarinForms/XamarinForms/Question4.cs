@@ -29,6 +29,9 @@ namespace XamarinForms
             {
                 this.LoadData();
                 this.ShowLoading();
+            }else
+            {
+                this.ShowData();
             }
         }
         private void ShowLoading()
