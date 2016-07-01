@@ -20,6 +20,7 @@ namespace XamarinForms
     public class Question3 : CarouselPage
     {
         private Picker picker;
+        private bool isLoading = false;
         private List<Tuple<string, List<Tuple<int, int, int, int>>>> neighbourhoodList;
         private StackLayout layout;
         private PlotView barChart;
@@ -140,8 +141,10 @@ namespace XamarinForms
         }
         private void LoadButton_Clicked(object sender, EventArgs e)
         {
-            if (picker.SelectedIndex != -1)
+
+            if (picker.SelectedIndex != -1 && isLoading == false)
             {
+                isLoading = true;
                 var entry = neighbourhoodList.ElementAt(picker.SelectedIndex);
                 var neighbourhood = entry.Item1;
                 var data = entry.Item2;
@@ -167,7 +170,12 @@ namespace XamarinForms
                     "Trommels", "Buurt", new List<int>());
                 GraphFactory<int> graphFactory = new GraphFactory<int>();
                 var newBarModel = graphFactory.createGraph(GraphType.Bar, new GraphEffect(), graphData);
-                var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
+                var categoryAxis = new CategoryAxis
+                {
+                    Position = AxisPosition.Left,
+                    AbsoluteMaximum = 48,
+                    AbsoluteMinimum = 0
+                };
                 var valueAxis = new LinearAxis
                 {
                     Position = AxisPosition.Bottom,
@@ -230,7 +238,7 @@ namespace XamarinForms
                         BackgroundColor = Color.White,
                         Model = newBarModel,
                         HeightRequest = 0.5,
-                        WidthRequest = 0.5
+                        WidthRequest = 0.5,
                     },
                     BackgroundColor = Color.White
                 };
@@ -242,6 +250,7 @@ namespace XamarinForms
                 Children.Clear();
                 Children.Add(new ContentPage { Content = selectPage });
                 Children.Add(contentPage);
+                isLoading = false;
             }
         }
     }
