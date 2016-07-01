@@ -19,8 +19,8 @@ namespace XamarinForms
 {
     public class Question3 : CarouselPage
     {
-        readonly Picker picker;
-        readonly List<Tuple<string, List<Tuple<int, int, int, int>>>> neighbourhoodList;
+        private Picker picker;
+        private List<Tuple<string, List<Tuple<int, int, int, int>>>> neighbourhoodList;
         private StackLayout layout;
         private PlotView barChart;
         private static bool loaded = false;
@@ -29,14 +29,41 @@ namespace XamarinForms
         {
             if (!loaded)
             {
-                loaded = true;
-                Title = "         Vraag 3";
-                using (var client = new HttpClient())
-                {
-                    string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q3").Result;
-                    combinationList = JsonConvert.DeserializeObject<List<CombinationofTheftTrommelAreaMonth>>(download);
-                }
+                this.LoadData();
+                this.ShowLoading();
+
+            } else
+            {
+                this.ShowData();
             }
+            Title = "         Vraag 3";
+        }
+        private void ShowLoading()
+        {
+            var loadingLabel = new Label
+            {
+                Text = "LOADERING!!!!!!",
+                BackgroundColor = Color.Red
+            };
+            this.Children.Add(new ContentPage
+            {
+                Content = loadingLabel
+            });
+        }
+        private async void LoadData()
+        {
+            using (var client = new HttpClient())
+            {
+                var download = await client.GetStringAsync("http://145.24.222.220/v2/questions/q3");
+                combinationList = JsonConvert.DeserializeObject<List<CombinationofTheftTrommelAreaMonth>>(download);
+                loaded = true;
+                Children.Clear();
+                this.ShowData();
+            }
+        }
+        private void ShowData()
+        {
+
             neighbourhoodList = new List<Tuple<string, List<Tuple<int, int, int, int>>>>();
             foreach (var neighbourhood in combinationList)
             {

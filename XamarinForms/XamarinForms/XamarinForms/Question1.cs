@@ -25,14 +25,35 @@ namespace XamarinForms
         {
             if (!loaded)
             {
-                loaded = true;
-                Title = "    Vraag 1";
-                using (var client = new HttpClient())
-                {
-                    string download = client.GetStringAsync("http://145.24.222.220/v2/questions/q1").Result;
-                    mostTrommelList = JsonConvert.DeserializeObject<List<MostBikeContainer>>(download);
-                }
+                this.LoadData();
+                this.ShowLoading();
+            }else
+            {
+                this.ShowData();
             }
+            
+        }
+        private void ShowLoading()
+        {
+            this.Content = new Label
+            {
+                Text = "random loading thingy LOADERING!!!",
+                BackgroundColor = Color.Red
+            };
+        }
+        public async void LoadData()
+        {
+            using (var client = new HttpClient())
+            {
+                string download = await client.GetStringAsync("http://145.24.222.220/v2/questions/q1");
+                mostTrommelList = JsonConvert.DeserializeObject<List<MostBikeContainer>>(download);
+                loaded = true;
+                this.ShowData();
+            }
+        }
+        public void ShowData()
+        {
+            Title = "    Vraag 1";
             var NeighbourhoodList = new List<Tuple<string, float>>();
             foreach (var item in mostTrommelList)
             {

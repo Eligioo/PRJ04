@@ -56,8 +56,10 @@ namespace XamarinForms
             {
                 Position = AxisPosition.Left,
                 TickStyle = TickStyle.Outside,
-                AbsoluteMinimum = 175,
-                AbsoluteMaximum = 500
+                Minimum = 0,
+                Maximum = 400,
+                AbsoluteMinimum = 0,
+                AbsoluteMaximum = 550
             };
             BikeTheftList.Sort(new TupleCompareClass().Compare);
             foreach (var item in BikeTheftList)
