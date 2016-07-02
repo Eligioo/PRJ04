@@ -39,6 +39,7 @@
     <Compile Include="Calendar\CalendarDetails.cs" />
     <Compile Include="Calendar\Calendar.cs" />
     <Compile Include="Calendar\ICalendarHandler.cs" />
+    <Compile Include="Extensions\IListExtensions.cs" />
     <Compile Include="GeoLocation\Geo.cs" />
     <Compile Include="Graphs\Graph.cs" />
     <Compile Include="Main.cs" />
@@ -53,12 +54,12 @@
     <Compile Include="Question2.cs" />
     <Compile Include="Question3.cs" />
     <Compile Include="Question4.cs" />
+    <Compile Include="QuestionLoadPage.cs" />
     <Compile Include="SaveLocation.cs" />
     <Compile Include="StartScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>
