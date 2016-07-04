@@ -43,7 +43,6 @@ namespace XamarinForms
                     Title = "gestolen fietsen merk/kleur",
                     TargetType = typeof(Question4)
                 });
-                
             }
             MasterMenuItems.Add(new MasterMenuItem
             {
@@ -54,6 +53,11 @@ namespace XamarinForms
             {
                 Title = "Sla locatie op",
                 TargetType = typeof(SaveLocation)
+            });
+            MasterMenuItems.Add(new MasterMenuItem
+            {
+                Title = "Maps",
+                TargetType = typeof(QuestionMaps)
             });
             ListView = new ListView
             {

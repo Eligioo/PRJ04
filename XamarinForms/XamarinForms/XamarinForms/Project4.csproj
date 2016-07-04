@@ -55,6 +55,7 @@
     <Compile Include="Question3.cs" />
     <Compile Include="Question4.cs" />
     <Compile Include="QuestionLoadPage.cs" />
+    <Compile Include="QuestionMaps.cs" />
     <Compile Include="SaveLocation.cs" />
     <Compile Include="StartScreen.cs" />
   </ItemGroup>
