@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OxyPlot;
+using OxyPlot.Series;
 
 namespace Project_4_desktop
 {
@@ -15,26 +16,13 @@ namespace Project_4_desktop
         public Form1()
         {
             InitializeComponent();
-            var myModel = new PlotModel { Title = "Example 1" };
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("button 1 clicked");
+            menuPanel.OnModelChanged += MenuPanel_OnModelChanged;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void MenuPanel_OnModelChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("button 2 clicked");
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("button 3 clicked");
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("button 4 clicked");
+            plot1.Model = menuPanel.Model;
         }
     }
 }

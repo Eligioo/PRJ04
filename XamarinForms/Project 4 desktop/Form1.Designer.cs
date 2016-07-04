@@ -1,4 +1,6 @@
-﻿namespace Project_4_desktop
+﻿using OxyPlot.WindowsForms;
+
+namespace Project_4_desktop
 {
     partial class Form1
     {
@@ -28,72 +30,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Vraag1 = new System.Windows.Forms.Button();
-            this.Vraag2 = new System.Windows.Forms.Button();
-            this.Vraag3 = new System.Windows.Forms.Button();
-            this.Vraag4 = new System.Windows.Forms.Button();
+            this.plot1 = new OxyPlot.WindowsForms.PlotView();
+            this.graphContainer = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.menuPanel = new Project_4_desktop.Menu.MenuPanel();
+            this.graphContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Vraag1
+            // plot1
             // 
-            this.Vraag1.Location = new System.Drawing.Point(60, 86);
-            this.Vraag1.Name = "Vraag1";
-            this.Vraag1.Size = new System.Drawing.Size(75, 23);
-            this.Vraag1.TabIndex = 0;
-            this.Vraag1.Text = "Vraag 1";
-            this.Vraag1.UseVisualStyleBackColor = true;
-            this.Vraag1.Click += new System.EventHandler(this.button1_Click);
+            this.plot1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plot1.Location = new System.Drawing.Point(0, 0);
+            this.plot1.Name = "plot1";
+            this.plot1.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.plot1.Size = new System.Drawing.Size(914, 534);
+            this.plot1.TabIndex = 0;
+            this.plot1.Text = "plot1";
+            this.plot1.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.plot1.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.plot1.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
             // 
-            // Vraag2
+            // graphContainer
             // 
-            this.Vraag2.Location = new System.Drawing.Point(60, 115);
-            this.Vraag2.Name = "Vraag2";
-            this.Vraag2.Size = new System.Drawing.Size(75, 23);
-            this.Vraag2.TabIndex = 1;
-            this.Vraag2.Text = "Vraag 2";
-            this.Vraag2.UseVisualStyleBackColor = true;
-            this.Vraag2.Click += new System.EventHandler(this.button2_Click);
+            this.graphContainer.Controls.Add(this.plot1);
+            this.graphContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphContainer.Location = new System.Drawing.Point(0, 0);
+            this.graphContainer.Name = "graphContainer";
+            this.graphContainer.Size = new System.Drawing.Size(914, 534);
+            this.graphContainer.TabIndex = 4;
             // 
-            // Vraag3
+            // splitContainer1
             // 
-            this.Vraag3.Location = new System.Drawing.Point(60, 144);
-            this.Vraag3.Name = "Vraag3";
-            this.Vraag3.Size = new System.Drawing.Size(75, 23);
-            this.Vraag3.TabIndex = 2;
-            this.Vraag3.Text = "Vraag 3";
-            this.Vraag3.UseVisualStyleBackColor = true;
-            this.Vraag3.Click += new System.EventHandler(this.button3_Click);
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // Vraag4
+            // splitContainer1.Panel1
             // 
-            this.Vraag4.Location = new System.Drawing.Point(60, 174);
-            this.Vraag4.Name = "Vraag4";
-            this.Vraag4.Size = new System.Drawing.Size(75, 23);
-            this.Vraag4.TabIndex = 3;
-            this.Vraag4.Text = "Vraag 4";
-            this.Vraag4.UseVisualStyleBackColor = true;
-            this.Vraag4.Click += new System.EventHandler(this.button4_Click);
+            this.splitContainer1.Panel1.Controls.Add(this.menuPanel);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.graphContainer);
+            this.splitContainer1.Size = new System.Drawing.Size(1213, 534);
+            this.splitContainer1.SplitterDistance = 295;
+            this.splitContainer1.TabIndex = 5;
+            // 
+            // menuPanel
+            // 
+            this.menuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuPanel.Location = new System.Drawing.Point(0, 0);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(295, 534);
+            this.menuPanel.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1215, 738);
-            this.Controls.Add(this.Vraag4);
-            this.Controls.Add(this.Vraag3);
-            this.Controls.Add(this.Vraag2);
-            this.Controls.Add(this.Vraag1);
+            this.ClientSize = new System.Drawing.Size(1213, 534);
+            this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Project 4";
+            this.graphContainer.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button Vraag1;
-        private System.Windows.Forms.Button Vraag2;
-        private System.Windows.Forms.Button Vraag3;
-        private System.Windows.Forms.Button Vraag4;
+        private PlotView plot1;
+        private System.Windows.Forms.Panel graphContainer;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private Menu.MenuPanel menuPanel;
     }
 }
 
