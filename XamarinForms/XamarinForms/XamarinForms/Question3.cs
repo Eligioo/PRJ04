@@ -54,7 +54,6 @@ namespace XamarinForms
                 var download = await client.GetStringAsync("http://145.24.222.220/v2/questions/q3");
                 combinationList = JsonConvert.DeserializeObject<List<CombinationofTheftTrommelAreaMonth>>(download);
                 loaded = true;
-                Children.Clear();
                 this.ShowData();
             }
         }
@@ -133,6 +132,7 @@ namespace XamarinForms
                     barChart
                 }
             };
+            Children.Clear();
             var contentPage = new ContentPage
             {
                 Content = layout
@@ -173,7 +173,6 @@ namespace XamarinForms
                 var categoryAxis = new CategoryAxis
                 {
                     Position = AxisPosition.Left,
-                    AbsoluteMaximum = 48,
                     AbsoluteMinimum = 0
                 };
                 var valueAxis = new LinearAxis
@@ -190,29 +189,39 @@ namespace XamarinForms
                         var labelList = new List<string>();
                         for (int i = 0; i < 48; i++)
                         {
-                            labelList.Add(((i + 5) % 12 + 1).ToString() + " - " + (Math.Floor((float)(i + 1) / 12) + 2009));
+                            labelList.Add(((i + 5) % 12 + 1).ToString() + " - " + (((int)(Math.Floor((float)i + 5) / 12) + 2009).ToString()));
                         }
                         labelList.Reverse();
-                        foreach (var label in labelList)
+                        for (int i = 0; i < labelList.Count*2; i++)
                         {
-                            categoryAxis.Labels.Add(label);
+                            if (i % 2 == 0)
+                            {
+                                categoryAxis.Labels.Add(labelList.ElementAt((int)Math.Ceiling((float)i / 2)));
+                            }else
+                            {
+                                categoryAxis.Labels.Add("");
+                            }
                         }
                         for (int i = 0; i < 48; i++)
                         {
-                            try
+                            if (item.Item2.Count() > i)
                             {
-                                theftBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item1 });
-                            }
-                            catch
-                            {
+                                theftBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item1, Color = OxyPlot.OxyColor.FromRgb((byte)255, (byte)0, (byte)0) });
                                 theftBars.Items.Add(new BarItem { Value = 0 });
                             }
-                            try
+                            else
                             {
-                                trommelBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item2 });
+                                theftBars.Items.Add(new BarItem { Value = 0 });
+                                theftBars.Items.Add(new BarItem { Value = 0 });
                             }
-                            catch
+                            if (item.Item2.Count() > i)
                             {
+                                trommelBars.Items.Add(new BarItem { Value = 0 });
+                                trommelBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item2, Color = OxyPlot.OxyColor.FromRgb((byte)0, (byte)0, (byte)255) });
+                            }
+                            else
+                            {
+                                trommelBars.Items.Add(new BarItem { Value = 0 });
                                 trommelBars.Items.Add(new BarItem { Value = 0 });
                             }
                         }
