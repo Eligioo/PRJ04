@@ -18,11 +18,23 @@ namespace Project_4_desktop.Menu
             new MenuPanelItem
             {
                 Construct = () => new Question1(),
-                Title = "vraag 1"
+                Title = "5 buurten met de meeste fietscontainers"
             },new MenuPanelItem
             {
                 Construct = () => new Question2(),
-                Title = "vraag 2"
+                Title = "gestolen fietsen per maar"
+            },new MenuPanelItem
+            {
+                Construct = () => new Question3(),
+                Title = "Gestolen fietsen/geplaatste trommels per buurt"
+            },new MenuPanelItem
+            {
+                Construct = () => new Question4a(),
+                Title = "Meest gestolen fietsen per merk"
+            },new MenuPanelItem
+            {
+                Construct = () => new Question4b(),
+                Title = "Meest gestolen fietsen per kleur"
             }
         };
 
@@ -38,7 +50,8 @@ namespace Project_4_desktop.Menu
                 {
                     Text = item.Title,
                     Top = 20 + 50 * i,
-                    Left = 20
+                    Left = 20,
+                    Width = 250
                 };
                 newButton.Click += (sender, e) =>
                     {
