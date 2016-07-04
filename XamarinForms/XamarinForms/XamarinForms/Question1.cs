@@ -14,45 +14,19 @@ using Newtonsoft.Json;
 using BikeDataModels;
 using System.Net.Http;
 using Android.Util;
+using Project4;
 
 namespace XamarinForms
 {
-    public class Question1 : ContentPage
+    public class Question1 : QuestionLoadPage<List<MostBikeContainer>>
     {
-        private static bool loaded = false;
-        private static List<MostBikeContainer> mostTrommelList;
-        public Question1()
-        {
-            if (!loaded)
-            {
-                this.LoadData();
-                this.ShowLoading();
-            }else
-            {
-                this.ShowData();
-            }
+        public Question1() : base("questions/q1") { }
 
-        }
-        private void ShowLoading()
-        {
-            var loadingScreen = new ActivityIndicator { HorizontalOptions = LayoutOptions.CenterAndExpand, Color = Color.White, IsVisible = true, IsRunning = true };
-            this.Content = loadingScreen;
-        }
-        public async void LoadData()
-        {
-            using (var client = new HttpClient())
-            {
-                string download = await client.GetStringAsync("http://145.24.222.220/v2/questions/q1");
-                mostTrommelList = JsonConvert.DeserializeObject<List<MostBikeContainer>>(download);
-                loaded = true;
-                this.ShowData();
-            }
-        }
-        public void ShowData()
+        protected override void OnCacheLoaded()
         {
             Title = "    Vraag 1";
             var NeighbourhoodList = new List<Tuple<string, float>>();
-            foreach (var item in mostTrommelList)
+            foreach (var item in Cache)
             {
                 NeighbourhoodList.Add(new Tuple<string, float>(item.Neighborhoods, (float)item.Count));
             }

@@ -25,29 +25,25 @@ namespace XamarinForms
             {
                 MasterMenuItems.Add(new MasterMenuItem
                 {
-                    Title = "Vraag 1",
+                    Title = "buurten met meeste fietscontainers",
                     TargetType = typeof(Question1)
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {
-                    Title = "Vraag 2",
+                    Title = "gestolen fietsen per maand",
                     TargetType = typeof(Question2)
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {
-                    Title = "Vraag 3",
+                    Title = "fiets trommels/diefstallen per buurt",
                     TargetType = typeof(Question3)
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {
-                    Title = "Vraag 4",
+                    Title = "gestolen fietsen merk/kleur",
                     TargetType = typeof(Question4)
                 });
-                MasterMenuItems.Add(new MasterMenuItem
-                {
-                    Title = "Vraag 5",
-                    TargetType = typeof(Question1)
-                });
+                
             }
             MasterMenuItems.Add(new MasterMenuItem
             {

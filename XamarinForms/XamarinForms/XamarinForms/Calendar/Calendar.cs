@@ -23,16 +23,17 @@ namespace Project4.Calendar
             calendars = DependencyService.Get<ICalendarHandler>().GetAllCalendars();
 
             Title = "Fiets ophalen";
+            DateTime DateTimeNow = DateTime.Now;
             timePicker = new TimePicker
             {
-                Time = new TimeSpan(12,00,00),
+                Time = new TimeSpan(DateTimeNow.Hour+1, DateTimeNow.Minute, 0),
                 BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default)
             };
 
             datePicker = new DatePicker
             {
-                Date = DateTime.Now,
-                MinimumDate = DateTime.Now,
+                Date = DateTimeNow,
+                MinimumDate = DateTimeNow,
                 BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default),
             };
 
@@ -40,7 +41,7 @@ namespace Project4.Calendar
             {
                 Text = "Sla op"
             };
-            saveButton.Clicked += SaveButton_Clicked;
+            saveButton.Clicked += SaveButtonClicked;
 
             picker = new Picker
             {
@@ -67,7 +68,7 @@ namespace Project4.Calendar
             };
         }
 
-        private async void SaveButton_Clicked(object sender, EventArgs e)
+        private async void SaveButtonClicked(object sender, EventArgs e)
         {
             if (picker.SelectedIndex != -1)
             {
@@ -94,7 +95,7 @@ namespace Project4.Calendar
                     else
                     {
                         PlanCounter++;
-                        SaveButton_Clicked(sender, e);
+                        SaveButtonClicked(sender, e);
                     }
                 }
             }

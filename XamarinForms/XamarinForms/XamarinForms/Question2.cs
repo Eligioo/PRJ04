@@ -10,44 +10,20 @@ using Newtonsoft.Json;
 using BikeDataModels;
 using System.Net.Http;
 using Android.Util;
+using Project4;
 
 namespace XamarinForms
 {
-    public class Question2 : ContentPage
+    public class Question2 : QuestionLoadPage<List<StolenBikeInMonthOfYear>>
     {
-        private static bool loaded = false;
-        private static List<StolenBikeInMonthOfYear> mostTrommelList;
-        public Question2()
+        public Question2() : base("questions/q2")
         {
             Title = "    Vraag 2";
-            if (!loaded)
-            {
-                this.LoadData();
-                this.ShowLoading();
-            }else
-            {
-                this.ShowData();
-            }
         }
-        private void ShowLoading()
-        {
-            var loadingScreen = new ActivityIndicator { HorizontalOptions = LayoutOptions.CenterAndExpand, Color = Color.White, IsVisible = true, IsRunning = true };
-            this.Content = loadingScreen;
-        }
-        private async void LoadData()
-        {
-            using (var client = new HttpClient())
-            {
-                string download = await client.GetStringAsync("http://145.24.222.220/v2/questions/q2");
-                mostTrommelList = JsonConvert.DeserializeObject<List<StolenBikeInMonthOfYear>>(download);
-                loaded = true;
-                this.ShowData();
-            }
-        }
-        private void ShowData()
+        protected override void OnCacheLoaded()
         {
             var BikeTheftList = new List<Tuple<int, int, int>>();
-            foreach (var item in mostTrommelList)
+            foreach (var item in Cache)
             {
                 BikeTheftList.Add(new Tuple<int, int, int>(item.StolenBikes, item.Month, item.Year));
             }
