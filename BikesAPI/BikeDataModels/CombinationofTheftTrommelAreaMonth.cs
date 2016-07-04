@@ -14,6 +14,7 @@ namespace BikeDataModels
     {
         public string Neighbourhood { get; set; }
         public IEnumerable<TheftAndTrommel> Rows {get;set;}
-        
+
+        public override string ToString() => Neighbourhood;
     }
 }
