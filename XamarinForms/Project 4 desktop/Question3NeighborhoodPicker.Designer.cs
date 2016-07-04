@@ -40,20 +40,20 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "buurt:";
+            this.label1.Text = "Kies een buurt:";
             // 
             // neigborhoodComboBox
             // 
             this.neigborhoodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.neigborhoodComboBox.FormattingEnabled = true;
-            this.neigborhoodComboBox.Location = new System.Drawing.Point(84, 52);
+            this.neigborhoodComboBox.Location = new System.Drawing.Point(95, 52);
             this.neigborhoodComboBox.Name = "neigborhoodComboBox";
             this.neigborhoodComboBox.Size = new System.Drawing.Size(121, 21);
             this.neigborhoodComboBox.TabIndex = 1;
             // 
             // viewButton
             // 
-            this.viewButton.Location = new System.Drawing.Point(84, 131);
+            this.viewButton.Location = new System.Drawing.Point(95, 131);
             this.viewButton.Name = "viewButton";
             this.viewButton.Size = new System.Drawing.Size(75, 23);
             this.viewButton.TabIndex = 2;

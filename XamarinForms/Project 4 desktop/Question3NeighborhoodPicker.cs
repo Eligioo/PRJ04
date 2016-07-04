@@ -23,15 +23,18 @@ namespace Project_4_desktop
             var loader = new QuestionDataLoader<IEnumerable<CombinationofTheftTrommelAreaMonth>>("questions/q3");
             loader.OnLoaded += Loader_OnLoaded;
             question3 = question;
+            this.Deactivate += Question3NeighborhoodPicker_Deactived;
         }
-
+        private void Question3NeighborhoodPicker_Deactived(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void Loader_OnLoaded(object sender, EventArgs e)
         {
             data = sender as IEnumerable<CombinationofTheftTrommelAreaMonth>;
             neigborhoodComboBox.DataSource = data;
             neigborhoodComboBox.Refresh();
         }
-
         private void viewButton_Click(object sender, EventArgs e)
         {
             var selectedRow = neigborhoodComboBox.SelectedItem as CombinationofTheftTrommelAreaMonth;

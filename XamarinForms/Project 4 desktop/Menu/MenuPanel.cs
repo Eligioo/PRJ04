@@ -26,7 +26,7 @@ namespace Project_4_desktop.Menu
             },new MenuPanelItem
             {
                 Construct = () => new Question3(),
-                Title = "vraag 3"
+                Title = "Gestolen fietsen/geplaatste trommels per buurt"
             },new MenuPanelItem
             {
                 Construct = () => new Question4a(),
@@ -51,7 +51,7 @@ namespace Project_4_desktop.Menu
                     Text = item.Title,
                     Top = 20 + 50 * i,
                     Left = 20,
-                    Width = 200
+                    Width = 250
                 };
                 newButton.Click += (sender, e) =>
                     {

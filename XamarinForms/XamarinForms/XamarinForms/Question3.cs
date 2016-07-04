@@ -187,7 +187,7 @@ namespace XamarinForms
                     if (item.Item1 == neighbourhood)
                     {
                         var labelList = new List<string>();
-                        for (int i = 0; i < 48; i++)
+                        for (int i = 48; i > 0; i--)
                         {
                             labelList.Add(((i + 5) % 12 + 1).ToString() + " - " + (((int)(Math.Floor((float)i + 5) / 12) + 2009).ToString()));
                         }

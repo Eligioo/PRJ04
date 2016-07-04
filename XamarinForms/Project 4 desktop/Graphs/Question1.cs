@@ -34,8 +34,6 @@ namespace Project_4_desktop.Graphs
             {
                 NeighbourhoodList.Add(new Tuple<string, float>(item.Neighborhoods, (float)item.Count));
             }
-            var graphData = new GraphData<int>("De 5 buurten met de meeste fietstrommels",
-                "Trommels", "buurt", new List<int>());
             GraphFactory<int> graphFactory = new GraphFactory<int>();
             var bars = new BarSeries
             {
