@@ -28,6 +28,19 @@ namespace XamarinForms
             this.Children.Add(new BrandPie());
             this.Children.Add(new ColorPie());            
         }
+
+        static PieSeries getPieSeries()
+        {
+            return new PieSeries
+            {
+                StrokeThickness = 2.0,
+                InsideLabelPosition = 0.8,
+                AngleSpan = 360,
+                StartAngle = 0,
+                Diameter = 0.9,
+                FontSize = 13
+            };
+        }
         
         private class BrandPie : QuestionLoadPage<List<GetBrand>>
         {
@@ -39,15 +52,7 @@ namespace XamarinForms
                 GraphFactory<int> graphFactory = new GraphFactory<int>();
                 PlotModel plotModel = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), graphDataBrand);
 
-                var brandParts = new PieSeries
-                {
-                    StrokeThickness = 2.0,
-                    InsideLabelPosition = 0.8,
-                    AngleSpan = 360,
-                    StartAngle = 0,
-                    Diameter = 0.9,
-                    FontSize = 13
-                };
+                var brandParts = getPieSeries();
 
                 brandParts.Slices.AddRange(Cache.Take(8).Select(brandItem => new PieSlice(brandItem.Brand, brandItem.Count)));
                 var restCount = Cache.GetRange(8, Cache.Count - 8).Sum(brand => brand.Count);
@@ -80,22 +85,11 @@ namespace XamarinForms
                 GraphFactory<int> graphFactory = new GraphFactory<int>();
                 PlotModel plotModel = graphFactory.createGraph(GraphType.Pie, new GraphEffect(), graphDataColor);
 
-                var colorParts = new PieSeries
-                {
-                    StrokeThickness = 2.0,
-                    InsideLabelPosition = 0.8,
-                    AngleSpan = 360,
-                    StartAngle = 0,
-                    Diameter = 0.9,
-                    FontSize = 13
-                };
-
+                var colorParts = getPieSeries();
 
                 colorParts.Slices.AddRange(Cache.Take(8).Select(color => new PieSlice(color.Color, color.Count)));
                 var restCount = Cache.GetRange(8, Cache.Count - 8).Sum(color => color.Count);
                 colorParts.Slices.Add(new PieSlice("Overig", restCount));
-
-
 
                 plotModel.Series.Add(colorParts);
                 var plotView2 = new PlotView
