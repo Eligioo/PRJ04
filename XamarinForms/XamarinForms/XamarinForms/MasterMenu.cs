@@ -12,6 +12,8 @@ namespace XamarinForms
         public ListView ListView { get; }
         public MasterMenu()
         {
+            Icon = "hamburger.png";
+
             var MasterMenuItems = new List<MasterMenuItem>
             {
                 new MasterMenuItem

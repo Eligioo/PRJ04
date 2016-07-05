@@ -108,6 +108,9 @@
     <None Include="Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\hamburger.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\hr.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
