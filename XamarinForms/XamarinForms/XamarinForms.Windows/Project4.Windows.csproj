@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Assets\hr.png" />
+    <Content Include="Assets\hamburger.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
