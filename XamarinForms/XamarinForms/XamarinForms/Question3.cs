@@ -258,7 +258,7 @@ namespace XamarinForms
                 }
                 Children.Clear();
                 Children.Add(new ContentPage { Content = selectPage });
-                Children.Add(contentPage);
+                Navigation.PushModalAsync(contentPage);
                 isLoading = false;
             }
         }
