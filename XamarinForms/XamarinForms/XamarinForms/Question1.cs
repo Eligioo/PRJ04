@@ -24,7 +24,7 @@ namespace XamarinForms
 
         protected override void OnCacheLoaded()
         {
-            Title = "    Vraag 1";
+            Title = "    buurten met meeste fietscontainers";
             var NeighbourhoodList = new List<Tuple<string, float>>();
             foreach (var item in Cache)
             {

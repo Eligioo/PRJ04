@@ -28,7 +28,7 @@ namespace XamarinForms
         private static List<CombinationofTheftTrommelAreaMonth> combinationList;
         public Question3()
         {
-            Title = "         Vraag 3";
+            Title = "    fiets trommels/diefstallen per maand";
             if (!loaded)
             {
                 this.LoadData();
