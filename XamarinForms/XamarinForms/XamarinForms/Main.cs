@@ -14,6 +14,7 @@ namespace XamarinForms
         public Main()
         {
             MasterDetailPage = new MasterMenu();
+            var x = new MasterMenu();
             Master = MasterDetailPage;
 
             MasterDetailPage.ListView.ItemSelected += OnItemSelected;
