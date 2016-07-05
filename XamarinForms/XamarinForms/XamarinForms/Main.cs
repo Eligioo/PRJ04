@@ -24,7 +24,7 @@ namespace XamarinForms
             var item = e.SelectedItem as MasterMenuItem;
             if (item != null)
             {
-                Detail = new NavigationPage((Page)Activator.CreateInstance( item.TargetType));
+                Detail = new NavigationPage(item.Construct());
                 MasterDetailPage.ListView.SelectedItem = null;
                 IsPresented = false;
             }
