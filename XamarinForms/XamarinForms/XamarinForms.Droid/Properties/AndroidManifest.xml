@@ -16,6 +16,6 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<application android:icon="@drawable/hr" android:label="Project4">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCzs2vcoyD8UhzvmMNqeVUMtlPY5jo2XDk" />
-    <!--767463230913-sga5drn3hlci33jo5fu1euntl2m4cto6.apps.googleusercontent.com-->	
-</application>
+		<!--767463230913-sga5drn3hlci33jo5fu1euntl2m4cto6.apps.googleusercontent.com-->
+	</application>
 </manifest>

@@ -59,7 +59,7 @@ namespace XamarinForms
             MasterMenuItems.Add(new MasterMenuItem
             {
                 Title = "Maps",
-                TargetType = typeof(QuestionMaps)
+                Construct = () => new QuestionMaps()
             });
             ListView = new ListView
             {
