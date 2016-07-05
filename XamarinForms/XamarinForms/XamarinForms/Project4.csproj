@@ -57,7 +57,6 @@
     <Compile Include="QuestionLoadPage.cs" />
     <Compile Include="SaveLocation.cs" />
     <Compile Include="StartScreen.cs" />
-    <Compile Include="StolenBikes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
