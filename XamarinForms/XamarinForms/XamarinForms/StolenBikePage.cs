@@ -40,24 +40,14 @@ namespace XamarinForms
             onlineButton.Clicked += onOnlineButton;
             stationButton.Clicked += onStationButton;
             shareButton.Clicked += onShareButton;
-            var buttonList = new List<Button>();
-            buttonList.Add(onlineButton);
-            buttonList.Add(stationButton);
-            buttonList.Add(shareButton);
-            var buttonListView = new ListView
-            {
-                ItemsSource = buttonList,
-                ItemTemplate = new DataTemplate(() =>
-                {
-                    var textCell = new TextCell();
-                    textCell.SetBinding(TextCell.TextProperty, "Text");
-                    return textCell;
-                }),
-                VerticalOptions = LayoutOptions.FillAndExpand
-            };
             StackLayout buttonPage = new StackLayout
             {
-                Children = { buttonListView }
+                Children =
+                {
+                    onlineButton,
+                    stationButton,
+                    shareButton
+                }
             };
             this.Content = buttonPage;
         }
