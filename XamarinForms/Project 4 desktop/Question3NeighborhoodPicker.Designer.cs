@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Question3NeighborhoodPicker));
             this.label1 = new System.Windows.Forms.Label();
             this.neigborhoodComboBox = new System.Windows.Forms.ComboBox();
             this.viewButton = new System.Windows.Forms.Button();
@@ -38,7 +39,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kies een buurt:";
             // 
@@ -69,6 +70,7 @@
             this.Controls.Add(this.viewButton);
             this.Controls.Add(this.neigborhoodComboBox);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Question3NeighborhoodPicker";
             this.Text = "Question3NeighborhoodPicker";
             this.ResumeLayout(false);
