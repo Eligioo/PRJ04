@@ -1,0 +1,122 @@
+﻿[
+    {
+      "seq": "A",
+      "titel": "Doelwater (Hoofdbureau)",
+      "latitude": "51.9232176",
+      "longitude": "4.47922600000004",
+      "bezoekAdres": "Doelwater 5, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/doelwater.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "B",
+      "titel": "Zaagmolenstraat",
+      "latitude": "51.934847",
+      "longitude": "4.482157",
+      "bezoekAdres": "Zaagmolenstraat 91, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-zaagmolenstraat.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "C",
+      "titel": "Bureau Boezemsingel",
+      "latitude": "51.9301988",
+      "longitude": "4.4942969999999605",
+      "bezoekAdres": "Boezemsingel 12, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/boezemsingel.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "D",
+      "titel": "Noord",
+      "latitude": "51.9435055",
+      "longitude": "4.479488",
+      "bezoekAdres": "Pr. Frederik Hendrikstraat 40, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-noord.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "E",
+      "titel": "Taborstraat",
+      "latitude": "51.9269845",
+      "longitude": "4.5088731",
+      "bezoekAdres": "Taborstraat 22, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-taborstraat.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "F",
+      "titel": "Maashaven",
+      "latitude": "51.9017283",
+      "longitude": "4.4938743",
+      "bezoekAdres": "Maashaven NZ 5, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-maashaven.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "G",
+      "titel": "Marconiplein",
+      "latitude": "51.9126499",
+      "longitude": "4.4340515",
+      "bezoekAdres": "Schiedamseweg 400, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-marconiplein.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "H",
+      "titel": "Overschie",
+      "latitude": "51.934668",
+      "longitude": "4.4280882",
+      "bezoekAdres": "Burg. Baumannlaan 180, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-overschie.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "I",
+      "titel": "Zuidplein",
+      "latitude": "51.8893812",
+      "longitude": "4.4907929",
+      "bezoekAdres": "Zuidplein 111, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-zuidplein.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "J",
+      "titel": "De Veranda",
+      "latitude": "51.8973453",
+      "longitude": "4.5195332",
+      "bezoekAdres": "Cor Kieboomplein 475, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-veranda.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "K",
+      "titel": "Sandelingplein",
+      "latitude": "51.88994",
+      "longitude": "4.5076501",
+      "bezoekAdres": "Groene Hilledijk 275, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-sandelingplein.html?geoquery=rotterdam&distance=5.0"
+    },
+
+    {
+      "seq": "L",
+      "titel": "J.J.P. Oudsingel",
+      "latitude": "51.947512",
+      "longitude": "4.548183999999992",
+      "bezoekAdres": "Dr. JJP Oudsingel 1, Rotterdam",
+      "meerInformatie": "Meer informatie",
+      "URL": "/mijn-buurt/politiebureaus/07/bureau-jjp-oudsingel.html?geoquery=rotterdam&distance=5.0"
+    }
+]
+
