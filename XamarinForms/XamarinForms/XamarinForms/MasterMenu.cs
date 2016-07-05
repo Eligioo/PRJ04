@@ -12,12 +12,14 @@ namespace XamarinForms
         public ListView ListView { get; }
         public MasterMenu()
         {
+            Icon = "hamburger.png";
+
             var MasterMenuItems = new List<MasterMenuItem>
             {
                 new MasterMenuItem
                 {
                     Title = "Start",
-                    TargetType = typeof(StartScreen)
+                    Construct = () => new StartScreen()
                 }
             };
 
@@ -26,33 +28,33 @@ namespace XamarinForms
                 MasterMenuItems.Add(new MasterMenuItem
                 {
                     Title = "buurten met meeste fietscontainers",
-                    TargetType = typeof(Question1)
+                    Construct = () => new Question1()
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {
                     Title = "gestolen fietsen per maand",
-                    TargetType = typeof(Question2)
+                    Construct = () => new Question2()
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {
                     Title = "fiets trommels/diefstallen per buurt",
-                    TargetType = typeof(Question3)
+                    Construct = () => new Question3()
                 });
                 MasterMenuItems.Add(new MasterMenuItem
                 {
                     Title = "gestolen fietsen merk/kleur",
-                    TargetType = typeof(Question4)
+                    Construct = () => new Question4()
                 });
             }
             MasterMenuItems.Add(new MasterMenuItem
             {
                 Title = "plan fiets ophalen",
-                TargetType = typeof(Project4.Calendar.Calendar)
+                Construct = () => new Project4.Calendar.Calendar()
             });
             MasterMenuItems.Add(new MasterMenuItem
             {
                 Title = "Sla locatie op",
-                TargetType = typeof(SaveLocation)
+                Construct = () => new SaveLocation()
             });
             MasterMenuItems.Add(new MasterMenuItem
             {
@@ -81,7 +83,7 @@ namespace XamarinForms
 
     internal class MasterMenuItem
     {
-        public Type TargetType { get; set; }
+        public Func<Page> Construct { get; set; }
         public string Title { get; set; }
     }
 }

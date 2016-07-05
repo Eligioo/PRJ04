@@ -22,7 +22,7 @@ namespace Project_4_desktop.Menu
             },new MenuPanelItem
             {
                 Construct = () => new Question2(),
-                Title = "gestolen fietsen per maar"
+                Title = "gestolen fietsen per maand"
             },new MenuPanelItem
             {
                 Construct = () => new Question3(),

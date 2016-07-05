@@ -24,7 +24,7 @@ namespace XamarinForms
     {
         public Question4()
         {
-            Title = "    Vraag 4";
+            Title = "    gestolen fietsen merk/kleur";
             this.Children.Add(new BrandPie());
             this.Children.Add(new ColorPie());            
         }

@@ -18,7 +18,7 @@ namespace XamarinForms
     {
         public Question2() : base("questions/q2")
         {
-            Title = "    Vraag 2";
+            Title = "    gestolen fietsen per maand";
         }
         protected override void OnCacheLoaded()
         {

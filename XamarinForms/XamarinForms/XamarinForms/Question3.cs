@@ -28,7 +28,7 @@ namespace XamarinForms
         private static List<CombinationofTheftTrommelAreaMonth> combinationList;
         public Question3()
         {
-            Title = "         Vraag 3";
+            Title = "    fiets trommels/diefstallen per maand";
             if (!loaded)
             {
                 this.LoadData();
@@ -258,7 +258,7 @@ namespace XamarinForms
                 }
                 Children.Clear();
                 Children.Add(new ContentPage { Content = selectPage });
-                Children.Add(contentPage);
+                Navigation.PushModalAsync(contentPage);
                 isLoading = false;
             }
         }
