@@ -30,6 +30,20 @@ namespace Project4.GeoLocation
             }
         }
 
+        public async Task<Tuple<double, double>> GetLocationDouble()
+        {
+            try
+            {
+                this.Position = await CrossGeolocator.Current.GetPositionAsync(10000);
+                var Location = new Tuple<double, double>(Position.Latitude, Position.Longitude);
+                return Location;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public async Task<string> GetAddress() {
             try
             {

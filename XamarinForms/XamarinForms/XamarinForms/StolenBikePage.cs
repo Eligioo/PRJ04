@@ -11,6 +11,7 @@ using BikeDataModels;
 using System.Net.Http;
 using Android.Util;
 using Project4;
+using Project4.GeoLocation;
 
 namespace XamarinForms
 {
@@ -68,6 +69,13 @@ namespace XamarinForms
         void onStationButton(object sender, EventArgs e)
         {
             //hier moet de functie om het dichtstbijzijnde politiebureau te vinden
+            var geo = new Geo();
+            var location = geo.GetLocationDouble().Result;
+
+            var policeStations = new PoliceStations();
+            var station = policeStations.GetNearestStation(location.Item1, location.Item2);
+
+
         }
         void onShareButton(object sender, EventArgs e)
         {
