@@ -1,0 +1,50 @@
+﻿using BikeDataModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+using System.Net.Http;
+using Newtonsoft.Json;
+
+namespace Project4
+{
+    public class PoliceStations : IEnumerable<PoliceStation>
+    {
+        private IEnumerable<PoliceStation> stations;
+
+        public PoliceStations()
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var download = client.GetStringAsync("http://145.24.222.220/v2/PoliceStations").Result;
+                    stations = JsonConvert.DeserializeObject<IEnumerable<PoliceStation>>(download);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        public IEnumerator<PoliceStation> GetEnumerator()
+        {
+            return stations.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public PoliceStation GetNearestStation(double longtitude, double latitude)
+        {
+            return stations
+                .OrderBy(station => Math.Pow(longtitude - station.Longititude, 2) + Math.Pow(latitude - station.Latitude, 2))
+                .First();
+        }
+    }
+}
