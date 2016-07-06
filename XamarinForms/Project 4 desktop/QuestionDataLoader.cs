@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Project_4_desktop
 {
+    /// <summary>
+    /// resposible for loading and parsing of the data
+    /// </summary>
+    /// <typeparam name="TData">return type of the loaded data</typeparam>
     public class QuestionDataLoader<TData>
     {
         public event EventHandler OnLoaded;
@@ -18,11 +22,19 @@ namespace Project_4_desktop
 
         public TData Data => QuestionDataLoader<TData>.cache;
 
+        /// <summary>
+        /// path to load
+        /// </summary>
+        /// <param name="path"></param>
         public QuestionDataLoader(string path)
         {
             loadData(path);
         }
 
+        /// <summary>
+        /// load data in the background
+        /// </summary>
+        /// <param name="path"></param>
         private async void loadData(string path)
         {
             if(cached)

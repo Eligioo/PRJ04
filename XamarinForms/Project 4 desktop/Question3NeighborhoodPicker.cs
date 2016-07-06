@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace Project_4_desktop
 {
+    /// <summary>
+    /// extra form needed to select the right neigberhood. Page normaly only accept objects inherited by PlotModel
+    /// </summary>
     public partial class Question3NeighborhoodPicker : Form
     {
         IEnumerable<CombinationofTheftTrommelAreaMonth> data;
