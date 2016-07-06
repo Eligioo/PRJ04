@@ -9,10 +9,16 @@ using OxyPlot;
 
 namespace Project_4_desktop.Menu
 {
+    /// <summary>
+    /// panel is used on the left side of the application as sort of menu
+    /// </summary>
     public class MenuPanel : Panel
     {
         public event EventHandler OnModelChanged;
 
+        /// <summary>
+        /// menu items
+        /// </summary>
         List<MenuPanelItem> menuItems = new List<MenuPanelItem>
         {
             new MenuPanelItem
@@ -40,7 +46,9 @@ namespace Project_4_desktop.Menu
 
         public PlotModel Model { get; private set; }
 
-
+        /// <summary>
+        /// display menu items
+        /// </summary>
         public MenuPanel()
         {
             for (int i = 0; i < menuItems.Count; i++)
@@ -53,6 +61,7 @@ namespace Project_4_desktop.Menu
                     Left = 20,
                     Width = 250
                 };
+                //handle click event. create new plotmodel
                 newButton.Click += (sender, e) =>
                     {
                         this.Model = item.Construct();

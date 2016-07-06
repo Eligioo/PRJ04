@@ -59,6 +59,7 @@ namespace Project_4_desktop.Graphs
             Axes.Add(categoryAxis);
             Axes.Add(valueAxis);
 
+            // render explicit
             InvalidatePlot(true);
         }
     }

@@ -21,7 +21,7 @@ namespace XamarinForms
                     Construct = () => new StartScreen()
                 }
             };
-
+            //only on android visible
             if(Device.OS == TargetPlatform.Android)
             {
                 MasterMenuItems.Add(new MasterMenuItem
@@ -85,6 +85,9 @@ namespace XamarinForms
         }
     }
 
+    /// <summary>
+    /// simple factory for creating new pages
+    /// </summary>
     internal class MasterMenuItem
     {
         public Func<Page> Construct { get; set; }
