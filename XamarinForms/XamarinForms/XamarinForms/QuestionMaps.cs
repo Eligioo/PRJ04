@@ -61,22 +61,8 @@ namespace XamarinForms
                     var navloc1 = WebUtility.UrlEncode(await geo.GetAddress());
                     var navloc2 = WebUtility.UrlEncode(await geo.GetAddress(addressContainer.XLocation, addressContainer.YLocation));
 
-                    switch (Device.OS)
-                    {
-                        case TargetPlatform.iOS:
-                            Device.OpenUri(
-                                new Uri(string.Format("http://maps.apple.com/?saddr={0}&daddr={1}", navloc1, navloc2)));
-                            break;
-                        case TargetPlatform.Android:
-                            Device.OpenUri(
-                                new Uri(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}", navloc1, navloc2)));
-                            break;
-                        case TargetPlatform.Windows:
-                        case TargetPlatform.WinPhone:
-                            Device.OpenUri(
-                                new Uri(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}", navloc1, navloc2)));
-                            break;
-                    }
+                    Device.OpenUri(
+                        new Uri(geo.generateNavigation(navloc1, navloc2)));
                 }
             }
             catch (Exception ex)
