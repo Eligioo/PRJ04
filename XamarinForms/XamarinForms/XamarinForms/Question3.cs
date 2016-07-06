@@ -89,15 +89,15 @@ namespace XamarinForms
             var trommelBars = new BarSeries
             {
                 Title = "Hoeveelheid trommels",
-                StrokeColor = OxyColors.Blue,
-                FillColor = OxyColor.FromRgb((byte)0, (byte)0, (byte)255),
+                StrokeColor = OxyColors.Orange,
+                FillColor = OxyColors.Orange,
                 StrokeThickness = 1
             };
             var theftBars = new BarSeries
             {
                 Title = "Hoeveelheid diefstallen",
-                StrokeColor = OxyColors.Red,
-                FillColor = OxyColor.FromRgb((byte)255, (byte)0, (byte)0),
+                StrokeColor = OxyColors.Green,
+                FillColor = OxyColors.Green,
                 StrokeThickness = 1
             };
             var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
@@ -110,12 +110,6 @@ namespace XamarinForms
             {
                 neighbourhoodList.ElementAt(i).Item2.Sort(new TupleCompareClass().Compare);
             }
-            var bars = new BarSeries
-            {
-                Title = "Fietsdiefstallen en trommels per maand",
-                StrokeColor = OxyColors.Black,
-                StrokeThickness = 1
-            };
             barModel.Series.Add(trommelBars);
             barModel.Series.Add(theftBars);
             barModel.Axes.Add(categoryAxis);
@@ -168,13 +162,13 @@ namespace XamarinForms
                 var trommelBars = new BarSeries
                 {
                     Title = "Hoeveelheid trommels",
-                    StrokeColor = OxyColors.Blue,
+                    StrokeColor = OxyColors.Orange,
                     StrokeThickness = 1
                 };
                 var theftBars = new BarSeries
                 {
                     Title = "Hoeveelheid diefstallen",
-                    StrokeColor = OxyColors.Red,
+                    StrokeColor = OxyColors.Green,
                     StrokeThickness = 1
                 };
                 var children = layout.Children.Take(layout.Children.Count - 1);
@@ -208,7 +202,6 @@ namespace XamarinForms
                         {
                             labelList.Add(((i + 5) % 12 + 1).ToString() + " - " + (((int)(Math.Floor((float)i + 5) / 12) + 2009).ToString()));
                         }
-                        labelList.Reverse();
                         for (int i = 0; i < labelList.Count*2; i++)
                         {
                             if (i % 2 == 0)
@@ -223,7 +216,7 @@ namespace XamarinForms
                         {
                             if (item.Item2.Count() > i)
                             {
-                                theftBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item1, Color = OxyPlot.OxyColor.FromRgb((byte)255, (byte)0, (byte)0) });
+                                theftBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item1, Color = OxyPlot.OxyColors.Green});
                                 theftBars.Items.Add(new BarItem { Value = 0 });
                             }
                             else
@@ -234,7 +227,7 @@ namespace XamarinForms
                             if (item.Item2.Count() > i)
                             {
                                 trommelBars.Items.Add(new BarItem { Value = 0 });
-                                trommelBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item2, Color = OxyPlot.OxyColor.FromRgb((byte)0, (byte)0, (byte)255) });
+                                trommelBars.Items.Add(new BarItem { Value = item.Item2.ElementAt(i).Item2, Color = OxyPlot.OxyColors.Orange });
                             }
                             else
                             {
