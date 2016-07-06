@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms.Maps;
 using Plugin.Geolocator;
-
+using Xamarin.Forms;
 
 namespace Project4.GeoLocation
 {
@@ -62,6 +62,16 @@ namespace Project4.GeoLocation
             catch
             {
                 return $"{latitude.ToString().Replace(",", ".")},{longitude.ToString().Replace(",", ".")}";
+            }
+        }
+        public string generateNavigation(string navloc1, string navloc2)
+        {
+            if (Device.OS == TargetPlatform.iOS)
+            {
+                return string.Format("http://maps.apple.com/?saddr={0}&daddr={1}", navloc1, navloc2);
+            } else
+            {
+                return string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}", navloc1, navloc2);
             }
         }
     }

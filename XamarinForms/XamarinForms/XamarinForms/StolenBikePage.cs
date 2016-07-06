@@ -13,16 +13,26 @@ using Android.Util;
 using Project4;
 using Project4.GeoLocation;
 using Plugin.Share;
+using System.Net;
 
 namespace XamarinForms
 {
     public class StolenBikePage : ContentPage
     {
+        Geo geo;
+        Label label;
+        Button navigateButton;
+        PoliceStation station;
         /// <summary>
         /// stolenbikepage creates a contentpage with 3 buttons with their respective event handler
         /// </summary>
         public StolenBikePage()
         {
+            geo = new Geo();
+            label = new Label
+            {
+                Text = ""
+            };
             Button onlineButton = new Button
             {
                 Text = "Doe aangifte online"
@@ -31,19 +41,27 @@ namespace XamarinForms
             {
                 Text = "Zoek Dichtstbijzijnde politiebureau"
             };
+            navigateButton = new Button
+            {
+                Text = "Navigeer naar politiebureau",
+                IsVisible = false
+            };
             Button shareButton = new Button
             {
                 Text = "Deel dit op sociale media"
             };
             onlineButton.Clicked += onOnlineButton;
             stationButton.Clicked += onStationButton;
+            navigateButton.Clicked += onNavigateButton;
             shareButton.Clicked += onShareButton;
             StackLayout buttonPage = new StackLayout
             {
                 Children =
                 {
+                    label,
                     onlineButton,
                     stationButton,
+                    navigateButton,
                     shareButton
                 }
             };
@@ -66,13 +84,27 @@ namespace XamarinForms
         async void onStationButton(object sender, EventArgs e)
         {
             //hier moet de functie om het dichtstbijzijnde politiebureau te vinden
-            var geo = new Geo();
             var location = await geo.GetLocationDouble();
 
             var policeStations = new PoliceStations();
-            var station = policeStations.GetNearestStation(location.Item1, location.Item2);
+            station  = policeStations.GetNearestStation(location.Item1, location.Item2);
 
-            await Navigation.PushModalAsync(new NearestPoliceStation(station));
+            label.Text = string.Format("Politiebureau: {0} \r\nAdres: {1}", station.Titel, station.BezoekAdres);
+            navigateButton.IsVisible = true;
+        }
+
+        /// <summary>
+        /// Handles the link to google maps
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void onNavigateButton(object sender, EventArgs e)
+        {
+            var navloc1 = WebUtility.UrlEncode(await geo.GetAddress());
+            var navloc2 = WebUtility.UrlEncode(station.BezoekAdres);
+
+            Device.OpenUri(
+                new Uri(geo.generateNavigation(navloc1, navloc2)));
         }
 
         /// <summary>
@@ -80,7 +112,6 @@ namespace XamarinForms
         /// </summary>
         async void onShareButton(object sender, EventArgs e)
         {
-            var geo = new Geo();
             try {
                 var location = await geo.GetLocation();
                 var address = await geo.GetAddress();

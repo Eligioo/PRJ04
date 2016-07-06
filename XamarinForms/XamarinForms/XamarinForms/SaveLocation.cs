@@ -85,7 +85,7 @@ namespace XamarinForms
             }
             catch (Exception ex)
             {
-                label.Text = ex.ToString();
+                label.Text = "Je locatie kan niet gevonden worden, probeer het later nog eens.";
             }
             finally
             {
