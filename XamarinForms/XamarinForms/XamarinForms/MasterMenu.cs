@@ -13,7 +13,6 @@ namespace XamarinForms
         public MasterMenu()
         {
             Icon = "hamburger.png";
-
             var MasterMenuItems = new List<MasterMenuItem>
             {
                 new MasterMenuItem
@@ -45,6 +44,7 @@ namespace XamarinForms
                     Title = "gestolen fietsen merk/kleur",
                     Construct = () => new Question4()
                 });
+                
             }
             MasterMenuItems.Add(new MasterMenuItem
             {
@@ -58,8 +58,8 @@ namespace XamarinForms
             });
             MasterMenuItems.Add(new MasterMenuItem
             {
-                Title = "Maps",
-                Construct = () => new QuestionMaps()
+                Title = "Mijn Fiets is gestolen!",
+                Construct = () => new StolenBikePage() //change this to appropriate
             });
             ListView = new ListView
             {
