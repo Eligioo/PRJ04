@@ -15,8 +15,16 @@ namespace Project4
         private static TCache cache;
         private static bool loaded;
 
+        /// <summary>
+        /// get the cache of type you want
+        /// </summary>
         protected static TCache Cache => cache;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path">last part of the url for the richt api end point</param>
+        /// <param name="reload">refresh data</param>
         protected QuestionLoadPage(string path, bool reload = false)
         {
             if(!loaded || reload)
@@ -28,11 +36,17 @@ namespace Project4
                 OnCacheLoaded();
         }
 
+        /// <summary>
+        /// show loading circle during data loading
+        /// </summary>
         private void showLoading()
         {
             Content = new ActivityIndicator { HorizontalOptions = LayoutOptions.CenterAndExpand, Color = Color.White, IsVisible = true, IsRunning = true };
         }
 
+        /// <summary>
+        /// load data and deserialize object in the background
+        /// </summary>
         private async void loadData(string path)
         {
             try
@@ -51,7 +65,13 @@ namespace Project4
             }
         }
 
+        /// <summary>
+        /// called after loaded data
+        /// </summary>
         protected abstract void OnCacheLoaded();
+        /// <summary>
+        /// called after loadind failed with an exception
+        /// </summary>
         protected virtual void OnCacheLoadedFailed() { }
     }
 }

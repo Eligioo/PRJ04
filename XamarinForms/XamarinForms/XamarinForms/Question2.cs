@@ -16,6 +16,9 @@ namespace XamarinForms
 {
     public class Question2 : QuestionLoadPage<List<StolenBikeInMonthOfYear>>
     {
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Question2() : base("questions/q2")
         {
             Title = "    gestolen fietsen per maand";
