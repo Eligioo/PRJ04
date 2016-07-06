@@ -29,6 +29,10 @@ namespace XamarinForms
             this.Children.Add(new ColorPie());            
         }
 
+        /// <summary>
+        /// config of the pie
+        /// </summary>
+        /// <returns></returns>
         static PieSeries getPieSeries()
         {
             return new PieSeries
@@ -75,6 +79,12 @@ namespace XamarinForms
             }
         }
 
+        /// <summary>
+        /// internal class for displaying the colorpie
+        /// </summary>
+        /// <remarks>
+        /// inherit also the loadpage for indidual loading
+        /// </remarks>
         private class ColorPie : QuestionLoadPage<List<GetColor>>
         {
             public ColorPie() : base("questions/q4b") { }

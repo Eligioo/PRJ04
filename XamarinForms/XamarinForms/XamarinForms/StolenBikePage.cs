@@ -18,6 +18,9 @@ namespace XamarinForms
 {
     public class StolenBikePage : ContentPage
     {
+        /// <summary>
+        /// stolenbikepage creates a contentpage with 3 buttons with their respective event handler
+        /// </summary>
         public StolenBikePage()
         {
             Button onlineButton = new Button
@@ -46,12 +49,17 @@ namespace XamarinForms
             };
             this.Content = buttonPage;
         }
+        /// <summary>
+        /// this event handler handles the event of the online button being pressed and then redirects the user to the police website
+        /// </summary>
         void onOnlineButton(object sender, EventArgs e)
         {
-            Log.Debug("BARLD", "hieroz");
             string url = "https://www.politie.nl/aangifte-of-melding-doen/aangifte-doen/aangifte-van-diefstal-fiets.html";
             CrossShare.Current.OpenBrowser(url);
         }
+        /// <summary>
+        /// this event handler handles the event of the station button being pressed and then shows the nearest police station
+        /// </summary>
         async void onStationButton(object sender, EventArgs e)
         {
             //hier moet de functie om het dichtstbijzijnde politiebureau te vinden
@@ -61,8 +69,11 @@ namespace XamarinForms
             var policeStations = new PoliceStations();
             var station = policeStations.GetNearestStation(location.Item1, location.Item2);
 
-            Navigation.PushModalAsync(new NearestPoliceStation(station));
+            await Navigation.PushModalAsync(new NearestPoliceStation(station));
         }
+        /// <summary>
+        /// this event handler handles the event of the sharebutton being pressed and then shows the share dialog
+        /// </summary>
         void onShareButton(object sender, EventArgs e)
         {
             //hier moet de functie om de diefstal te stelen
