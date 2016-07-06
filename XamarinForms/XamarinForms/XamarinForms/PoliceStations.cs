@@ -40,11 +40,12 @@ namespace Project4
             return GetEnumerator();
         }
 
-        public PoliceStation GetNearestStation(double longtitude, double latitude)
+        public PoliceStation GetNearestStation(double latitude, double longtitude)
         {
-            return stations
-                .OrderBy(station => Math.Pow(longtitude - station.Longititude, 2) + Math.Pow(latitude - station.Latitude, 2))
-                .First();
+            var sorted = stations
+                .OrderBy(station =>Math.Pow(Math.Abs(longtitude - station.Longitude), 2) + Math.Pow(Math.Abs(latitude - station.Latitude), 2));
+
+            return sorted.FirstOrDefault();
         }
     }
 }

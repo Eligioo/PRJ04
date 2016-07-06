@@ -22,43 +22,27 @@ namespace XamarinForms
         {
             Button onlineButton = new Button
             {
-                VerticalOptions = LayoutOptions.StartAndExpand,
-                HorizontalOptions = LayoutOptions.StartAndExpand,
                 Text = "Doe aangifte online"
             };
             Button stationButton = new Button
             {
-                VerticalOptions = LayoutOptions.EndAndExpand,
-                HorizontalOptions = LayoutOptions.EndAndExpand,
                 Text = "Zoek Dichtstbijzijnde politiebureau"
             };
             Button shareButton = new Button
             {
-                VerticalOptions = LayoutOptions.EndAndExpand,
-                HorizontalOptions = LayoutOptions.EndAndExpand,
                 Text = "Deel dit op sociale media"
             };
             onlineButton.Clicked += onOnlineButton;
             stationButton.Clicked += onStationButton;
             shareButton.Clicked += onShareButton;
-            var buttonList = new List<Button>();
-            buttonList.Add(onlineButton);
-            buttonList.Add(stationButton);
-            buttonList.Add(shareButton);
-            var buttonListView = new ListView
-            {
-                ItemsSource = buttonList,
-                ItemTemplate = new DataTemplate(() =>
-                {
-                    var textCell = new TextCell();
-                    textCell.SetBinding(TextCell.TextProperty, "Text");
-                    return textCell;
-                }),
-                VerticalOptions = LayoutOptions.FillAndExpand
-            };
             StackLayout buttonPage = new StackLayout
             {
-                Children = { buttonListView }
+                Children =
+                {
+                    onlineButton,
+                    stationButton,
+                    shareButton
+                }
             };
             this.Content = buttonPage;
         }
@@ -68,16 +52,16 @@ namespace XamarinForms
             string url = "https://www.politie.nl/aangifte-of-melding-doen/aangifte-doen/aangifte-van-diefstal-fiets.html";
             CrossShare.Current.OpenBrowser(url);
         }
-        void onStationButton(object sender, EventArgs e)
+        async void onStationButton(object sender, EventArgs e)
         {
             //hier moet de functie om het dichtstbijzijnde politiebureau te vinden
             var geo = new Geo();
-            var location = geo.GetLocationDouble().Result;
+            var location = await geo.GetLocationDouble();
 
             var policeStations = new PoliceStations();
             var station = policeStations.GetNearestStation(location.Item1, location.Item2);
 
-
+            Navigation.PushModalAsync(new NearestPoliceStation(station));
         }
         void onShareButton(object sender, EventArgs e)
         {
