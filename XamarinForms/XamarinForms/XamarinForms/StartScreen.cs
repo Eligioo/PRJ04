@@ -5,6 +5,9 @@ namespace XamarinForms
 {
     public class StartScreen : ContentPage
     {
+        /// <summary>
+        /// Shows startscreen with HRO logo
+        /// </summary>
         public StartScreen()
         {
             Title = "Startscherm";

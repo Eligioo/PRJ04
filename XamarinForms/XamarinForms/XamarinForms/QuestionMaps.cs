@@ -14,10 +14,16 @@ using Xamarin.Forms.Maps;
 
 namespace XamarinForms
 {
+    /// <summary>
+    /// Question of getting the closest bike container and navigate to it.
+    /// </summary>
     public class QuestionMaps : ContentPage
     {
         Geo geo;
         Button button;
+        /// <summary>
+        /// Constructor to show the default buttons and labels.
+        /// </summary>
         public QuestionMaps()
         {
             geo = new Geo();
@@ -46,7 +52,11 @@ namespace XamarinForms
 
             this.Content = stacklayout;
         }
-
+        /// <summary>
+        /// Click event that gets the closest bike container and opens the maps api in order to navigate.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void ClosestContainersClicked(object sender, EventArgs e)
         {
             var location = await geo.GetLocation();

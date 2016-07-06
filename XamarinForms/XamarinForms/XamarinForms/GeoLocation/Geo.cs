@@ -9,7 +9,11 @@ using Xamarin.Forms;
 
 namespace Project4.GeoLocation
 {
-    public class Geo{
+    /// <summary>
+    /// Class that contains all geo methods we are using
+    /// </summary>
+    public class Geo
+    {
         private Geocoder geoCoder;
         public Tuple<string, string> Location;
         private Plugin.Geolocator.Abstractions.Position Position;
@@ -18,6 +22,10 @@ namespace Project4.GeoLocation
         {
             geoCoder = new Geocoder();
         }
+        /// <summary>
+        /// requests current location and returns it as a tuple of strings
+        /// </summary>
+        /// <returns></returns>
         public async Task<Tuple<string, string>> GetLocation() {
             try
             {
@@ -29,6 +37,10 @@ namespace Project4.GeoLocation
                 return null;
             }
         }
+        /// <summary>
+        /// requests current location and returns it as a tuple of doubles
+        /// </summary>
+        /// <returns></returns>
         public async Task<Tuple<double, double>> GetLocationDouble()
         {
             try
@@ -42,6 +54,10 @@ namespace Project4.GeoLocation
                 return null;
             }
         }
+        /// <summary>
+        /// requests current location and returns a task of string with the best known address
+        /// </summary>
+        /// <returns></returns>
         public async Task<string> GetAddress() {
             try
             {
@@ -52,6 +68,12 @@ namespace Project4.GeoLocation
                 return $"{this.Position.Latitude},{this.Position.Longitude}";
             }
         }
+        /// <summary>
+        /// needs location and returns a task of string with the best known address
+        /// </summary>
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
+        /// <returns></returns>
         public async Task<string> GetAddress(double latitude, double longitude )
         {
             try

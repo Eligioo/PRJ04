@@ -20,7 +20,9 @@ namespace XamarinForms
         protected string position;
         readonly IFolder rootFolder;
         readonly string fileName;
-
+        /// <summary>
+        /// Creates a view of button's to save, load and remove your location.
+        /// </summary>
         public SaveLocation()
         {
             this.geo   = new Geo();
@@ -70,6 +72,11 @@ namespace XamarinForms
             this.Content = stacklayout;
 
         }
+        /// <summary>
+        /// Saves current position
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void SaveGpsClicked(object sender, EventArgs e)
         {
             try
@@ -92,6 +99,11 @@ namespace XamarinForms
                 buttonSave.IsEnabled = true;
             };
         }
+        /// <summary>
+        /// Loads current position from file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void LoadGpsClicked(object sender, EventArgs e)
         {
             try
@@ -110,6 +122,11 @@ namespace XamarinForms
                 buttonLoad.IsEnabled = true;
             };
         }
+        /// <summary>
+        /// Removes file with saved location.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void DeleteGpsClecked(object sender, EventArgs e)
         {
             try
@@ -129,6 +146,10 @@ namespace XamarinForms
                 buttonDelete.IsEnabled = true;
             };
         }
+        /// <summary>
+        /// Checks of file with location exists
+        /// </summary>
+        /// <returns></returns>
         private bool CheckFileExists()
         {
             try
