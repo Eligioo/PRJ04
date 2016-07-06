@@ -29,7 +29,6 @@ namespace Project4.GeoLocation
                 return null;
             }
         }
-
         public async Task<Tuple<double, double>> GetLocationDouble()
         {
             try
@@ -43,7 +42,6 @@ namespace Project4.GeoLocation
                 return null;
             }
         }
-
         public async Task<string> GetAddress() {
             try
             {
@@ -52,6 +50,18 @@ namespace Project4.GeoLocation
             }
             catch {
                 return $"{this.Position.Latitude},{this.Position.Longitude}";
+            }
+        }
+        public async Task<string> GetAddress(double latitude, double longitude )
+        {
+            try
+            {
+                possibleAddresses = await geoCoder.GetAddressesForPositionAsync(new Position(latitude, longitude));
+                return possibleAddresses.First().ToString();
+            }
+            catch
+            {
+                return $"{latitude.ToString().Replace(",", ".")},{longitude.ToString().Replace(",", ".")}";
             }
         }
     }

@@ -44,7 +44,6 @@ namespace XamarinForms
                     Title = "gestolen fietsen merk/kleur",
                     Construct = () => new Question4()
                 });
-                
             }
             MasterMenuItems.Add(new MasterMenuItem
             {
@@ -53,8 +52,13 @@ namespace XamarinForms
             });
             MasterMenuItems.Add(new MasterMenuItem
             {
-                Title = "Sla locatie op",
+                Title = "Sla fiets locatie op",
                 Construct = () => new SaveLocation()
+            });
+            MasterMenuItems.Add(new MasterMenuItem
+            {
+                Title = "Dichtst bijzijnde fiets trommel",
+                Construct = () => new QuestionMaps()
             });
             MasterMenuItems.Add(new MasterMenuItem
             {
