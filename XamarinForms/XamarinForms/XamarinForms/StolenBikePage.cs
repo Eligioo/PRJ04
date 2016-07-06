@@ -48,10 +48,15 @@ namespace XamarinForms
         }
         void onOnlineButton(object sender, EventArgs e)
         {
-            Log.Debug("BARLD", "hieroz");
             string url = "https://www.politie.nl/aangifte-of-melding-doen/aangifte-doen/aangifte-van-diefstal-fiets.html";
             CrossShare.Current.OpenBrowser(url);
         }
+
+        /// <summary>
+        /// Method is triggerd when the user clicks on the stationButton for finding the nearest police station.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void onStationButton(object sender, EventArgs e)
         {
             //hier moet de functie om het dichtstbijzijnde politiebureau te vinden
@@ -63,9 +68,18 @@ namespace XamarinForms
 
             Navigation.PushModalAsync(new NearestPoliceStation(station));
         }
-        void onShareButton(object sender, EventArgs e)
+        async void onShareButton(object sender, EventArgs e)
         {
-            //hier moet de functie om de diefstal te stelen
+            var geo = new Geo();
+            try {
+                var location = await geo.GetLocation();
+                var address = await geo.GetAddress();
+                try {
+                    await CrossShare.Current.Share("Help mijn fiets terug te vinden, voor het laatst gezien bij " + address + ".", "Help: mijn fiets is gestolen.");
+                }
+                catch { }
+            }
+            catch { }            
         }
     }
 }

@@ -40,6 +40,12 @@ namespace Project4
             return GetEnumerator();
         }
 
+        /// <summary>
+        /// Recieve the nearest police station based on you GPS-location.
+        /// </summary>
+        /// <param name="latitude">double containing the latitude</param>
+        /// <param name="longtitude">double containing the longtitude</param>
+        /// <returns>Returns the nearest police station</returns>
         public PoliceStation GetNearestStation(double latitude, double longtitude)
         {
             var sorted = stations

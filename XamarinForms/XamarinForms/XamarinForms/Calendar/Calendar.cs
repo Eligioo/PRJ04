@@ -18,6 +18,9 @@ namespace Project4.Calendar
         IEnumerable<CalendarDetails> calendars;
         int PlanCounter = 0;
 
+        /// <summary>
+        /// Class constructor
+        /// </summary>
         public Calendar()
         {
             calendars = DependencyService.Get<ICalendarHandler>().GetAllCalendars();
@@ -68,6 +71,11 @@ namespace Project4.Calendar
             };
         }
 
+        /// <summary>
+        /// Method that is triggerd when the SaveButton is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void SaveButtonClicked(object sender, EventArgs e)
         {
             if (picker.SelectedIndex != -1)

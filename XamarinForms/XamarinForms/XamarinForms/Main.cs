@@ -11,6 +11,9 @@ namespace XamarinForms
     public class Main : MasterDetailPage
     {
         MasterMenu MasterDetailPage;
+        /// <summary>
+        /// Constructor for the initialisation. Loading a blank MasterMenu and a ListView for the menu-items.
+        /// </summary>
         public Main()
         {
             MasterDetailPage = new MasterMenu();
@@ -20,6 +23,12 @@ namespace XamarinForms
             MasterDetailPage.ListView.ItemSelected += OnItemSelected;
             Detail = new NavigationPage(new StartScreen());
         }
+
+        /// <summary>
+        /// Method is triggerd when a menu-item form the ListView is clicked by the user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MasterMenuItem;
