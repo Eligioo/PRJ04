@@ -18,10 +18,19 @@ using Project4;
 
 namespace XamarinForms
 {
+    /// <summary>
+    /// Contentpage to display the graph for question 1
+    /// </summary>
     public class Question1 : QuestionLoadPage<List<MostBikeContainer>>
     {
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Question1() : base("questions/q1") { }
 
+        /// <summary>
+        /// prepare loaded data
+        /// </summary>
         protected override void OnCacheLoaded()
         {
             Title = "    buurten met meeste fietscontainers";

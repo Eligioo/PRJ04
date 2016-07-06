@@ -5,6 +5,7 @@ using Project4.GeoLocation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,63 +16,76 @@ namespace XamarinForms
 {
     public class QuestionMaps : ContentPage
     {
-        Map map;
         Geo geo;
+        Button button;
         public QuestionMaps()
         {
-            map = new Map
-            {
-                IsShowingUser = true,
-                HeightRequest = 100,
-                WidthRequest = 960,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                MapType = MapType.Street
-            };
             geo = new Geo();
-            int zoomLevel = 11;
-            double latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-            map.MoveToRegion(new MapSpan(new Position(51.9173770, 4.4839200), latlongdegrees, latlongdegrees));
-
-            var button = new Button { Text = "Dichtst bijzijnde fietstrommel" };
-            button.Clicked += ClosestContainersClicked;
-            var segments = new StackLayout
+            Title = "Fiets trommel";
+            Label label = new Label
             {
-                Spacing = 30,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Orientation = StackOrientation.Horizontal,
-                Children = { button }
+                Text = "Plan route naar de dichtst bijzijnde fietstrommel",
+                TextColor = Device.OnPlatform<Color>(Color.Default, Color.White, Color.Default)
+            };
+            button = new Button
+            {
+                Text = "Plan route"
+            };
+            button.Clicked += ClosestContainersClicked;
+
+            StackLayout stacklayout = new StackLayout
+            {
+                BackgroundColor = Device.OnPlatform<Color>(Color.Default, Color.Black, Color.Default),
+                Padding = new Thickness(50, 50, 50, 50),
+                Children =
+                {
+                    label,
+                    button
+                }
             };
 
-            var stack = new StackLayout { Spacing = 0 };
-            stack.Children.Add(segments);
-            stack.Children.Add(map);
-            Content = stack;
+            this.Content = stacklayout;
         }
 
         async void ClosestContainersClicked(object sender, EventArgs e)
         {
-            var b = sender as Button;
             var location = await geo.GetLocation();
-
             try
             {
                 using (var client = new HttpClient())
                 {
-                    string download = await client.GetStringAsync($"http://145.24.222.220/v2/questions/NearestContainer?x="+location.Item2 + "&y="+location.Item1+"");
-                    var cache = JsonConvert.DeserializeObject<IEnumerable<BikeDataModels.BikeContainer>>(download).Last();
-                    Pin pin = new Pin
+                    button.IsEnabled = false;
+                    string download = await client.GetStringAsync($"http://145.24.222.220/v2/questions/NearestContainer?x=" + location.Item1 + "&y=" + location.Item2 + "");
+                    var addressContainer = JsonConvert.DeserializeObject<IEnumerable<BikeDataModels.BikeContainer>>(download).Last();
+
+                    var navloc1 = WebUtility.UrlEncode(await geo.GetAddress());
+                    var navloc2 = WebUtility.UrlEncode(await geo.GetAddress(addressContainer.XLocation, addressContainer.YLocation));
+
+                    switch (Device.OS)
                     {
-                        Position = new Position(cache.XLocation, cache.YLocation),
-                        Label = cache.Street + " " + cache.StreetNumber
-                    };
-                    map.Pins.Add(pin);
-                    Log.Debug("test", cache.XLocation.ToString());
+                        case TargetPlatform.iOS:
+                            Device.OpenUri(
+                                new Uri(string.Format("http://maps.apple.com/?saddr={0}&daddr={1}", navloc1, navloc2)));
+                            break;
+                        case TargetPlatform.Android:
+                            Device.OpenUri(
+                                new Uri(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}", navloc1, navloc2)));
+                            break;
+                        case TargetPlatform.Windows:
+                        case TargetPlatform.WinPhone:
+                            Device.OpenUri(
+                                new Uri(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}", navloc1, navloc2)));
+                            break;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Log.Debug("test", $"http://145.24.222.220/v2/questions/NearestContainer?x=" + location.Item2 + "&y=" + location.Item1 + "");
                 Log.Debug("test", ex.ToString());
+            }
+            finally
+            {
+                button.IsEnabled = true;
             }
         }
     }
