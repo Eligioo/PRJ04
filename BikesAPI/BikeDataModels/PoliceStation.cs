@@ -16,14 +16,17 @@ using System.Threading.Tasks;
 
 namespace BikeDataModels
 {
+    /// <summary>
+    /// model is in dutch because the dataset is in dutch
+    /// </summary>
     public class PoliceStation
     {
         /// <summary>
         /// Name of the police station
         /// </summary>
-        public string Title { get; set; }
+        public string Titel { get; set; }
         public double Latitude { get; set; }
-        public double Longititude { get; set; }
+        public double Longitude { get; set; }
         public string BezoekAdres { get; set; }
         public string URL { get; set; }
     }

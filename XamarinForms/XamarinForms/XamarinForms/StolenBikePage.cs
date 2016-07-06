@@ -21,20 +21,14 @@ namespace XamarinForms
         {
             Button onlineButton = new Button
             {
-                VerticalOptions = LayoutOptions.StartAndExpand,
-                HorizontalOptions = LayoutOptions.StartAndExpand,
                 Text = "Doe aangifte online"
             };
             Button stationButton = new Button
             {
-                VerticalOptions = LayoutOptions.EndAndExpand,
-                HorizontalOptions = LayoutOptions.EndAndExpand,
                 Text = "Zoek Dichtstbijzijnde politiebureau"
             };
             Button shareButton = new Button
             {
-                VerticalOptions = LayoutOptions.EndAndExpand,
-                HorizontalOptions = LayoutOptions.EndAndExpand,
                 Text = "Deel dit op sociale media"
             };
             onlineButton.Clicked += onOnlineButton;
@@ -56,16 +50,16 @@ namespace XamarinForms
             //hier moet de functie om de online pagina te openen
             //inappbrowser
         }
-        void onStationButton(object sender, EventArgs e)
+        async void onStationButton(object sender, EventArgs e)
         {
             //hier moet de functie om het dichtstbijzijnde politiebureau te vinden
             var geo = new Geo();
-            var location = geo.GetLocationDouble().Result;
+            var location = await geo.GetLocationDouble();
 
             var policeStations = new PoliceStations();
             var station = policeStations.GetNearestStation(location.Item1, location.Item2);
 
-
+            Navigation.PushModalAsync(new NearestPoliceStation(station));
         }
         void onShareButton(object sender, EventArgs e)
         {
