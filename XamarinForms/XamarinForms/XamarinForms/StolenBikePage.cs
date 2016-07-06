@@ -12,6 +12,7 @@ using System.Net.Http;
 using Android.Util;
 using Project4;
 using Project4.GeoLocation;
+using Plugin.Share;
 
 namespace XamarinForms
 {
@@ -63,8 +64,9 @@ namespace XamarinForms
         }
         void onOnlineButton(object sender, EventArgs e)
         {
-            //hier moet de functie om de online pagina te openen
-            //inappbrowser
+            Log.Debug("BARLD", "hieroz");
+            string url = "https://www.politie.nl/aangifte-of-melding-doen/aangifte-doen/aangifte-van-diefstal-fiets.html";
+            CrossShare.Current.OpenBrowser(url);
         }
         void onStationButton(object sender, EventArgs e)
         {
