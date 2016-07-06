@@ -50,22 +50,22 @@ namespace Project_4_desktop.Graphs
             var trommelBars = new BarSeries
             {
                 Title = "Hoeveelheid trommels",
-                FillColor = OxyColor.FromRgb((byte)0, (byte)0, (byte)255),
-                StrokeColor = OxyColors.Blue,
+                FillColor = OxyColors.Orange,
+                StrokeColor = OxyColors.Orange,
                 StrokeThickness = 1
             };
             var theftBars = new BarSeries
             {
                 Title = "Hoeveelheid diefstallen",
-                FillColor = OxyColor.FromRgb((byte)255, (byte)0, (byte)0),
-                StrokeColor = OxyColors.Red,
+                FillColor = OxyColors.Green,
+                StrokeColor = OxyColors.Green,
                 StrokeThickness = 1
             };
             for (int i = 0; i < 48; i++)
             {
                 if (input.Rows.Count() > i)
                 {
-                    theftBars.Items.Add(new BarItem { Value = input.Rows.ElementAt(i).Thefts, Color = OxyPlot.OxyColor.FromRgb((byte)255, (byte)0, (byte)0) });
+                    theftBars.Items.Add(new BarItem { Value = input.Rows.ElementAt(i).Thefts, Color = OxyPlot.OxyColors.Green });
                     theftBars.Items.Add(new BarItem { Value = 0 });
                 }else
                 {
@@ -75,7 +75,7 @@ namespace Project_4_desktop.Graphs
                 if (input.Rows.Count() > i)
                 {
                     trommelBars.Items.Add(new BarItem { Value = 0 });
-                    trommelBars.Items.Add(new BarItem { Value = input.Rows.ElementAt(i).Trommels, Color = OxyPlot.OxyColor.FromRgb((byte)0, (byte)0, (byte)255) });
+                    trommelBars.Items.Add(new BarItem { Value = input.Rows.ElementAt(i).Trommels, Color = OxyPlot.OxyColors.Orange });
                 }
                 else
                 {
