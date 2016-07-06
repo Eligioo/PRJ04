@@ -90,12 +90,14 @@ namespace XamarinForms
             {
                 Title = "Hoeveelheid trommels",
                 StrokeColor = OxyColors.Blue,
+                FillColor = OxyColor.FromRgb((byte)0, (byte)0, (byte)255),
                 StrokeThickness = 1
             };
             var theftBars = new BarSeries
             {
                 Title = "Hoeveelheid diefstallen",
                 StrokeColor = OxyColors.Red,
+                FillColor = OxyColor.FromRgb((byte)255, (byte)0, (byte)0),
                 StrokeThickness = 1
             };
             var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
