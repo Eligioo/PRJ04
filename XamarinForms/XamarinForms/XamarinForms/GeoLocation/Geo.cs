@@ -54,19 +54,6 @@ namespace Project4.GeoLocation
                 return $"{this.Position.Latitude},{this.Position.Longitude}";
             }
         }
-
-        public async Task<string> GetAddress(double latitude, double longitude)
-        {
-            try
-            {
-                possibleAddresses = await geoCoder.GetAddressesForPositionAsync(new Position(latitude, longitude));
-                return possibleAddresses.First().ToString();
-            }
-            catch
-            {
-                return $"{latitude},{longitude}";
-            }
-        }
     }
 
 }
