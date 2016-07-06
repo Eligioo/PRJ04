@@ -57,13 +57,14 @@
     <Compile Include="Question3.cs" />
     <Compile Include="Question4.cs" />
     <Compile Include="QuestionLoadPage.cs" />
-    <Compile Include="QuestionMaps.cs" />
     <Compile Include="SaveLocation.cs" />
     <Compile Include="StartScreen.cs" />
     <Compile Include="StolenBikePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>

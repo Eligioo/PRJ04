@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Project4.QuestionLoadPage&lt;TCache&gt;">
+    <Position X="1.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACgAABAgAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAE=</HashCode>
+      <FileName>QuestionLoadPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XamarinForms.Question4">
+    <Position X="4" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="XamarinForms.Question4.BrandPie" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Question4.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="XamarinForms.Question4.ColorPie" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Question4.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Question4.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XamarinForms.Question2">
+    <Position X="0.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Question2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XamarinForms.Question1">
+    <Position X="2.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Question1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
