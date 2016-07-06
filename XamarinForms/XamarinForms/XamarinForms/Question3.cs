@@ -26,6 +26,9 @@ namespace XamarinForms
         private PlotView barChart;
         private static bool loaded = false;
         private static List<CombinationofTheftTrommelAreaMonth> combinationList;
+        /// <summary>
+        /// variable declarations mostly used for caching purposes
+        /// </summary>
         public Question3()
         {
             Title = "    fiets trommels/diefstallen per maand";
@@ -39,6 +42,9 @@ namespace XamarinForms
                 this.ShowData();
             }
         }
+        /// <summary>
+        /// shows a loading icon that gets overwritten by the (this.ShowData) method
+        /// </summary>
         private void ShowLoading()
         {
             var loadingScreen = new ActivityIndicator { HorizontalOptions = LayoutOptions.CenterAndExpand, Color = Color.White, IsVisible = true, IsRunning = true };
@@ -47,6 +53,9 @@ namespace XamarinForms
                 Content = loadingScreen
             });
         }
+        /// <summary>
+        /// method that calls the database, loads the data. and when its finished calls the this.ShowData() method
+        /// </summary>
         private async void LoadData()
         {
             using (var client = new HttpClient())
@@ -57,6 +66,9 @@ namespace XamarinForms
                 this.ShowData();
             }
         }
+        /// <summary>
+        /// calling this method loads the this.content of the page, showing the actual info
+        /// </summary>
         private void ShowData()
         {
 
@@ -78,12 +90,14 @@ namespace XamarinForms
             {
                 Title = "Hoeveelheid trommels",
                 StrokeColor = OxyColors.Blue,
+                FillColor = OxyColor.FromRgb((byte)0, (byte)0, (byte)255),
                 StrokeThickness = 1
             };
             var theftBars = new BarSeries
             {
                 Title = "Hoeveelheid diefstallen",
                 StrokeColor = OxyColors.Red,
+                FillColor = OxyColor.FromRgb((byte)255, (byte)0, (byte)0),
                 StrokeThickness = 1
             };
             var categoryAxis = new CategoryAxis { Position = AxisPosition.Left };
@@ -139,6 +153,9 @@ namespace XamarinForms
             };
             Children.Add(contentPage);
         }
+        /// <summary>
+        /// event handler that is called when the loadbutton is clicked, which picks a certain part of the data that is loaded and displays it correctly
+        /// </summary>
         private void LoadButton_Clicked(object sender, EventArgs e)
         {
 

@@ -12,21 +12,20 @@ namespace XamarinForms
     {
         MasterMenu MasterDetailPage;
         /// <summary>
-        /// starting point of the multiplatform app
+        /// Constructor for the initialisation. Loading a blank MasterMenu and a ListView for the menu-items.
         /// </summary>
         public Main()
         {
-            // menu page
             MasterDetailPage = new MasterMenu();
+            var x = new MasterMenu();
             Master = MasterDetailPage;
 
             MasterDetailPage.ListView.ItemSelected += OnItemSelected;
-            // content pagina
             Detail = new NavigationPage(new StartScreen());
         }
 
         /// <summary>
-        /// responsible for changing content page
+        /// Method is triggerd when a menu-item form the ListView is clicked by the user.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
